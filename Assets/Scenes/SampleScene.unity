@@ -218,33 +218,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 106160, guid: 038998774947c4a8fa170d5b4492a7dd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 406160, guid: 038998774947c4a8fa170d5b4492a7dd, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 406160, guid: 038998774947c4a8fa170d5b4492a7dd, type: 3}
       propertyPath: m_LocalScale.x
-      value: 52.462376
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 406160, guid: 038998774947c4a8fa170d5b4492a7dd, type: 3}
       propertyPath: m_LocalScale.y
-      value: 54.520527
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 406160, guid: 038998774947c4a8fa170d5b4492a7dd, type: 3}
       propertyPath: m_LocalScale.z
-      value: 54.520527
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 406160, guid: 038998774947c4a8fa170d5b4492a7dd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 406160, guid: 038998774947c4a8fa170d5b4492a7dd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.54
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 406160, guid: 038998774947c4a8fa170d5b4492a7dd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.766409
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 406160, guid: 038998774947c4a8fa170d5b4492a7dd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -375,6 +379,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.02
+  bulletPrefab: {fileID: 2585197024369063664, guid: a9892ce308484ee42bc90570856ce5ea, type: 3}
+  bulletSpeed: 10
+  coolTime: 0.3
 --- !u!95 &1743792730
 Animator:
   serializedVersion: 5
