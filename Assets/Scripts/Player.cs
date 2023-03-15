@@ -17,7 +17,8 @@ public class Player : MonoBehaviour
     }
 
     void Update()
-    { 
+    {
+        
         if (Input.GetKey(KeyCode.D))
             transform.Translate(Vector2.right * speed);
         if (Input.GetKey(KeyCode.A))
@@ -26,9 +27,19 @@ public class Player : MonoBehaviour
             transform.Translate(Vector2.up * speed);
         if (Input.GetKey(KeyCode.S))
             transform.Translate(-Vector2.up * speed);
-        // 이거 Switch 문으로 못바꾸나?
-        // 내가 Project Setting에서 Horizontal이랑 Vertical 설정 바꿔놔서
-        // 이동도 그냥 GetAxis로 Horizontal/Vertical 사용해서 구현해도 될 것 같아
+        
+
+        /*
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+        Vector2 CurPos = transform.position;
+        Vector2 ChaPos = new Vector2(h, v) * speed * Time.deltaTime;
+
+        transform.position = CurPos + ChaPos;
+        */ 
+
+        // 프로젝트 환경에서 가로 세로 설정이 뭔가 좀 이상함 
+
 
         float shootH = Input.GetAxisRaw("ShootH");
         float shootV = Input.GetAxisRaw("ShootV");
