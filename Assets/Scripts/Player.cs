@@ -33,11 +33,7 @@ public class Player : MonoBehaviour
         float v = Input.GetAxisRaw("Vertical");
         Vector2 CurPos = transform.position;
         Vector2 ChaPos = new Vector2(h, v) * speed * Time.deltaTime;
-
         transform.position = CurPos + ChaPos;
-
-        // 프로젝트 환경에서 가로 세로 설정이 뭔가 좀 이상함 
-        // speed 변수가 0.02로 설정되어있어서 안움직였던 것 같아
 
         float shootH = Input.GetAxisRaw("ShootH");
         float shootV = Input.GetAxisRaw("ShootV");
@@ -52,6 +48,8 @@ public class Player : MonoBehaviour
     
     void Shoot(float x, float y)
     {
+        if (x != 0) y = 0;
+
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
         bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(x, y) * bulletSpeed;
     }
