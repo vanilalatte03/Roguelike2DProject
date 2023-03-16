@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        
+        /*
         if (Input.GetKey(KeyCode.D))
             transform.Translate(Vector2.right * speed);
         if (Input.GetKey(KeyCode.A))
@@ -27,19 +27,17 @@ public class Player : MonoBehaviour
             transform.Translate(Vector2.up * speed);
         if (Input.GetKey(KeyCode.S))
             transform.Translate(-Vector2.up * speed);
-        
+        */
 
-        /*
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
         Vector2 CurPos = transform.position;
         Vector2 ChaPos = new Vector2(h, v) * speed * Time.deltaTime;
 
         transform.position = CurPos + ChaPos;
-        */ 
 
         // 프로젝트 환경에서 가로 세로 설정이 뭔가 좀 이상함 
-
+        // speed 변수가 0.02로 설정되어있어서 안움직였던 것 같아
 
         float shootH = Input.GetAxisRaw("ShootH");
         float shootV = Input.GetAxisRaw("ShootV");
