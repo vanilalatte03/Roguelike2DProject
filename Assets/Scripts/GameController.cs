@@ -29,7 +29,8 @@ public class GameController : MonoBehaviour
     }
     void Update()
     {
-        healthText.text = "Health: " + health;
+        //healthText.text = "Health: " + health;
+        //¿¡·¯¶ß±æ·¡ Àá±ñ ÁÖ¼® Ã³¸®ÇØ³ù¾î
     }
 
     public static void DamagePlayer(int damage)

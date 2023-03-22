@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
         }
         currentTime -= Time.deltaTime;
     }
-    
+
     void Shoot(float x, float y)
     {
         if (x != 0) y = 0;
@@ -54,4 +54,3 @@ public class Player : MonoBehaviour
         bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(x, y) * bulletSpeed;
     }
 }
-        

@@ -6,13 +6,11 @@ public class Bullet : MonoBehaviour
 {
     public float lifeTime;
 
-    // Start is called before the first frame update
     void Start()
     {
         Invoke("DestroyBullet", lifeTime);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -21,5 +19,14 @@ public class Bullet : MonoBehaviour
     void DestroyBullet()
     {
         Destroy(gameObject);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<EnemyController>().Death();
+            Destroy(gameObject);
+        }
     }
 }

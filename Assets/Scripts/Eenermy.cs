@@ -11,12 +11,12 @@ public class Eenermy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(transform.position, player.transform.position) <= attackRange)
-        {
-            currState = EnemyState.Attack;
-        }
+        //if(Vector3.Distance(transform.position, player.transform.position) <= attackRange)
+        //{
+        //    currState = EnemyState.Attack;
+        //}
+        //¿¡·¯¶ß±æ·¡ Àá±ñ ÁÖ¼® Ã³¸®ÇØ³ù¾î
     }
 }
