@@ -6,7 +6,8 @@ public enum EnemyState
 {
     Wander,     // 떠도는 상태
     Follow,     // 플레이어를 따라오는 상태
-    Die         // 죽은 상태
+    Die,        // 죽은 상태
+    Attack      // 공격
 };
 
 public class EnemyController : MonoBehaviour
@@ -18,7 +19,11 @@ public class EnemyController : MonoBehaviour
     public float speed;
     private bool chooseDir = false;
     private bool dead = false;
+    private bool coolDownAttack = false;
     private Vector3 randomDir;
+    public float attackRange;
+    public float coolDown;
+
 
     public GameObject enemySprite;
 
@@ -38,7 +43,9 @@ public class EnemyController : MonoBehaviour
                 Follow();
                 break;
             case EnemyState.Die:
-
+                break;
+            case EnemyState.Attack:
+                Attack();
                 break;
         }
 
@@ -49,6 +56,10 @@ public class EnemyController : MonoBehaviour
         else if(!isPlayerInRange(range) && currState != EnemyState.Die)
         {
             currState = EnemyState.Wander;
+        }
+        if (Vector3.Distance(transform.position, player.transform.position) <= attackRange)
+        {
+            currState = EnemyState.Attack;
         }
     }
 
@@ -85,6 +96,23 @@ public class EnemyController : MonoBehaviour
     void Follow()
     {
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+    }
+
+    void Attack()
+    {
+        if (!coolDownAttack)
+        {
+            GameController.DamagePlayer(1);
+            StartCoroutine(CoolDown());
+        }
+        
+    }
+
+    private IEnumerator CoolDown()
+    {
+        coolDownAttack = true;
+        yield return new WaitForSeconds(coolDown);
+        coolDownAttack = false;
     }
 
     public void Death()
