@@ -7,13 +7,11 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
 
-    private static int health = 6;
+    private static float health = 6;
     private static int maxHealth = 6;
-    private static float moveSpeed = 5f;
 
-    public static int Health { get => health; set => health = value; }
+    public static float Health { get => health; set => health = value; }
     public static int MaxHealth { get => maxHealth; set => maxHealth = value; }
-    public static float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
 
     public Text healthText;
 
@@ -40,7 +38,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public static void HealPlayer(int healAmount)
+    public static void HealPlayer(float healAmount)
     {
         health = Mathf.Min(maxHealth, health + healAmount);
     }
