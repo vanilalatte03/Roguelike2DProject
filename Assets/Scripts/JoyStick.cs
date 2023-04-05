@@ -9,6 +9,7 @@ public class JoyStick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     [SerializeField] private RectTransform rect_JoyStick; // 원이 따라나오면 안되니깐 사각형에 가둬놓는 구문. 
     [SerializeField] private GameObject go_Player;
     [SerializeField] private float MoveSpeed;
+    public Vector2 playerDir;
 
     private bool isTouch = false;
     private Vector3 movePosition;
@@ -48,6 +49,7 @@ public class JoyStick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         rect_JoyStick.localPosition = value;
 
         value = value.normalized;
+        playerDir = value;
         movePosition = new Vector3(value.x * MoveSpeed * Time.deltaTime, value.y * MoveSpeed * Time.deltaTime, 0f);
     }
 }

@@ -18,7 +18,6 @@ public class EnemyController : MonoBehaviour
     public float range;
     public float speed;
     private bool chooseDir = false;
-    private bool dead = false;
     private bool coolDownAttack = false;
     private Vector3 randomDir;
     public float attackRange;
@@ -81,7 +80,6 @@ public class EnemyController : MonoBehaviour
     {
         if(!chooseDir)
         {
-            Debug.Log("Change Direction");
             chooseDir = true;
             Invoke("ChooseDirection", Random.Range(2f, 8f));
         }
@@ -117,7 +115,6 @@ public class EnemyController : MonoBehaviour
 
     public void Death()
     {
-        dead = true;
         Destroy(enemySprite);
         Destroy(gameObject);
     }
