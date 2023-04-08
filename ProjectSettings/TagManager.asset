@@ -43,3 +43,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Door
+    uniqueID: 3135393491
+    locked: 0
+  - name: Behind
+    uniqueID: 805570355
+    locked: 0

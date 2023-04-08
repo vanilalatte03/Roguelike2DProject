@@ -18,6 +18,8 @@ public class Room : MonoBehaviour
             Debug.Log("잘못된 씬입니다.");
             return;
         }
+
+        RoomController.instance.RegisterRoom(this);
     }
 
     private void OnDrawGizmos()  
