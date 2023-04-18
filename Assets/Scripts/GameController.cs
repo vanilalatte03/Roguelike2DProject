@@ -45,6 +45,7 @@ public class GameController : MonoBehaviour
 
     private static void KillPlayer()
     {
-
+        Time.timeScale = 0f;
+        GameOverUI.ShowGameOverBack();
     }
 }
