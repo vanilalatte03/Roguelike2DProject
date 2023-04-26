@@ -10,32 +10,33 @@ public class Item
     public string descripton;
     public Sprite itemImage;
 }
+
 public class CollectionController : MonoBehaviour
 {
-
     public Item item;
     public float healthChange;
-    
-
+    public float moveSpeedChange;
+    public float attackSpeedChange;
+    public float bulletSizeChange;
+    // Start is called before the first frame update
     void Start()
     {
         GetComponent<SpriteRenderer>().sprite = item.itemImage;
         Destroy(GetComponent<PolygonCollider2D>());
         gameObject.AddComponent<PolygonCollider2D>();
-        gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            GameController.HealPlayer(healthChange); // ÈúÇÏ´Â ±¸¹®. 
+            //PlayerController.collectedAmount++;
+            GameController.HealPlayer(healthChange);
+            GameController.MoveSpeedChange(moveSpeedChange);
+            GameController.FireRateChange(attackSpeedChange);
+            GameController.BulletSizeChange(bulletSizeChange);
+            GameController.instance.UpdateCollectedItems(this);
             Destroy(gameObject);
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
