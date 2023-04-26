@@ -10,8 +10,9 @@ public class GameOverUI : MonoBehaviour
 
     [SerializeField] private GameObject GameOverBack;
     [SerializeField] private Button RestartButton;
+    
 
-    public string retrySceneName = "BasementMain";
+    public string retrySceneName = "BasementStart";
 
     private void Start()
     {
@@ -36,6 +37,7 @@ public class GameOverUI : MonoBehaviour
 
         SceneManager.LoadScene(retrySceneName);
         Time.timeScale = 1f;
+        GameController.Health = GameController.MaxHealth;
     }
 
 
