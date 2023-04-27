@@ -47,6 +47,7 @@ public class GameController : MonoBehaviour
 
         if (Health <= 0)
         {
+            health = 0;
             KillPlayer();
         }
     }
