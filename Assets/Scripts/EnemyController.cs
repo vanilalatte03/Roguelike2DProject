@@ -56,7 +56,7 @@ public class EnemyController : MonoBehaviour
                 break;
         }
 
-        if (notInRoom)
+        if (!notInRoom)
         {
             if (IsPlayerInRange(range) && currState != EnemyState.Die)
             {

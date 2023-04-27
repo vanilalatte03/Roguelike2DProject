@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthText.text = "Health: " + health;
+        healthText.text = health + " / " + maxHealth;
     }
 
     public static void DamagePlayer(int damage)
