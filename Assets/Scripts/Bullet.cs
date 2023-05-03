@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
         StartCoroutine(DeathDelay());
         if (!isEnemyBullet)
         {
-            transform.localScale = new Vector2(GameController.BulletSize, GameController.BulletSize);
+            //transform.localScale = new Vector2(GameController.BulletSize, GameController.BulletSize);
         }
     }
 

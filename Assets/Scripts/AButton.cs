@@ -22,6 +22,8 @@ public class AButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     void Update()
     {
+        coolTime = GameController.FireRate;
+
         if (isTouch && currentTime <= 0)
         {
             playerDir = joyStick.GetComponent<JoyStick>().playerDir;

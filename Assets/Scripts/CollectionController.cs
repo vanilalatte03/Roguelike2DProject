@@ -15,9 +15,10 @@ public class CollectionController : MonoBehaviour
 {
     public Item item;
     public float healthChange;
+    public float maxHealthChange;
     public float moveSpeedChange;
     public float attackSpeedChange;
-    public float bulletSizeChange;
+    public int bulletTypeChange;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,17 +27,14 @@ public class CollectionController : MonoBehaviour
         gameObject.AddComponent<PolygonCollider2D>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void GetAbility()
     {
-        if (collision.tag == "Player")
-        {
-            //PlayerController.collectedAmount++;
             GameController.HealPlayer(healthChange);
+            GameController.MaxHealthChange(maxHealthChange);
             GameController.MoveSpeedChange(moveSpeedChange);
             GameController.FireRateChange(attackSpeedChange);
-            GameController.BulletSizeChange(bulletSizeChange);
-            GameController.instance.UpdateCollectedItems(this);
-            Destroy(gameObject);
-        }
+            GameController.BulletTypeChange(bulletTypeChange);
+            //GameController.instance.UpdateCollectedItems(this);
+            //Destroy(gameObject);
     }
 }

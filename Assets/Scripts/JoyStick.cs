@@ -24,9 +24,11 @@ public class JoyStick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     void Update()
     {
+        MoveSpeed = GameController.MoveSpeed;
+
         if (isTouch)
         {
-            go_Player.transform.position += movePosition;
+            go_Player.transform.position += movePosition * MoveSpeed * Time.deltaTime;
         }
     }
 

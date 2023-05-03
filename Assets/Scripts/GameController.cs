@@ -8,10 +8,10 @@ public class GameController : MonoBehaviour
     public static GameController instance;
 
     private static float health = 6;
-    private static int maxHealth = 6;
-    private static float moveSpeed = 5f;
+    private static float maxHealth = 6;
+    private static float moveSpeed = 40f;
     private static float fireRate = 0.5f;
-    private static float bulletSize = 0.5f;
+    private static float bulletCount = 0.5f;
 
     private bool bootCollected = false;
     private bool screwCollected = false;
@@ -19,10 +19,10 @@ public class GameController : MonoBehaviour
     public List<string> collectedNames = new List<string>();
 
     public static float Health { get => health; set => health = value; }
-    public static int MaxHealth { get => maxHealth; set => maxHealth = value; }
+    public static float MaxHealth { get => maxHealth; set => maxHealth = value; }
     public static float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
     public static float FireRate { get => fireRate; set => fireRate = value; }
-    public static float BulletSize { get => bulletSize; set => bulletSize = value; }
+    public static float BulletCount { get => bulletCount; set => bulletCount = value; }
 
     public Text healthText;
 
@@ -66,9 +66,13 @@ public class GameController : MonoBehaviour
     {
         fireRate -= rate;
     }
-    public static void BulletSizeChange(float size)
+    public static void BulletTypeChange(int count)
     {
-        bulletSize += size;
+        bulletCount += count;
+    }
+    public static void MaxHealthChange(float plus)
+    {
+        maxHealth += plus;
     }
 
     public void UpdateCollectedItems(CollectionController item)
