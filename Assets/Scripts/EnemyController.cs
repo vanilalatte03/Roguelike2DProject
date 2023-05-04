@@ -79,6 +79,11 @@ public class EnemyController : MonoBehaviour
 
     private bool IsPlayerInRange(float range)
     {
+        if (player.transform.position.x - transform.position.x < 0)
+            transform.localScale = new Vector2(-2, 2);
+        else
+            transform.localScale = new Vector2(2, 2);
+
         return Vector3.Distance(transform.position, player.transform.position) <= range;
     }
 
