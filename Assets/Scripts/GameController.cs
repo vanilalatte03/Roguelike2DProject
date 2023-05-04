@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
 
     private static float health = 6;
     private static float maxHealth = 6;
-    private static float moveSpeed = 5f;
+    private static float moveSpeed = 3f;
     private static float fireRate = 0.5f;
     private static float bulletCount = 0.5f;
 

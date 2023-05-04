@@ -104,5 +104,5 @@ MonoBehaviour:
   healthChange: 0
   maxHealthChange: 0
   moveSpeedChange: 0
-  attackSpeedChange: 0.2
+  attackSpeedChange: 0.1
   bulletTypeChange: 0
