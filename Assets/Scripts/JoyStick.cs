@@ -9,7 +9,7 @@ public class JoyStick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     [SerializeField] private RectTransform rect_Background;
     [SerializeField] private RectTransform rect_JoyStick; // 원이 따라나오면 안되니깐 사각형에 가둬놓는 구문. 
     [SerializeField] private GameObject go_Player;
-    [SerializeField] private float MoveSpeed;
+    [SerializeField] private float moveSpeed;
     public Vector2 playerDir;
 
     private bool isTouch = false;
@@ -24,11 +24,11 @@ public class JoyStick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     void Update()
     {
-        MoveSpeed = GameController.MoveSpeed;
+        moveSpeed = GameController.MoveSpeed;
 
         if (isTouch)
         {
-            go_Player.transform.position += movePosition * MoveSpeed * Time.deltaTime;
+            go_Player.transform.position += movePosition;
         }
     }
 
@@ -54,6 +54,6 @@ public class JoyStick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
         value = value.normalized;
         playerDir = value;
-        movePosition = new Vector3(value.x * MoveSpeed * Time.deltaTime, value.y * MoveSpeed * Time.deltaTime, 0f);
+        movePosition = new Vector3(value.x * moveSpeed * Time.deltaTime, value.y * moveSpeed * Time.deltaTime, 0f);
     }
 }
