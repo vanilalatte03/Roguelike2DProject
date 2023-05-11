@@ -24,7 +24,9 @@ public class Bullet : MonoBehaviour
         if (isEnemyBullet)
         {
             curPos = transform.position;
-            transform.position = Vector2.MoveTowards(transform.position, playerPos, 5f * Time.deltaTime);
+            //transform.position = Vector2.MoveTowards(transform.position, playerPos, 5f * Time.deltaTime);
+            //두번째 파라미터에 Space.World를 해줌으로써 Rotation에 의한 방향 오류를 수정함
+            transform.Translate(Vector2.right * (5f * Time.deltaTime), Space.Self);
             if (curPos == lastPos)
             {
                 Destroy(gameObject);
