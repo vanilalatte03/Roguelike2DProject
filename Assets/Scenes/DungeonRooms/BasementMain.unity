@@ -311,11 +311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e93d1a55a44d04b82a8fdcb8388bdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rnd:
-  - {fileID: 1365571936}
-  - {fileID: 1648767356}
-  - {fileID: 1526430721}
-  - {fileID: 810722033}
 --- !u!1 &69846799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1879,7 +1874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 2585197024369063664, guid: a9892ce308484ee42bc90570856ce5ea, type: 3}
-  joyStick: {fileID: 0}
+  joyStick: {fileID: 2118660260}
   player: {fileID: 1743792726}
   bulletSpeed: 10
   coolTime: 0.5
@@ -3796,7 +3791,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3881087803549984439, guid: ec536a7718376554185e4a856d5ae230, type: 3}
   m_PrefabInstance: {fileID: 1550829254}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2118660260}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42844a4fccbd54746b90cade4ff70f73, type: 3}
@@ -5343,6 +5338,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095588255}
   m_CullTransparentMesh: 1
+--- !u!1 &2118660260 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3881087803549984437, guid: ec536a7718376554185e4a856d5ae230, type: 3}
+  m_PrefabInstance: {fileID: 1550829254}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2140866693
 GameObject:
   m_ObjectHideFlags: 0

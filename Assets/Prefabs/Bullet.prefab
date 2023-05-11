@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634a53985ab911540b4b14a28514eed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 1
+  lifeTime: 2
   isEnemyBullet: 0
 --- !u!50 &5127218915767958061
 Rigidbody2D:

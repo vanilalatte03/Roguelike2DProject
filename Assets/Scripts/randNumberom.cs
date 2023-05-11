@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class random : MonoBehaviour
+public class randomNumber : MonoBehaviour
 {
     public GameObject[] rnd = new GameObject[4];
     // Start is called before the first frame update

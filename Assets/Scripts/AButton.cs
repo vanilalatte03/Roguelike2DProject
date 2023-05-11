@@ -10,13 +10,11 @@ public class AButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public GameObject player;
     public float bulletSpeed;
     public float coolTime;
-    private Vector2 playerDir;
     private float currentTime;
     private bool isTouch;
 
     void Start()
     {
-        joyStick.GetComponent<JoyStick>().playerDir = Vector2.right;
         isTouch = false;
     }
 
@@ -26,12 +24,15 @@ public class AButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         if (isTouch && currentTime <= 0)
         {
-            playerDir = joyStick.GetComponent<JoyStick>().playerDir;
+            Vector2 playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir;
             GameObject bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(new Vector3(0, 0, -45)));
             bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
             currentTime = coolTime;
         }
         currentTime -= Time.deltaTime;
+
+
+        Debug.Log(joyStick.GetComponent<VariableJoystick>().AttackDir);
     }
 
     public void OnPointerDown(PointerEventData eventData)
