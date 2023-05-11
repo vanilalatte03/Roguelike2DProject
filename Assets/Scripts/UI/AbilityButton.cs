@@ -6,9 +6,9 @@ using TMPro;
 
 public enum AbilityType
 {
+    Speed,
     Heal,
     Health,
-    Speed,
     Attack
 };
 
@@ -29,15 +29,15 @@ public class AbilityButton : MonoBehaviour
     {
         switch (abilityType)
         {
-            case AbilityType.Heal:
+            case AbilityType.Speed:
                 image.GetComponent<Image>().sprite = Speed.GetComponent<SpriteRenderer>().sprite;
                 text.GetComponent<TextMeshProUGUI>().text = "Speed +1";
                 break;
-            case AbilityType.Health:
+            case AbilityType.Heal:
                 image.GetComponent<Image>().sprite = Heal.GetComponent<SpriteRenderer>().sprite;
                 text.GetComponent<TextMeshProUGUI>().text = "Heal +1";
                 break;
-            case AbilityType.Speed:
+            case AbilityType.Health:
                 image.GetComponent<Image>().sprite = Health.GetComponent<SpriteRenderer>().sprite;
                 text.GetComponent<TextMeshProUGUI>().text = "Max Health +1";
                 break;
@@ -52,15 +52,15 @@ public class AbilityButton : MonoBehaviour
     {
         switch (abilityType)
         {
-            case AbilityType.Heal:
+            case AbilityType.Speed:
                 Speed.GetComponent<CollectionController>().GetAbility();
                 Debug.Log("Speed Up");
                 break;
-            case AbilityType.Health:
+            case AbilityType.Heal:
                 Heal.GetComponent<CollectionController>().GetAbility();
                 Debug.Log("Healing");
                 break;
-            case AbilityType.Speed:
+            case AbilityType.Health:
                 Health.GetComponent<CollectionController>().GetAbility();
                 Debug.Log("Healthy");
                 break;
