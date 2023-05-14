@@ -12,13 +12,20 @@ public class StartMenu : MonoBehaviour
 
     public string StartSceneName = "BasementMain";
 
-    private void Awake()
+
+    public void OnCilckNewGame()
+    {
+        SceneManager.LoadScene(StartSceneName);
+        
+    }
+
+    public void Awake()
     {
         instance = this;
         StartButton = GetComponent<Button>();
     }
 
-    private void Start()
+    public void Start()
     {
 
         StartButton.onClick.AddListener(StartGame);
