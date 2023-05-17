@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634a53985ab911540b4b14a28514eed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 2
+  lifeTime: 5
   isEnemyBullet: 0
   isBossBullet: 1
 --- !u!58 &5934547147338523370

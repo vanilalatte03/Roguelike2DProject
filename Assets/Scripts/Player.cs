@@ -25,6 +25,11 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Heelo");
+        }
+
         float x = joy.Horizontal;
         float y = joy.Vertical;
 
