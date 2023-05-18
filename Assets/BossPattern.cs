@@ -27,7 +27,7 @@ public class BossPattern : MonoBehaviour
         {
             CircleShot();
         }
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButton(0))
         {
             SpinShot();
         }
@@ -67,7 +67,7 @@ public class BossPattern : MonoBehaviour
         GameObject temp = Instantiate(Bullet);
 
         //2초후 자동 삭제
-        Destroy(temp, 2f);
+        //Destroy(temp, 2f);
 
         //총알 생성 위치를 머즐 입구로 한다.
         temp.transform.position = transform.position;
