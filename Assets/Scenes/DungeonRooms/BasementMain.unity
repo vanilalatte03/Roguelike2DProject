@@ -4853,7 +4853,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barSpeed: 3
   joy: {fileID: 1550829256}
-  speed: 20
+  speed: 5
+  resultVec: {x: 0, y: 0}
 --- !u!61 &1743792731
 BoxCollider2D:
   m_ObjectHideFlags: 0
