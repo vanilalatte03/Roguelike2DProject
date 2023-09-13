@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour
 
     public Text healthText;
 
+    [SerializeField]
     private Player player;
 
     // Start is called before the first frame update
@@ -35,8 +36,6 @@ public class GameController : MonoBehaviour
         {
             instance = this;
         }
-
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -71,10 +70,12 @@ public class GameController : MonoBehaviour
     {
         fireRate -= rate;
     }
+
     public static void BulletTypeChange(int count)
     {
         bulletCount += count;
     }
+
     public static void MaxHealthChange(float plus)
     {
         maxHealth += plus;
