@@ -7,22 +7,22 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
 
-    private static float health = 6;
-    private static float maxHealth = 6;
-    private static float moveSpeed = 5f;
-    private static float fireRate = 0.5f;
-    private static float bulletCount = 0.5f;
+    private float health = 6;
+    private float maxHealth = 6;
+    private float moveSpeed = 5f;
+    private float fireRate = 0.5f;
+    private float bulletCount = 0.5f;
 
     private bool bootCollected = false;
     private bool screwCollected = false;
 
     public List<string> collectedNames = new List<string>();
 
-    public static float Health { get => health; set => health = value; }
-    public static float MaxHealth { get => maxHealth; set => maxHealth = value; }
-    public static float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
-    public static float FireRate { get => fireRate; set => fireRate = value; }
-    public static float BulletCount { get => bulletCount; set => bulletCount = value; }
+    public float Health { get => health; set => health = value; }
+    public float MaxHealth { get => maxHealth; set => maxHealth = value; }
+    public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
+    public float FireRate { get => fireRate; set => fireRate = value; }
+    public float BulletCount { get => bulletCount; set => bulletCount = value; }
 
     public Text healthText;
 
@@ -44,7 +44,7 @@ public class GameController : MonoBehaviour
         healthText.text = health + " / " + maxHealth;
     }
 
-    public static void DamagePlayer(int damage)
+    public void DamagePlayer(int damage)
     {
         health -= damage;
 
@@ -55,28 +55,28 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public static void HealPlayer(float healAmount)
+    public void HealPlayer(float healAmount)
     {
         health = Mathf.Min(maxHealth, health + healAmount);
     }
 
-    public static void MoveSpeedChange(float speed)
+    public void MoveSpeedChange(float speed)
     {
         moveSpeed += speed;
         Player.SetPlayerSpeed(moveSpeed);
     }
 
-    public static void FireRateChange(float rate)
+    public void FireRateChange(float rate)
     {
         fireRate -= rate;
     }
 
-    public static void BulletTypeChange(int count)
+    public void BulletTypeChange(int count)
     {
         bulletCount += count;
     }
 
-    public static void MaxHealthChange(float plus)
+    public void MaxHealthChange(float plus)
     {
         maxHealth += plus;
     }
@@ -104,7 +104,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private static void KillPlayer()
+    private void KillPlayer()
     {
         Time.timeScale = 0f;
         GameOverUI.ShowGameOverBack();

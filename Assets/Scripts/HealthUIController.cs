@@ -16,8 +16,8 @@ public class HealthUIController : MonoBehaviour
 
     void Update()
     {
-        fillValue = (float)GameController.Health;
-        fillValue = fillValue / GameController.MaxHealth;
+        fillValue = (float)GameController.instance.Health;
+        fillValue = fillValue / GameController.instance.MaxHealth;
         heartContainer.GetComponent<Image>().fillAmount = fillValue;
     }
 }

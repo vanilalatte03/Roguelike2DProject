@@ -25,7 +25,7 @@ public class AButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         isApressed = Input.GetKeyDown(KeyCode.A);
 
-        coolTime = GameController.FireRate;
+        coolTime = GameController.instance.FireRate;
         
         // (모바일의 공격 UI 클릭 또는 키보드의 a키가 눌려거나) && 쿨타임이 0일 때 공격
         // 하지만 키보드 a 공격은 아직 수정 필요

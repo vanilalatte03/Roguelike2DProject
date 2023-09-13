@@ -121,7 +121,7 @@ public class EnemyController : MonoBehaviour
             switch (enemyType)
             {
                 case (EnemyType.Melee):
-                    GameController.DamagePlayer(1);
+                    GameController.instance.DamagePlayer(1);
                     StartCoroutine(CoolDown());
                     break;
                 case (EnemyType.Ranged):

@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
 
-        speed = GameController.MoveSpeed;
+        speed = GameController.instance.MoveSpeed;
     }
 
     private void Update()
