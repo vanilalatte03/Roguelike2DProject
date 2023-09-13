@@ -8,21 +8,22 @@ public class Player : MonoBehaviour
 
     [SerializeField] [Range(1f, 10f)] float barSpeed = 3f;
     public VariableJoystick joy;
-    public float speed;
-    SpriteRenderer rend;
 
+    [SerializeField]
+    private static float speed;
+
+    SpriteRenderer rend;
     Rigidbody2D rb;
 
     [HideInInspector]
     public Vector2 resultVec;           //     기존의 Vector2 moveVec; 변수 대체
 
-    private void Start()
-    {
-        rend = GetComponent<SpriteRenderer>();
-    }
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        rend = GetComponent<SpriteRenderer>();
+
+        speed = GameController.MoveSpeed;
     }
 
     private void Update()
@@ -79,5 +80,12 @@ public class Player : MonoBehaviour
     {
         resultVec = resultVec.normalized * speed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + resultVec); 
+    }
+
+    public static void SetPlayerSpeed(float changedSpeed)
+    {
+        Debug.Log("이전 플레이어 스피드 : " + speed);
+        speed = changedSpeed;
+        Debug.Log("현재 플레이어 스피드 "  + speed);
     }
 }

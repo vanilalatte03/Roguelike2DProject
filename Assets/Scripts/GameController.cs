@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
 
     private static float health = 6;
     private static float maxHealth = 6;
-    private static float moveSpeed = 3f;
+    private static float moveSpeed = 5f;
     private static float fireRate = 0.5f;
     private static float bulletCount = 0.5f;
 
@@ -26,6 +26,8 @@ public class GameController : MonoBehaviour
 
     public Text healthText;
 
+    private Player player;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -33,6 +35,8 @@ public class GameController : MonoBehaviour
         {
             instance = this;
         }
+
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -60,6 +64,7 @@ public class GameController : MonoBehaviour
     public static void MoveSpeedChange(float speed)
     {
         moveSpeed += speed;
+        Player.SetPlayerSpeed(moveSpeed);
     }
 
     public static void FireRateChange(float rate)
