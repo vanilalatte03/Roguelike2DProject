@@ -9,10 +9,6 @@ public class HealthUIController : MonoBehaviour
     public GameObject heartContainer;
 
     private float fillValue;
-    void Start()
-    {
-        
-    }
 
     void Update()
     {

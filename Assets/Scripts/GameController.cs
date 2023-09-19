@@ -45,11 +45,11 @@ public class GameController : MonoBehaviour
     public void DamagePlayer(int damage)
     {
         health -= damage;
-
+        Debug.Log(damage);
         if (Health <= 0)
         {
             health = 0;
-            KillPlayer();
+           // 잠시 주석 KillPlayer();
         }
     }
 
