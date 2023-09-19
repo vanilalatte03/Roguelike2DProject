@@ -9,8 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] [Range(1f, 10f)] float barSpeed = 3f;
     public VariableJoystick joy;
 
-    [SerializeField]
-    private static float speed;
+    private float speed;
 
     SpriteRenderer rend;
     Rigidbody2D rb;
@@ -82,7 +81,7 @@ public class Player : MonoBehaviour
         rb.MovePosition(rb.position + resultVec); 
     }
 
-    public static void SetPlayerSpeed(float changedSpeed)
+    public void SetPlayerSpeed(float changedSpeed)
     {
         Debug.Log("이전 플레이어 스피드 : " + speed);
         speed = changedSpeed;

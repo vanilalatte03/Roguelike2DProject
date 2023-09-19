@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
 
     private float health = 6;
     private float maxHealth = 6;
-    private float moveSpeed = 5f;
+    private float moveSpeed = 4f;
     private float fireRate = 0.5f;
     private float bulletCount = 0.5f;
 
@@ -25,9 +25,7 @@ public class GameController : MonoBehaviour
     public float BulletCount { get => bulletCount; set => bulletCount = value; }
 
     public Text healthText;
-
-    [SerializeField]
-    private Player player;
+    public Player player;
 
     // Start is called before the first frame update
     private void Awake()
@@ -63,12 +61,14 @@ public class GameController : MonoBehaviour
     public void MoveSpeedChange(float speed)
     {
         moveSpeed += speed;
-        Player.SetPlayerSpeed(moveSpeed);
+        player.SetPlayerSpeed(moveSpeed);
     }
 
     public void FireRateChange(float rate)
     {
+        Debug.Log("이전 공속" + fireRate);
         fireRate -= rate;
+        Debug.Log("이후 공속" + fireRate);
     }
 
     public void BulletTypeChange(int count)

@@ -29,12 +29,12 @@ public class CollectionController : MonoBehaviour
 
     public void GetAbility()
     {
-            GameController.instance.HealPlayer(healthChange);
-            GameController.instance.MaxHealthChange(maxHealthChange);
-            GameController.instance.MoveSpeedChange(moveSpeedChange);
-            GameController.instance.FireRateChange(attackSpeedChange);
-            GameController.instance.BulletTypeChange(bulletTypeChange);
-            //GameController.instance.UpdateCollectedItems(this);
-            //Destroy(gameObject);
+        GameController.instance.HealPlayer(healthChange);
+        GameController.instance.MaxHealthChange(maxHealthChange);
+        GameController.instance.MoveSpeedChange(moveSpeedChange);
+        GameController.instance.FireRateChange(attackSpeedChange);
+        GameController.instance.BulletTypeChange(bulletTypeChange);
+        //GameController.instance.UpdateCollectedItems(this);
+        //Destroy(gameObject);
     }
 }

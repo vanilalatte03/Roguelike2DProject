@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public AudioSource BGMSource;
+    private AudioSource bgm;
 
-    public void SetBGMVolume(float volume)
+    private void Awake()
     {
-        BGMSource.volume = volume;
+        bgm = GetComponent<AudioSource>();
+    }
+
+    // Sound 메뉴 버튼 클릭
+    public void ToggleBGM()
+    {
+        bgm.enabled = !bgm.enabled;
     }
 }
