@@ -12,7 +12,9 @@ public class Player : MonoBehaviour
     private float speed;
 
     SpriteRenderer rend;
+    Vector3 moveDir;
     Rigidbody2D rb;
+    Animator animator;
 
     [HideInInspector]
     public Vector2 resultVec;           //     기존의 Vector2 moveVec; 변수 대체
@@ -20,6 +22,7 @@ public class Player : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         rend = GetComponent<SpriteRenderer>();
 
         speed = GameController.instance.MoveSpeed;
@@ -57,6 +60,17 @@ public class Player : MonoBehaviour
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
 
+        if (inputX != 0 || inputY != 0 ||
+            joyX != 0 || joyY != 0)
+        {
+            animator.SetBool("Idle", false);
+        }
+
+        else
+        {
+            animator.SetBool("Idle", true);
+        }
+
         // 케릭터 좌우 전환
         if (joyX > 0 || inputX > 0)
         {
@@ -78,7 +92,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         resultVec = resultVec.normalized * speed * Time.fixedDeltaTime;
-        rb.MovePosition(rb.position + resultVec); 
+        rb.MovePosition(rb.position + resultVec);
     }
 
     public void SetPlayerSpeed(float changedSpeed)
@@ -86,5 +100,10 @@ public class Player : MonoBehaviour
         Debug.Log("이전 플레이어 스피드 : " + speed);
         speed = changedSpeed;
         Debug.Log("현재 플레이어 스피드 "  + speed);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
     }
 }

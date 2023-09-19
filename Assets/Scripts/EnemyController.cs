@@ -21,6 +21,7 @@ public enum EnemyType
 
 public class EnemyController : MonoBehaviour
 {
+    Animator animator;
     GameObject player;
     public EnemyState currState = EnemyState.Idle;
     public EnemyType enemyType;
@@ -33,16 +34,21 @@ public class EnemyController : MonoBehaviour
     public bool notInRoom = false;
     private Vector3 randomDir;
     public GameObject bulletPrefab;
+    int rndNum;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    void Update()
+    void FixedUpdate()
     {
         switch (currState)
         {
+            case EnemyState.Idle:
+                animator.SetBool("Idle", true);
+                break;
             case EnemyState.Wander:
                 Wander();
                 break;
@@ -90,9 +96,11 @@ public class EnemyController : MonoBehaviour
     private IEnumerator ChooseDirection()
     {
         chooseDir = true;
-        yield return new WaitForSeconds(Random.Range(2f, 8f));
-        randomDir = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1)).normalized;
+        yield return new WaitForSeconds(Random.Range(1f, 3f));
+        rndNum = Random.Range(0, 1);
+        randomDir = new Vector3(Random.Range(-1, 2), Random.Range(-1, 2)).normalized;
         chooseDir = false;
+        animator.SetBool("Idle", false);
     }
 
     void Wander()
@@ -101,9 +109,17 @@ public class EnemyController : MonoBehaviour
         {
             StartCoroutine(ChooseDirection());
         }
-
-        transform.position += randomDir * speed * Time.deltaTime;
-        if(IsPlayerInRange(range))
+        if (rndNum == 0)
+        {
+            transform.position += randomDir * speed * Time.fixedDeltaTime;
+            if (randomDir.x - transform.position.x < 0)
+                transform.localScale = new Vector2(-2, 2);
+            else
+                transform.localScale = new Vector2(2, 2);
+        }
+        else if (rndNum == 1)
+            currState = EnemyState.Idle;
+        if (IsPlayerInRange(range))
         {
             currState = EnemyState.Follow;
         }
@@ -111,6 +127,7 @@ public class EnemyController : MonoBehaviour
 
     void Follow()
     {
+        animator.SetBool("Idle", false);
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
