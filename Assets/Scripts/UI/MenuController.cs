@@ -1,6 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+public class MenuController : MonoBehaviour
+{
+    [SerializeField]
+    private GameObject backgroundMenu;
+
+    [HideInInspector]
+    public bool isPause = false;
+
+    public void ShowPauseMenu()
+    {
+        backgroundMenu.SetActive(true);
+        Time.timeScale = 0f;
+        gameObject.SetActive(false);
+        isPause = true;
+    }
+
+    public void OnClcikContinue()
+    {
+        gameObject.SetActive(true);
+        Time.timeScale = 1f;
+        backgroundMenu.SetActive(false);
+        isPause = false;
+    }
+
+    public void OnClickQuit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit(); 
+#endif
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 이전 PauseMenu 클래스
+ using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
@@ -52,3 +106,5 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
     }
 }
+
+*/
