@@ -50,6 +50,9 @@ public class AbilityButton : MonoBehaviour
 
     public void OnClickButton()
     {
+        // 사운드 재생
+        SoundManager.instance.PlaySoundEffect("아이탬선택");
+
         switch (abilityType)
         {
             case AbilityType.Speed:

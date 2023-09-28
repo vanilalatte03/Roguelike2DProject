@@ -50,6 +50,9 @@ public class AButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                   }*/
 
 
+            // 사운드 재생
+            SoundManager.instance.PlaySoundEffect("플레이어화살");
+
 
             //x,y의 값을 조합하여 Z방향 값으로 변형함. -> ~도 단위로 변형
             if (isTouch)

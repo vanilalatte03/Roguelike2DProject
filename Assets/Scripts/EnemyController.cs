@@ -161,6 +161,8 @@ public class EnemyController : MonoBehaviour
 
     public void Death()
     {
+        SoundManager.instance.PlaySoundEffect("Àû»ç¸Á1");
+
         RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());
         Destroy(gameObject);
     }

@@ -44,12 +44,14 @@ public class GameController : MonoBehaviour
 
     public void DamagePlayer(int damage)
     {
+        SoundManager.instance.PlaySoundEffect("플레이어데미지");
+
         health -= damage;
         Debug.Log(damage);
         if (Health <= 0)
         {
             health = 0;
-           // 잠시 주석 KillPlayer();
+            KillPlayer();
         }
     }
 
@@ -66,9 +68,7 @@ public class GameController : MonoBehaviour
 
     public void FireRateChange(float rate)
     {
-        Debug.Log("이전 공속" + fireRate);
         fireRate -= rate;
-        Debug.Log("이후 공속" + fireRate);
     }
 
     public void BulletTypeChange(int count)

@@ -101,9 +101,4 @@ public class Player : MonoBehaviour
         speed = changedSpeed;
         Debug.Log("현재 플레이어 스피드 "  + speed);
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    }
 }

@@ -17,6 +17,13 @@ public class PoisonTrap : MonoBehaviour
         // 충돌한 오브젝트가 플레이어인지 확인
         if (collision.CompareTag("Player"))
         {
+            if (GameController.instance.Health <= 0)
+            {
+                StopCoroutine(DamagePlayer());
+                return;
+            }
+
+           
             if (!isDamaging)
             {
                 // 코루틴 시작: DamagePlayer 코루틴 실행
