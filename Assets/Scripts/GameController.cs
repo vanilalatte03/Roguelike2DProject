@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour
     public void DamagePlayer(int damage)
     {
         health -= damage;
-
+        Debug.Log(damage);
         if (Health <= 0)
         {
             health = 0;
