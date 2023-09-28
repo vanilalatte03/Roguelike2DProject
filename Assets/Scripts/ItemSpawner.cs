@@ -26,6 +26,9 @@ public class ItemSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // null 오류 수정
+        if (items.Count == 0) return;
+
         float pick = Random.value * totalWeight;
         int chosenIndex = 0;
         float cumulativeWeight = items[0].weight;
