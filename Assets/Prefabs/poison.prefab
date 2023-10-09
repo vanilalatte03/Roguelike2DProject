@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -6562223504842560757}
   - component: {fileID: 588995886999201481}
   m_Layer: 0
-  m_Name: Poison
+  m_Name: poison
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,4 +115,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 1
-  damageInterval: 1.5
+  damageInterval: 2
