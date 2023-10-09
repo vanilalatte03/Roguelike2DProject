@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour
 
     public Text healthText;
     public Player player;
+    public CameraShake cameraShake;
 
     // Start is called before the first frame update
     private void Awake()
@@ -47,7 +48,9 @@ public class GameController : MonoBehaviour
         SoundManager.instance.PlaySoundEffect("플레이어데미지");
 
         health -= damage;
-        Debug.Log(damage);
+
+        cameraShake.ShakeStart();       // 카메라 흔들림 효과
+
         if (Health <= 0)
         {
             health = 0;
