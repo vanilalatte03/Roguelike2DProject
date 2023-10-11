@@ -5804,6 +5804,7 @@ MonoBehaviour:
   barSpeed: 3
   joy: {fileID: 1550829256}
   resultVec: {x: 0, y: 0}
+  bowSprite: {fileID: 1648174417}
 --- !u!61 &1743792731
 BoxCollider2D:
   m_ObjectHideFlags: 0

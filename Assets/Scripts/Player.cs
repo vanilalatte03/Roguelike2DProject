@@ -19,6 +19,9 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public Vector2 resultVec;           //     기존의 Vector2 moveVec; 변수 대체
 
+    [SerializeField]
+    private SpriteRenderer bowSprite;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -75,11 +78,13 @@ public class Player : MonoBehaviour
         if (joyX > 0 || inputX > 0)
         {
             rend.flipX = false;
+            bowSprite.flipX = false;
         }
 
         else if (joyX < 0 || inputX < 0)
         {
             rend.flipX = true;
+            bowSprite.flipX = true;
         }
 
         // 전역변수 resultVec에, 조이스틱으로 움직일 때는 조이스틱 방향으로, 키보드 입력일 때는 키보드 방향으로 움직임
