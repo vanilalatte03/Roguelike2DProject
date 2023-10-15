@@ -26,8 +26,12 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        rend = GetComponent<SpriteRenderer>();
+        rend = GetComponent<SpriteRenderer>();      
+    }
 
+    // GameController의 Awake에서 싱글톤 할당전에 이 로직이 실행되면 오류가 생기므로, Awake가 아닌 Start에서 스피드를 할당해야 오류가 안남.
+    private void Start()
+    {
         speed = GameController.instance.MoveSpeed;
     }
 

@@ -34,6 +34,12 @@ public class GameController : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);      // 씬 전환시에도 유지
+        } 
+        
+        else
+        {
+            Destroy(gameObject);                // 이미 존재하는 인스턴스 파괴
         }
     }
 
