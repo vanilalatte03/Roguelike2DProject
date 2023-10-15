@@ -16,7 +16,7 @@ public enum EnemyState
 public enum EnemyType
 {
     Melee,
-    Ranged
+    Ranged,
 };
 
 public class EnemyController : MonoBehaviour
@@ -128,6 +128,7 @@ public class EnemyController : MonoBehaviour
     void Follow()
     {
         animator.SetBool("Idle", false);
+
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
@@ -141,13 +142,14 @@ public class EnemyController : MonoBehaviour
                     GameController.instance.DamagePlayer(1);
                     StartCoroutine(CoolDown());
                     break;
+
                 case (EnemyType.Ranged):
                     GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity) as GameObject;
                     bullet.GetComponent<Bullet>().GetPlayer(player.transform);
                     bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
                     bullet.GetComponent<Bullet>().isEnemyBullet = true;
                     StartCoroutine(CoolDown());
-                    break;
+                    break;           
             }
         }
     }

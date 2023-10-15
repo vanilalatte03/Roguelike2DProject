@@ -60,7 +60,13 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (col.tag == "Player" && isEnemyBullet)
+        else if (col.tag == "SandEnemy" && !isEnemyBullet)
+        {
+            col.GetComponent<SandEmeny>().Damaged();
+            Destroy(gameObject);
+        }
+
+        else if (col.tag == "Player" && isEnemyBullet)
         {
             GameController.instance.DamagePlayer(1);
             Destroy(gameObject);
