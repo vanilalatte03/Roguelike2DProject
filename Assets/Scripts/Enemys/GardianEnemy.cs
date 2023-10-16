@@ -2,22 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SandEnemyState
-{
-    Wander,     // 떠도는 상태 (= Idle 상태)
-    Follow,     // 플레이어를 따라오는 상태
-    Die         // 죽음
-    // Attack은 OnTrigger로 구현
-}
-
-public class SandEmeny : MonoBehaviour
+public class GardianEnemy : MonoBehaviour
 {
     private Animator animator;
     private Transform player;
     private SpriteRenderer sprite;
 
     [SerializeField]
-    private SandEnemyState curState = SandEnemyState.Wander;
+    private MiddleBossState curState = MiddleBossState.Wander;
 
     [SerializeField]
     private int curHealth;          // 모래 거인 현재 체력
@@ -26,13 +18,16 @@ public class SandEmeny : MonoBehaviour
     private int maxHealth = 10;          // 모래 거인 최대 체력
 
     [SerializeField]
-    private float range;         // 플레이어를 인지하는 범위
+    private float range = 10f;         // 플레이어를 인지하는 범위
 
     [SerializeField]
-    private float speed;        // 이동 속도
+    private float speed = 1.3f;        // 이동 속도
 
     [SerializeField]
-    private float atackCool;    // 공격 쿨타임
+    private float atackCool = 2f;    // 공격 쿨타임
+
+    [SerializeField]
+    private GameObject bulletPrefab;
 
     private bool chooseDir = false;
     private bool coolDownAttack = false;
@@ -42,49 +37,52 @@ public class SandEmeny : MonoBehaviour
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     // 게임 컨트롤 할당 전에 찾으면 오류가 나므로 Start에서 선언
     private void Start()
-    {       
+    {
         player = GameController.instance.player.transform;
         curHealth = maxHealth;
-    } 
+    }
 
     private void FixedUpdate()
     {
-        switch(curState)
+        switch (curState)
         {
-            case SandEnemyState.Wander:
+            case MiddleBossState.Wander:
+                animator.SetBool("move", true);
                 Wander();
-                break;     
-            case SandEnemyState.Follow:
+                break;
+            case MiddleBossState.Follow:
+                animator.SetBool("move", false);
                 Follow();
                 break;
-            case SandEnemyState.Die:
+            case MiddleBossState.Die:
                 break;
         }
 
         // 범위안에 플레이어가 있고, 현재 죽지 않았다면
-        if (IsPlayerInRange(range) && curState != SandEnemyState.Die)
+        if (IsPlayerInRange(range) && curState != MiddleBossState.Die)
         {
             Debug.Log("플레이어 포착!");
-            curState = SandEnemyState.Follow;
-        } 
+            curState = MiddleBossState.Follow;
+        }
 
-        else if (!IsPlayerInRange(range) && curState != SandEnemyState.Die)
+        else if (!IsPlayerInRange(range) && curState != MiddleBossState.Die)
         {
             Debug.Log("플레이어 잃음..");
-            curState = SandEnemyState.Wander;
+            curState = MiddleBossState.Wander;
         }
     }
 
     private bool IsPlayerInRange(float range)
     {
         if (player.position.x - transform.position.x < 0)
-            sprite.flipX = false;
-        else
             sprite.flipX = true;
+        else
+            sprite.flipX = false;
 
         return Vector3.Distance(transform.position, player.position) <= range;
     }
@@ -109,19 +107,19 @@ public class SandEmeny : MonoBehaviour
         {
             transform.position += randomDir * speed * Time.fixedDeltaTime;
             if (randomDir.x - transform.position.x < 0)
-                sprite.flipX = false;
-            else
                 sprite.flipX = true;
+            else
+                sprite.flipX = false;
         }
 
         else if (rndNum == 1)
-            curState = SandEnemyState.Wander;
+            curState = MiddleBossState.Wander;
 
         if (IsPlayerInRange(range))
         {
             Debug.Log("플레이어 포착!");
-            curState = SandEnemyState.Follow;
-        } 
+            curState = MiddleBossState.Follow;
+        }
     }
 
     void Follow()
@@ -129,21 +127,26 @@ public class SandEmeny : MonoBehaviour
         // animator.SetBool("Idle", false);
 
         transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        Attack();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            Attack();
+            GameController.instance.DamagePlayer(1);
         }
     }
 
+    // 공격은 원거리 공격
     void Attack()
     {
         if (!coolDownAttack)
         {
-            GameController.instance.DamagePlayer(1);
+            GameObject prefab = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            Bullet bullet = prefab.GetComponent<Bullet>();
+            bullet.GetPlayer(player.transform);
+            bullet.isEnemyBullet = true;
             StartCoroutine(CoolDown());
         }
     }
@@ -161,18 +164,19 @@ public class SandEmeny : MonoBehaviour
 
         if (curHealth >= 2)
         {
-            curHealth -= 1;            
+            curHealth -= 1;
             Debug.Log("현재 체력 : " + curHealth);
-        } else
+        }
+        else
         {
             Death();
-        }        
+        }
     }
 
     public void Death()
     {
         Debug.Log("모래거인 사망!");
-        RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());
         Destroy(gameObject);
+        // RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());      
     }
 }

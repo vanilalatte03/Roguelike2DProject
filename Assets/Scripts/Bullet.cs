@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
     private Vector2 lastPos;
     private Vector2 curPos;
     private Vector2 playerPos;
+
     void Start()
     {
         StartCoroutine(DeathDelay());
@@ -60,7 +61,7 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        else if (col.tag == "SandEnemy" && !isEnemyBullet)
+        else if ((col.tag == "SandEnemy"|| col.tag == "GuardianEnemy" ) && !isEnemyBullet)
         {
             col.GetComponent<SandEmeny>().Damaged();
             Destroy(gameObject);
