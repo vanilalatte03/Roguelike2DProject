@@ -7,6 +7,7 @@ public class GardianEnemy : MonoBehaviour
     private Animator animator;
     private Transform player;
     private SpriteRenderer sprite;
+    private Rigidbody2D rigid;
 
     [SerializeField]
     private MiddleBossState curState = MiddleBossState.Wander;
@@ -27,6 +28,9 @@ public class GardianEnemy : MonoBehaviour
     private float atackCool = 2f;    // 공격 쿨타임
 
     [SerializeField]
+    private Transform attackTransform;
+
+    [SerializeField]
     private GameObject bulletPrefab;
 
     private bool chooseDir = false;
@@ -38,6 +42,7 @@ public class GardianEnemy : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        rigid = GetComponent<Rigidbody2D>();
     }
 
     // 게임 컨트롤 할당 전에 찾으면 오류가 나므로 Start에서 선언
@@ -124,9 +129,11 @@ public class GardianEnemy : MonoBehaviour
 
     void Follow()
     {
-        // animator.SetBool("Idle", false);
+        // transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        Vector2 newPosition = Vector2.MoveTowards(rigid.position, player.position, speed * Time.deltaTime);
+        rigid.MovePosition(newPosition);
+
         Attack();
     }
 
@@ -143,7 +150,7 @@ public class GardianEnemy : MonoBehaviour
     {
         if (!coolDownAttack)
         {
-            GameObject prefab = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            GameObject prefab = Instantiate(bulletPrefab, attackTransform.position, Quaternion.identity);
             Bullet bullet = prefab.GetComponent<Bullet>();
             bullet.GetPlayer(player.transform);
             bullet.isEnemyBullet = true;
