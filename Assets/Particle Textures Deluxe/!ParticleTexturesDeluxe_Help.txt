@@ -1,0 +1,68 @@
+Particle Textures Deluxe
+========================
+
+Help file:
+1. About
+2. Naming system
+3. Tips & tricks
+4. Extras
+5. Credits & contact
+
+
+
+1. About
+________
+
+This package provides a comprehensive library of particle effect textures to be used with a particle system, such as Unity's particle system.
+
+You get a huge collection of particle textures, a bunch of seamless tiling effect textures and a couple animated particle sprite sheets.
+
+
+
+2. Naming system
+________________
+
+The filenames have been foremost organized by types:
+
+anim_ = Animation sheet of an individual, animated, particle texture.
+fx_ = Individual particle texture.
+tex_ = Seamlessly tiling screen effect texture.
+
+Each sheet, particle and texture have been named with what they most likely represent. That said, don't let their names limit in the ways you use the textures. Experiment and try out various textures in your particle system even if their name might not even be close to what you're trying to achieve. The names are only there for easy navigation and categorization.
+
+
+
+3. Tips & tricks
+________________
+
+-The animated particle sheets are used for individual particles, which give you particle that animate themselves, which while looks more impressive, is more resource intensive, unlike if you were to use simple static particle textures.
+
+-The seamlessly tiling textures are used for effect mesh surfaces (models that represent, say, forcefields or explosions for example.), screen effects (rain, snow, microasteroids).
+
+-All images are purposefully greyscale so that you could have the flexibility to define your own color with the color tint option of a material or particle. This prevents you from being limited from something like tex_Liquid1.png being used for representing water only. For example, with the right color, it can become lava or acid too. Same principle applies for all the other textures.
+
+-If the particles are too big or cause too big of a slow down, you can reduce their size in the texture's inspector tab and set its max size to something lower.
+
+-The !Extras folder contains a zip file with versions of the particle textures with a transparent background. They work perfectly in Unity too, except that Unity fails to show them properly in the inspector preview. You can use these transparent versions of the textures in a more flexible way elsewhere, even outside Unity.
+
+
+
+4. Extras
+_________
+
+In the package, you will also find some extra files you may find useful.
+
+!Example Particle Systems - folder (Contains some example particle system that use the textures from this pack. Open the example scene or drag one of the prefabs into the scene.)
+
+!Extras - folder (Contains: Plane meshes, one-sided and two-sided for use in particle systems and any other places where you need an optimized 2-tri square plane model. Theres also a .zip file with versions of particle textures with a transparent background instead of a black one. Use these if you need the textures elsewhere in a more flexible manner.)
+
+Preview Images - These show all the textures that are included in this pack at once.
+
+
+
+5. Credits & contact
+____________________
+
+This package was made by Anton Temba. You can contact me by email at reactorcoregames@gmail.com
+
+Special thanks to Unity and Jasc.

@@ -7,17 +7,24 @@ public class Bullet : MonoBehaviour
     public float lifeTime;
     public bool isEnemyBullet = false;
     public bool isBossBullet = false;
+    public bool isGuardianBullet = false;
 
     private Vector2 lastPos;
     private Vector2 curPos;
     private Vector2 playerPos;
+
+    [SerializeField]
+    private float speed = 5.0f;                      // guardianEnemy 유도탄 속도
+    
+    [SerializeField]
+    private float rotationSpeed = 200.0f;            // guardianEnemy 유도탄 회전 속도
 
     void Start()
     {
         StartCoroutine(DeathDelay());
         if (!isEnemyBullet)
         {
-            //transform.localScale = new Vector2(GameController.BulletSize, GameController.BulletSize);
+            // transform.localScale = new Vector2(GameController.BulletSize, GameController.BulletSize);
         }
     }
 
@@ -34,6 +41,9 @@ public class Bullet : MonoBehaviour
             }
             lastPos = curPos;
         }
+
+        // 가디언 몬스터 불렛일 때
+        CheckGuardianBullet();
 
         if (isBossBullet)
         {
@@ -55,22 +65,62 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        // 플레이어가 쏘는 화살
         if (col.tag == "Enemy" && !isEnemyBullet)
         {
             col.gameObject.GetComponent<EnemyController>().Death();
             Destroy(gameObject);
         }
 
-        else if ((col.tag == "SandEnemy"|| col.tag == "GuardianEnemy" ) && !isEnemyBullet)
+        // 플레이어가 쏘는 화살
+        else if (col.tag == "GuardianEnemy" && !isGuardianBullet)
         {
-            col.GetComponent<SandEmeny>().Damaged();
+            col.gameObject.GetComponent<GuardianEnemy>().Damaged();
             Destroy(gameObject);
         }
 
+        // 플레이어가 쏘는 화살
+        else if ((col.tag == "SandEnemy") && (!isEnemyBullet && !isGuardianBullet))
+        {
+            col.GetComponent<SandEnemy>().Damaged();
+            Destroy(gameObject);
+        }
+
+        // 일반 enemy가 쏘는 화살
         else if (col.tag == "Player" && isEnemyBullet)
         {
             GameController.instance.DamagePlayer(1);
             Destroy(gameObject);
+        }
+
+        // 일반 guardianEnemy가 쏘는 화살
+        else if (col.tag == "Player" && isGuardianBullet)
+        {
+            GameController.instance.DamagePlayer(1);     
+            Destroy(gameObject);
+        }
+    }
+
+    public void CheckGuardianBullet()
+    {
+        if (isGuardianBullet)
+        {
+            if (playerPos == null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+        
+            Vector2 bulletPos = new Vector2(transform.position.x, transform.position.y); // Vector2로 변환
+
+            Vector2 direction = (playerPos - bulletPos).normalized;
+
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+            // 유도탄을 플레이어 방향으로 이동
+            transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
     }
 }
