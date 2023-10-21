@@ -84,13 +84,11 @@ public class GuardianEnemy : MonoBehaviour
         // 범위안에 플레이어가 있고, 현재 죽지 않았다면
         if (IsPlayerInRange(range) && curState != MiddleBossState.Die)
         {
-            Debug.Log("플레이어 포착!");
             curState = MiddleBossState.Follow;
         }
 
         else if (!IsPlayerInRange(range) && curState != MiddleBossState.Die)
         {
-            Debug.Log("플레이어 잃음..");
             curState = MiddleBossState.Wander;
         }
     }
@@ -130,7 +128,6 @@ public class GuardianEnemy : MonoBehaviour
 
         if (IsPlayerInRange(range))
         {
-            Debug.Log("플레이어 포착!");
             curState = MiddleBossState.Follow;
         }
     }
@@ -141,28 +138,22 @@ public class GuardianEnemy : MonoBehaviour
 
         Vector2 newPosition = Vector2.MoveTowards(rigid.position, player.position, speed * Time.deltaTime);
 
-        if (player.position.x - transform.position.x < 0)
-        {
-            sprite.flipX = true;
-        }
-            
-        else
-        {
-            sprite.flipX = false;
-        }            
+        sprite.flipX = player.position.x < transform.position.x;      
 
         rigid.MovePosition(newPosition);
 
         speed = 0.7f;      // 이동 속도 약간 느리게
 
-        Invoke("Attack", attackDelay);
+        // Invoke("Attack", attackDelay);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            GameController.instance.DamagePlayer(1);
+            // 잠시 테스트
+           //  GameController.instance.DamagePlayer(1);
+            collision.GetComponent<Player>().StartKnockBack(transform.position);
         }
     }
 
@@ -216,7 +207,6 @@ public class GuardianEnemy : MonoBehaviour
 
     public void Death()
     {
-        Debug.Log("모래거인 사망!");
         Destroy(gameObject);
         // RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());      
     }

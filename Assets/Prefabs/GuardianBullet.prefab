@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 739e22f119db04b6cb2f1f514ae4e986, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.87642086, b: 0.4669811, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -168,10 +168,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634a53985ab911540b4b14a28514eed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 4.5
+  lifeTime: 3
   isEnemyBullet: 0
   isBossBullet: 0
   isGuardianBullet: 1
-  speed: 6
+  speed: 3.5
   rotationSpeed: 200
   spriteObject: {fileID: 800008535557703791}

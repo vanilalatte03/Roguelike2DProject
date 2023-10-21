@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private SpriteRenderer bowSprite;
 
+    private WaitForSeconds wait;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -33,6 +35,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         speed = GameController.instance.MoveSpeed;
+        wait = new WaitForSeconds(0.1f);
     }
 
     private void Update()
@@ -106,8 +109,21 @@ public class Player : MonoBehaviour
 
     public void SetPlayerSpeed(float changedSpeed)
     {
-        Debug.Log("이전 플레이어 스피드 : " + speed);
         speed = changedSpeed;
-        Debug.Log("현재 플레이어 스피드 "  + speed);
+    }
+
+    // 다른 enemy 스크립트에서, 플레이어를 공격했을 때 넉백 코루틴 호출
+    public void StartKnockBack(Vector3 enemyPos)
+    {
+        StartCoroutine(KnockBack(enemyPos));  
+    }
+
+    private IEnumerator KnockBack(Vector3 enemyPos)
+    {
+        yield return wait;      // 다음 하나의 물리 프레임을 딜레이한다
+
+        Vector3 dirVec = transform.position - enemyPos;
+
+        transform.position = Vector3.Lerp(transform.position, dirVec, 5 * Time.deltaTime);
     }
 }

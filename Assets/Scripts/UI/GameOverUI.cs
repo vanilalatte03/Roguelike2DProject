@@ -34,7 +34,6 @@ public class GameOverUI : MonoBehaviour
 
     public void RestartGame()
     {
-
         SceneManager.LoadScene(retrySceneName);
         Time.timeScale = 1f;
         GameController.instance.Health = GameController.instance.MaxHealth;
