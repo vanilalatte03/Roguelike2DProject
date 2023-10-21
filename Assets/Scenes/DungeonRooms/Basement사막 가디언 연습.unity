@@ -792,6 +792,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1410179190610802440, guid: 9dd89bd353befef47b2a19847e938f40, type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410179190610802440, guid: 9dd89bd353befef47b2a19847e938f40, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1410179190610802480, guid: 9dd89bd353befef47b2a19847e938f40, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -839,14 +847,6 @@ PrefabInstance:
     - target: {fileID: 1410179190610802494, guid: 9dd89bd353befef47b2a19847e938f40, type: 3}
       propertyPath: m_Name
       value: GuardianEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3938806461255725633, guid: 9dd89bd353befef47b2a19847e938f40, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3938806461255725633, guid: 9dd89bd353befef47b2a19847e938f40, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dd89bd353befef47b2a19847e938f40, type: 3}
