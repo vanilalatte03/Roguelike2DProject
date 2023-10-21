@@ -19,6 +19,10 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private float rotationSpeed = 200.0f;            // guardianEnemy 유도탄 회전 속도
 
+    [SerializeField]
+    private GameObject spriteObject;                 // (가디언 몬스터 전용) sprite는 그냥 두기 위해서, 다른 타겟 트랜스폼을 둔다.
+
+
     void Start()
     {
         StartCoroutine(DeathDelay());
@@ -121,6 +125,11 @@ public class Bullet : MonoBehaviour
 
             // 유도탄을 플레이어 방향으로 이동
             transform.Translate(Vector3.right * speed * Time.deltaTime);
+
+            if (spriteObject != null)
+            {
+                spriteObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            }  
         }
     }
 }

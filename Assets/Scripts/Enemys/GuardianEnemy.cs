@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GuardianEnemy : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class GuardianEnemy : MonoBehaviour
     private Transform player;
     private SpriteRenderer sprite;
     private Rigidbody2D rigid;
+
 
     [SerializeField]
     private MiddleBossState curState = MiddleBossState.Wander;
@@ -36,6 +38,12 @@ public class GuardianEnemy : MonoBehaviour
     [SerializeField]
     private float attackDelay = 0.25f;
 
+    [SerializeField]
+    private Canvas canvas;
+
+    [SerializeField]
+    private Slider hpSlider;
+
     private bool chooseDir = false;
     private bool coolDownAttack = false;
     private Vector3 randomDir;
@@ -53,6 +61,8 @@ public class GuardianEnemy : MonoBehaviour
     {
         player = GameController.instance.player.transform;
         curHealth = maxHealth;
+        hpSlider.maxValue = maxHealth;
+        hpSlider.value = curHealth;
     }
 
     private void FixedUpdate()
@@ -190,16 +200,19 @@ public class GuardianEnemy : MonoBehaviour
     {
         SoundManager.instance.PlaySoundEffect("적사망1");
 
-        if (curHealth >= 2)
+        curHealth -= 1;
+        hpSlider.value = curHealth;
+
+        if (!canvas.gameObject.activeSelf)
         {
-            curHealth -= 1;
-            Debug.Log("현재 체력 : " + curHealth);
+            canvas.gameObject.SetActive(true);
         }
-        else
+
+        if (curHealth <= 0)
         {
             Death();
         }
-    }
+    } 
 
     public void Death()
     {
