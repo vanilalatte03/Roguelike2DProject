@@ -15,8 +15,7 @@ public class SandEnemy : MonoBehaviour
     private Animator animator;
     private Transform player;
     private SpriteRenderer sprite;
-
-    [SerializeField]
+    
     private MiddleBossState curState = MiddleBossState.Wander;
 
     [SerializeField]
@@ -32,7 +31,7 @@ public class SandEnemy : MonoBehaviour
     private float speed;        // 이동 속도
 
     [SerializeField]
-    private float atackCool;    // 공격 쿨타임
+    private float attackCool;    // 공격 쿨타임
 
     private bool chooseDir = false;
     private bool coolDownAttack = false;
@@ -68,13 +67,11 @@ public class SandEnemy : MonoBehaviour
         // 범위안에 플레이어가 있고, 현재 죽지 않았다면
         if (IsPlayerInRange(range) && curState != MiddleBossState.Die)
         {
-            Debug.Log("플레이어 포착!");
             curState = MiddleBossState.Follow;
         } 
 
         else if (!IsPlayerInRange(range) && curState != MiddleBossState.Die)
         {
-            Debug.Log("플레이어 잃음..");
             curState = MiddleBossState.Wander;
         }
     }
@@ -119,14 +116,13 @@ public class SandEnemy : MonoBehaviour
 
         if (IsPlayerInRange(range))
         {
-            Debug.Log("플레이어 포착!");
             curState = MiddleBossState.Follow;
         } 
     }
 
     void Follow()
     {
-        // animator.SetBool("Idle", false);
+        animator.SetBool("Idle", false);
 
         transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
     }
@@ -151,7 +147,7 @@ public class SandEnemy : MonoBehaviour
     private IEnumerator CoolDown()
     {
         coolDownAttack = true;
-        yield return new WaitForSeconds(atackCool);
+        yield return new WaitForSeconds(attackCool);
         coolDownAttack = false;
     }
 

@@ -76,10 +76,17 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        // 플레이어가 쏘는 화살
+        // 플레이어가 쏘는 화살이 가디언 불렛에게 맞았으면
         else if (col.tag == "GuardianEnemy" && !isGuardianBullet)
         {
             col.gameObject.GetComponent<GuardianEnemy>().Damaged();
+            Destroy(gameObject);
+        }
+
+        // 플레이어가 쏘는 화살이 Warm에 맞았으면
+        else if (col.tag == "WarmEnemy")
+        {
+            col.gameObject.GetComponent<WarmEnemy>().Damaged();
             Destroy(gameObject);
         }
 

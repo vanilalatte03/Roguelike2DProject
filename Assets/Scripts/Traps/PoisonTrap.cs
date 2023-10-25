@@ -22,7 +22,6 @@ public class PoisonTrap : MonoBehaviour
                 StopCoroutine(DamagePlayer());
                 return;
             }
-
            
             if (!isDamaging)
             {

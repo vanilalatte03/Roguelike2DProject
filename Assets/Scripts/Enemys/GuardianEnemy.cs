@@ -10,11 +10,9 @@ public class GuardianEnemy : MonoBehaviour
     private SpriteRenderer sprite;
     private Rigidbody2D rigid;
 
-
     [SerializeField]
     private MiddleBossState curState = MiddleBossState.Wander;
 
-    [SerializeField]
     private int curHealth;          // 모래 거인 현재 체력
 
     [SerializeField]
@@ -27,7 +25,7 @@ public class GuardianEnemy : MonoBehaviour
     private float speed = 1.3f;        // 이동 속도
 
     [SerializeField]
-    private float atackCool = 2f;    // 공격 쿨타임
+    private float attackCool = 2f;    // 공격 쿨타임
 
     [SerializeField]
     private Transform attackTransform;
@@ -144,16 +142,17 @@ public class GuardianEnemy : MonoBehaviour
 
         speed = 0.7f;      // 이동 속도 약간 느리게
 
-        // Invoke("Attack", attackDelay);
+        Invoke("Attack", attackDelay);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            // 잠시 테스트
-           //  GameController.instance.DamagePlayer(1);
-            collision.GetComponent<Player>().StartKnockBack(transform.position);
+            GameController.instance.DamagePlayer(1);
+            
+            // 잠시 보류
+            // collision.GetComponent<Player>().StartKnockBack(transform.position);
         }
     }
 
@@ -183,7 +182,7 @@ public class GuardianEnemy : MonoBehaviour
     private IEnumerator CoolDown()
     {
         coolDownAttack = true;
-        yield return new WaitForSeconds(atackCool);
+        yield return new WaitForSeconds(attackCool);
         coolDownAttack = false;
     }
 

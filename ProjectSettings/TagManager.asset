@@ -10,6 +10,7 @@ TagManager:
   - Way
   - SandEnemy
   - GuardianEnemy
+  - WarmEnemy
   layers:
   - Default
   - TransparentFX

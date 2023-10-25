@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private SpriteRenderer bowSprite;
 
+    [SerializeField]
+    private GameObject warnning;
+
     private WaitForSeconds wait;
 
     void Awake()
