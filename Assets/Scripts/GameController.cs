@@ -49,13 +49,17 @@ public class GameController : MonoBehaviour
         healthText.text = health + " / " + maxHealth;
     }
 
-    public void DamagePlayer(int damage)
+    // 두번째 매개변수는 플레이어가 데미지 받았을 때 카메라 흔들림 효과를 할지, 말지, 기본은 true, 받지 않고 싶으면 false로 
+    public void DamagePlayer(int damage, bool shake = true)
     {
         SoundManager.instance.PlaySoundEffect("플레이어데미지");
 
         health -= damage;
 
-        cameraShake.ShakeStart();       // 카메라 흔들림 효과
+        if (shake)
+        {
+            cameraShake.ShakeStart();       // 카메라 흔들림 효과
+        }       
 
         if (Health <= 0)
         {

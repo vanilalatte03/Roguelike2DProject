@@ -8301,11 +8301,11 @@ MonoBehaviour:
   canvas: {fileID: 7168481038566324042}
   hpSlider: {fileID: 226626413303780353}
   maxHealth: 3
-  range: 8
+  range: 6
   attackCool: 2
   poisonPrefab: {fileID: 4698823181698615369, guid: ed7084d1081da274596143326fbc134f, type: 3}
   warnningPrefab: {fileID: 7354212454917707400, guid: c5966c99e1f49c347960e61450743a89, type: 3}
-  radius: 3.5
+  radius: 1.5
 --- !u!1 &1410179192211724651
 GameObject:
   m_ObjectHideFlags: 0
