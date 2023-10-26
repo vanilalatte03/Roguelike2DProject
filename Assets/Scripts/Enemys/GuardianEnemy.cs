@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum GuardianEnemyState
+{
+    Wander,     // 떠도는 상태 (= Idle 상태)
+    Follow,     // 플레이어를 따라오는 상태
+    Die         // 죽음
+    // Attack은 OnTrigger로 구현
+}
+
 public class GuardianEnemy : MonoBehaviour
 {
     private Animator animator;
@@ -11,7 +19,7 @@ public class GuardianEnemy : MonoBehaviour
     private Rigidbody2D rigid;
 
     [SerializeField]
-    private MiddleBossState curState = MiddleBossState.Wander;
+    private GuardianEnemyState curState = GuardianEnemyState.Wander;
 
     private int curHealth;          // 모래 거인 현재 체력
 
@@ -67,27 +75,27 @@ public class GuardianEnemy : MonoBehaviour
     {
         switch (curState)
         {
-            case MiddleBossState.Wander:
+            case GuardianEnemyState.Wander:
                 animator.SetBool("move", true);
                 Wander();
                 break;
-            case MiddleBossState.Follow:
+            case GuardianEnemyState.Follow:
                 animator.SetBool("move", false);
                 Follow();
                 break;
-            case MiddleBossState.Die:
+            case GuardianEnemyState.Die:
                 break;
         }
 
         // 범위안에 플레이어가 있고, 현재 죽지 않았다면
-        if (IsPlayerInRange(range) && curState != MiddleBossState.Die)
+        if (IsPlayerInRange(range) && curState != GuardianEnemyState.Die)
         {
-            curState = MiddleBossState.Follow;
+            curState = GuardianEnemyState.Follow;
         }
 
-        else if (!IsPlayerInRange(range) && curState != MiddleBossState.Die)
+        else if (!IsPlayerInRange(range) && curState != GuardianEnemyState.Die)
         {
-            curState = MiddleBossState.Wander;
+            curState = GuardianEnemyState.Wander;
         }
     }
 
@@ -122,11 +130,11 @@ public class GuardianEnemy : MonoBehaviour
         }
 
         else if (rndNum == 1)
-            curState = MiddleBossState.Wander;
+            curState = GuardianEnemyState.Wander;
 
         if (IsPlayerInRange(range))
         {
-            curState = MiddleBossState.Follow;
+            curState = GuardianEnemyState.Follow;
         }
     }
 

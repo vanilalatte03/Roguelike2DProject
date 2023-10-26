@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public enum MiddleBossState
+public enum SandEnemyState
 {
     Wander,     // 떠도는 상태 (= Idle 상태)
     Follow,     // 플레이어를 따라오는 상태
@@ -15,14 +16,14 @@ public class SandEnemy : MonoBehaviour
     private Animator animator;
     private Transform player;
     private SpriteRenderer sprite;
-    
-    private MiddleBossState curState = MiddleBossState.Wander;
+    private Rigidbody2D rigid;
 
-    [SerializeField]
+    private SandEnemyState curState = SandEnemyState.Wander;
+
     private int curHealth;          // 모래 거인 현재 체력
 
     [SerializeField]
-    private int maxHealth = 20;          // 모래 거인 최대 체력
+    private int maxHealth = 15;          // 모래 거인 최대 체력
 
     [SerializeField]
     private float range;         // 플레이어를 인지하는 범위
@@ -33,6 +34,12 @@ public class SandEnemy : MonoBehaviour
     [SerializeField]
     private float attackCool;    // 공격 쿨타임
 
+    [SerializeField]
+    private Canvas canvas;
+
+    [SerializeField]
+    private Slider hpSlider;
+
     private bool chooseDir = false;
     private bool coolDownAttack = false;
     private Vector3 randomDir;
@@ -41,6 +48,7 @@ public class SandEnemy : MonoBehaviour
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
+        rigid = GetComponent<Rigidbody2D>();
     }
 
     // 게임 컨트롤 할당 전에 찾으면 오류가 나므로 Start에서 선언
@@ -48,40 +56,44 @@ public class SandEnemy : MonoBehaviour
     {       
         player = GameController.instance.player.transform;
         curHealth = maxHealth;
+        hpSlider.maxValue = maxHealth;
+        hpSlider.value = curHealth;
     } 
 
     private void FixedUpdate()
     {
         switch(curState)
         {
-            case MiddleBossState.Wander:
+            case SandEnemyState.Wander:
                 Wander();
                 break;     
-            case MiddleBossState.Follow:
+            case SandEnemyState.Follow:
                 Follow();
                 break;
-            case MiddleBossState.Die:
+            case SandEnemyState.Die:
                 break;
         }
 
         // 범위안에 플레이어가 있고, 현재 죽지 않았다면
-        if (IsPlayerInRange(range) && curState != MiddleBossState.Die)
+        if (IsPlayerInRange(range) && curState != SandEnemyState.Die)
         {
-            curState = MiddleBossState.Follow;
+            Debug.Log("플레이어 찾음");
+            curState = SandEnemyState.Follow;
         } 
 
-        else if (!IsPlayerInRange(range) && curState != MiddleBossState.Die)
+        else if (!IsPlayerInRange(range) && curState != SandEnemyState.Die)
         {
-            curState = MiddleBossState.Wander;
+            Debug.Log("플레이어 못 찾음");
+            curState = SandEnemyState.Wander;
         }
     }
 
     private bool IsPlayerInRange(float range)
     {
-        if (player.position.x - transform.position.x < 0)
+/*        if (player.position.x - transform.position.x < 0)
             sprite.flipX = false;
         else
-            sprite.flipX = true;
+            sprite.flipX = true;*/
 
         return Vector3.Distance(transform.position, player.position) <= range;
     }
@@ -105,26 +117,30 @@ public class SandEnemy : MonoBehaviour
         if (rndNum == 0)
         {
             transform.position += randomDir * speed * Time.fixedDeltaTime;
-            if (randomDir.x - transform.position.x < 0)
+            if (randomDir.x < 0)
                 sprite.flipX = false;
             else
                 sprite.flipX = true;
         }
 
         else if (rndNum == 1)
-            curState = MiddleBossState.Wander;
+            curState = SandEnemyState.Wander;
 
         if (IsPlayerInRange(range))
         {
-            curState = MiddleBossState.Follow;
+            curState = SandEnemyState.Follow;
         } 
     }
 
     void Follow()
     {
-        animator.SetBool("Idle", false);
+        /* transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);*/
 
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        Vector2 newPosition = Vector2.MoveTowards(rigid.position, player.position, speed * Time.deltaTime);
+
+        sprite.flipX = player.position.x > transform.position.x;
+
+        rigid.MovePosition(newPosition);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -155,14 +171,18 @@ public class SandEnemy : MonoBehaviour
     {
         SoundManager.instance.PlaySoundEffect("적사망1");
 
-        if (curHealth >= 2)
+        curHealth -= 1;
+        hpSlider.value = curHealth;
+      
+        if (!canvas.gameObject.activeSelf)
         {
-            curHealth -= 1;            
-            Debug.Log("현재 체력 : " + curHealth);
-        } else
+            canvas.gameObject.SetActive(true);
+        }
+
+        if (curHealth <= 0)
         {
             Death();
-        }        
+        }
     }
 
     public void Death()
