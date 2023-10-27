@@ -99,9 +99,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634a53985ab911540b4b14a28514eed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 5
+  lifeTime: 1
   isEnemyBullet: 0
   isBossBullet: 0
+  isGuardianBullet: 0
+  speed: 5
+  rotationSpeed: 200
+  spriteObject: {fileID: 0}
 --- !u!50 &5127218915767958061
 Rigidbody2D:
   serializedVersion: 4
