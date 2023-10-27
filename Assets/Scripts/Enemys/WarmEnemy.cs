@@ -136,8 +136,6 @@ public class WarmEnemy : MonoBehaviour
 
     public void Damaged()
     {
-        SoundManager.instance.PlaySoundEffect("Àû»ç¸Á1");
-
         curHealth -= 1;
         hpSlider.value = curHealth;
 
@@ -148,7 +146,12 @@ public class WarmEnemy : MonoBehaviour
 
         if (curHealth <= 0)
         {
+            SoundManager.instance.PlaySoundEffect("Áß°£¸÷»ç¸Á");
             Death();
+        }
+        else
+        {
+            SoundManager.instance.PlaySoundEffect("ÀûÇÇÇØÀÔÀ½");
         }
     }
 

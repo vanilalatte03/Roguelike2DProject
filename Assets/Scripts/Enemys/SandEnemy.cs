@@ -169,8 +169,6 @@ public class SandEnemy : MonoBehaviour
 
     public void Damaged()
     {
-        SoundManager.instance.PlaySoundEffect("Àû»ç¸Á1");
-
         curHealth -= 1;
         hpSlider.value = curHealth;
       
@@ -178,10 +176,14 @@ public class SandEnemy : MonoBehaviour
         {
             canvas.gameObject.SetActive(true);
         }
-
         if (curHealth <= 0)
         {
+            SoundManager.instance.PlaySoundEffect("Áß°£¸÷»ç¸Á");
             Death();
+        }
+        else
+        {
+            SoundManager.instance.PlaySoundEffect("ÀûÇÇÇØÀÔÀ½");
         }
     }
 

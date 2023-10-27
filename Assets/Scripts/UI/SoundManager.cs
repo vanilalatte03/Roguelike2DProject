@@ -63,7 +63,7 @@ public class SoundManager : MonoBehaviour
     {
         for (int i = 0; i < bgmsSources.Length; i++)
         {
-            bgmsSources[0].volume = (volume / maxSliderValue) * maxAudioSourceVolume;      // 원래 배경음악의 최대치는 0.4이다.
+            bgmsSources[i].volume = (volume / maxSliderValue) * maxAudioSourceVolume;      // 원래 배경음악의 최대치는 0.4이다.
         }
 
         PlayerPrefs.SetFloat(ppBGMVolume, volume);
@@ -74,7 +74,7 @@ public class SoundManager : MonoBehaviour
     {
         for (int i = 0; i < effectSources.Length; i++)
         {
-            effectSources[0].volume = (volume / maxSliderValue) * maxAudioSourceVolume;      // 원래 효과음의 최대치는 0.4이다.
+            effectSources[i].volume = (volume / maxSliderValue) * maxAudioSourceVolume;      // 원래 효과음의 최대치는 0.4이다.
         }
 
         PlayerPrefs.SetFloat(ppBGMEffect, volume);

@@ -12,7 +12,7 @@ public class MenuController : MonoBehaviour
 
     public void ShowPauseMenu()
     {
-        SoundManager.instance.PlaySoundEffect("메뉴클릭1");
+        SoundManager.instance.PlaySoundEffect("메뉴클릭");
         backgroundMenu.SetActive(true);
         Time.timeScale = 0f;
         gameObject.SetActive(false);
@@ -21,7 +21,7 @@ public class MenuController : MonoBehaviour
 
     public void OnClcikContinue()
     {
-        SoundManager.instance.PlaySoundEffect("메뉴클릭1");
+        SoundManager.instance.PlaySoundEffect("메뉴클릭");
         gameObject.SetActive(true);
         Time.timeScale = 1f;
         backgroundMenu.SetActive(false);

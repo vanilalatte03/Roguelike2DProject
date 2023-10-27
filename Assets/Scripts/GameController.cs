@@ -119,6 +119,7 @@ public class GameController : MonoBehaviour
 
     private void KillPlayer()
     {
+        SoundManager.instance.PlaySoundEffect("플레이어죽음");
         Time.timeScale = 0f;
         GameOverUI.ShowGameOverBack();
     }
