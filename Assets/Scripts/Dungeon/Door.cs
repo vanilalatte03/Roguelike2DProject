@@ -15,7 +15,7 @@ public class Door : MonoBehaviour
 
     private GameObject player;
     private float widthOffset = 11.5f;
-    private float heightOffset = 6.5f;
+    private float heightOffset = 6.3f;
 
     private void Start()
     {
@@ -29,7 +29,7 @@ public class Door : MonoBehaviour
             switch (doorType)
             {
                 case DoorType.bottom:
-                    player.transform.position = new Vector2(transform.position.x, transform.position.y - heightOffset);
+                    player.transform.position = new Vector2(transform.position.x, transform.position.y - heightOffset + 0.25f);
                     break;
                 case DoorType.left:
                     player.transform.position = new Vector2(transform.position.x - widthOffset, transform.position.y);
