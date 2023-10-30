@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 6601337097727156041}
   - component: {fileID: 4064269258592132465}
   m_Layer: 0
-  m_Name: poison
+  m_Name: WarmPoison
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
