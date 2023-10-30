@@ -91,9 +91,9 @@ public class Bullet : MonoBehaviour
         }
 
         // 플레이어가 쏘는 화살
-        else if ((col.tag == "SandEnemy") && (!isEnemyBullet && !isGuardianBullet))
+        else if ((col.tag == "GiantEnemy") && (!isEnemyBullet && !isGuardianBullet))
         {
-            col.GetComponent<SandEnemy>().Damaged();
+            col.GetComponent<GiantEnemy>().Damaged();
             Destroy(gameObject);
         }
 

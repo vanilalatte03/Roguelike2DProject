@@ -8,9 +8,9 @@ TagManager:
   - Wall
   - Trap
   - Way
-  - SandEnemy
   - GuardianEnemy
   - WarmEnemy
+  - GiantEnemy
   layers:
   - Default
   - TransparentFX

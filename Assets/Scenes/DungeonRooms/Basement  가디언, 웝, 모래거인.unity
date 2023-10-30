@@ -401,7 +401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1410179190610802494, guid: 9dd89bd353befef47b2a19847e938f40, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1410179191729089993, guid: 9dd89bd353befef47b2a19847e938f40, type: 3}
       propertyPath: m_Icon
@@ -520,12 +520,12 @@ GameObject:
   - component: {fileID: 235179820}
   - component: {fileID: 235179824}
   m_Layer: 0
-  m_Name: SandEnemy
-  m_TagString: SandEnemy
+  m_Name: GiantEnemy
+  m_TagString: GiantEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &235179819
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -564,12 +564,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e2fe36b8f1d7543bfd777b15ba2da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 15
+  maxHealth: 1
   range: 5
   speed: 1
   attackCool: 1
+  ranPotionDropPercent: 25
+  potionPrefab: {fileID: 3948017463095795597, guid: 207f616b5e4211d47addf96fb4222333, type: 3}
   canvas: {fileID: 1067754638}
   hpSlider: {fileID: 1344773705}
+  map: {fileID: 1218648338}
 --- !u!50 &235179821
 Rigidbody2D:
   serializedVersion: 4
@@ -5344,7 +5347,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1601788054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.82, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6413,6 +6416,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 8df2cb2bb4d2ef84fbf48d8b84169b10, type: 3}
   - name: "\uC911\uAC04\uBAB9\uC0AC\uB9DD"
     clip: {fileID: 8300000, guid: 20cfe96c100fe41bdbb51fb9c6065cb8, type: 3}
+  - name: "\uB4DC\uB78D\uB41C\uCCB4\uB825\uD68C\uBCF5"
+    clip: {fileID: 8300000, guid: b92c1ff9863b24d788856fa1591cb577, type: 3}
   bgmSounds:
   - name: 
     clip: {fileID: 0}

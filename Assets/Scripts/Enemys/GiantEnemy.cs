@@ -3,22 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum SandEnemyState
+public enum GiantEnemyState
 {
-    Wander,     // 떠도는 상태 (= Idle 상태)
-    Follow,     // 플레이어를 따라오는 상태
-    Die         // 죽음
+    Wander,         // 떠도는 상태 (= Idle 상태)
+    // Follow,      // 플레이어를 따라오는 상태
+    Mount,          // 플레이어를 찾으면 몸을 늘려 벽을 막는 상태
+    Die             // 죽음
     // Attack은 OnTrigger로 구현
 }
 
-public class SandEnemy : MonoBehaviour
+public class GiantEnemy : MonoBehaviour
 {
     private Animator animator;
     private Transform player;
     private SpriteRenderer sprite;
     private Rigidbody2D rigid;
 
-    private SandEnemyState curState = SandEnemyState.Wander;
+    private GiantEnemyState curState = GiantEnemyState.Wander;
 
     private int curHealth;          // 모래 거인 현재 체력
 
@@ -34,6 +35,12 @@ public class SandEnemy : MonoBehaviour
     [SerializeField]
     private float attackCool;    // 공격 쿨타임
 
+    [SerializeField][Range(0, 100)]
+    private int ranPotionDropPercent = 25;
+
+    [SerializeField]
+    private GameObject potionPrefab;
+
     [SerializeField]
     private Canvas canvas;
 
@@ -44,6 +51,13 @@ public class SandEnemy : MonoBehaviour
     private bool coolDownAttack = false;
     private Vector3 randomDir;
     private int rndNum;
+
+    private float enemyHeight;
+    private float mapHeight;
+    private bool mounted;
+
+    [SerializeField]
+    private Transform map;
 
     private void Awake()
     {
@@ -58,33 +72,38 @@ public class SandEnemy : MonoBehaviour
         curHealth = maxHealth;
         hpSlider.maxValue = maxHealth;
         hpSlider.value = curHealth;
+        enemyHeight = sprite.bounds.size.y;
+        mapHeight = map.localScale.y;
     } 
 
     private void FixedUpdate()
     {
         switch(curState)
         {
-            case SandEnemyState.Wander:
+            case GiantEnemyState.Wander:
                 Wander();
-                break;     
-            case SandEnemyState.Follow:
-                Follow();
                 break;
-            case SandEnemyState.Die:
+            /*            case GiantEnemyState.Follow:
+                            Follow();
+                            break;*/
+
+            case GiantEnemyState.Mount:
+                Mount();
+                break;
+
+            case GiantEnemyState.Die:
                 break;
         }
 
         // 범위안에 플레이어가 있고, 현재 죽지 않았다면
-        if (IsPlayerInRange(range) && curState != SandEnemyState.Die)
+        if (IsPlayerInRange(range) && curState != GiantEnemyState.Die)
         {
-            Debug.Log("플레이어 찾음");
-            curState = SandEnemyState.Follow;
+            curState = GiantEnemyState.Mount;
         } 
 
-        else if (!IsPlayerInRange(range) && curState != SandEnemyState.Die)
+        else if (!IsPlayerInRange(range) && curState != GiantEnemyState.Die)
         {
-            Debug.Log("플레이어 못 찾음");
-            curState = SandEnemyState.Wander;
+            curState = GiantEnemyState.Wander;
         }
     }
 
@@ -124,24 +143,25 @@ public class SandEnemy : MonoBehaviour
         }
 
         else if (rndNum == 1)
-            curState = SandEnemyState.Wander;
+            curState = GiantEnemyState.Wander;
 
         if (IsPlayerInRange(range))
         {
-            curState = SandEnemyState.Follow;
+            curState = GiantEnemyState.Mount;
         } 
     }
 
-    void Follow()
+    // 잠시 생략
+    /*void Follow()
     {
-        /* transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);*/
+        *//* transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);*//*
 
         Vector2 newPosition = Vector2.MoveTowards(rigid.position, player.position, speed * Time.deltaTime);
 
         sprite.flipX = player.position.x > transform.position.x;
 
         rigid.MovePosition(newPosition);
-    }
+    }*/
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -187,10 +207,41 @@ public class SandEnemy : MonoBehaviour
         }
     }
 
+    private void Mount()
+    {
+        animator.SetBool("attack", true);
+        if (mounted) return;
+
+        mounted = true;
+
+        int rowCount = Mathf.FloorToInt(mapHeight / enemyHeight);
+
+        for (int i=0; i< rowCount; i++)
+        {
+            Vector3 spawnPosition = new Vector3(0, i * enemyHeight - mapHeight / 2, 0);
+            Instantiate(this.gameObject, spawnPosition, Quaternion.identity);
+        }
+    }
+
     public void Death()
     {
         Debug.Log("모래거인 사망!");
+
+        // 25퍼의 확률로 플레이어 체력 1회복
+        int ran = Random.Range(0, 100);
+ 
+        if (ran <= ranPotionDropPercent)
+        {
+            Debug.Log("체력회복!");
+            GameObject hpPotion = Instantiate(potionPrefab, transform.position, Quaternion.identity);
+            hpPotion.GetComponent<DropedPotion>().healHP = (int)(Random.Range(1, 8));    // 1~8사이 랜덤 체력 회복
+        } else
+        {
+            Debug.Log("운이 없군요. 아이템 드랍 실패");
+        }
+
         Destroy(gameObject);
+
         // RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());      
     }
 }
