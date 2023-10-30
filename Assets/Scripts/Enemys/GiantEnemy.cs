@@ -42,6 +42,9 @@ public class GiantEnemy : MonoBehaviour
     private GameObject potionPrefab;
 
     [SerializeField]
+    private GameObject copyedGiantEnemy;
+
+    [SerializeField]
     private Canvas canvas;
 
     [SerializeField]
@@ -59,21 +62,34 @@ public class GiantEnemy : MonoBehaviour
     [SerializeField]
     private Transform map;
 
+    [SerializeField]
+    private bool isCopyed;
+
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         rigid = GetComponent<Rigidbody2D>();
     }
 
     // 게임 컨트롤 할당 전에 찾으면 오류가 나므로 Start에서 선언
     private void Start()
-    {       
-        player = GameController.instance.player.transform;
+    {
+        // 분신이면 그냥 start함수에서 바로 적용 (애니만 있음)
+        if (isCopyed)
+        {
+            curState = GiantEnemyState.Wander;
+        }
+        else
+        {
+            player = GameController.instance.player.transform;
+            enemyHeight = sprite.bounds.size.y;
+            mapHeight = map.localScale.y;
+        }
+
         curHealth = maxHealth;
         hpSlider.maxValue = maxHealth;
         hpSlider.value = curHealth;
-        enemyHeight = sprite.bounds.size.y;
-        mapHeight = map.localScale.y;
     } 
 
     private void FixedUpdate()
@@ -81,13 +97,20 @@ public class GiantEnemy : MonoBehaviour
         switch(curState)
         {
             case GiantEnemyState.Wander:
-                Wander();
+                animator.SetBool("move", true);
+
+                if (!isCopyed)
+                {
+                    Wander();
+                } 
+
                 break;
             /*            case GiantEnemyState.Follow:
                             Follow();
                             break;*/
 
             case GiantEnemyState.Mount:
+                animator.SetBool("move", false);
                 Mount();
                 break;
 
@@ -95,13 +118,17 @@ public class GiantEnemy : MonoBehaviour
                 break;
         }
 
+        // 분신 몬스터는 아래 로직을 수행하지 않는다
+        if (isCopyed) return;
+
         // 범위안에 플레이어가 있고, 현재 죽지 않았다면
         if (IsPlayerInRange(range) && curState != GiantEnemyState.Die)
         {
             curState = GiantEnemyState.Mount;
         } 
 
-        else if (!IsPlayerInRange(range) && curState != GiantEnemyState.Die)
+        // 이미 한번 마운트했으면 더이상 wander하지 않는다.
+        else if (!IsPlayerInRange(range) && curState != GiantEnemyState.Die && !mounted)
         {
             curState = GiantEnemyState.Wander;
         }
@@ -109,11 +136,6 @@ public class GiantEnemy : MonoBehaviour
 
     private bool IsPlayerInRange(float range)
     {
-/*        if (player.position.x - transform.position.x < 0)
-            sprite.flipX = false;
-        else
-            sprite.flipX = true;*/
-
         return Vector3.Distance(transform.position, player.position) <= range;
     }
 
@@ -209,17 +231,21 @@ public class GiantEnemy : MonoBehaviour
 
     private void Mount()
     {
-        animator.SetBool("attack", true);
         if (mounted) return;
 
         mounted = true;
+        float startY = -mapHeight / 2 + enemyHeight / 2;
 
-        int rowCount = Mathf.FloorToInt(mapHeight / enemyHeight);
-
-        for (int i=0; i< rowCount; i++)
+        // 분신을 생성하며, 분신의 높이가 맵의 전체 높이를 초과하지 않도록 함
+        for (float y = startY; y <= mapHeight / 2; y += enemyHeight)
         {
-            Vector3 spawnPosition = new Vector3(0, i * enemyHeight - mapHeight / 2, 0);
-            Instantiate(this.gameObject, spawnPosition, Quaternion.identity);
+            if (gameObject.activeSelf)
+            {
+                gameObject.SetActive(false);
+            }
+            Vector3 spawnPosition = new Vector3(transform.position.x, y, 0);
+            GameObject copyed = Instantiate(copyedGiantEnemy, spawnPosition, Quaternion.identity);
+            copyed.GetComponent<SpriteRenderer>().flipX = transform.position.x < player.position.x;
         }
     }
 

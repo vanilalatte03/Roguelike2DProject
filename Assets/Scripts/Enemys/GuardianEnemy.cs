@@ -80,7 +80,7 @@ public class GuardianEnemy : MonoBehaviour
                 Wander();
                 break;
             case GuardianEnemyState.Follow:
-                animator.SetBool("move", false);
+                animator.SetBool("move", true);
                 Follow();
                 break;
             case GuardianEnemyState.Die:
