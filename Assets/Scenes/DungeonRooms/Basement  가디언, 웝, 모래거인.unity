@@ -5842,7 +5842,7 @@ MonoBehaviour:
   - name: "\uC77C\uBC18\uBAB9\uC0AC\uB9DD"
     clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
   - name: "\uD50C\uB808\uC774\uC5B4\uB370\uBBF8\uC9C0"
-    clip: {fileID: 8300000, guid: 79e6baad2fd414b82a6d49ce1568d2e5, type: 3}
+    clip: {fileID: 8300000, guid: 61b13e41d8e0a28478a5f7f3e4fb9018, type: 3}
   - name: "\uC801\uD53C\uD574\uC785\uC74C"
     clip: {fileID: 8300000, guid: 0b277fead9e3348f1a29ec52ea2df788, type: 3}
   - name: "\uD50C\uB808\uC774\uC5B4\uC8FD\uC74C"
@@ -5851,6 +5851,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 20cfe96c100fe41bdbb51fb9c6065cb8, type: 3}
   - name: "\uB4DC\uB78D\uB41C\uCCB4\uB825\uD68C\uBCF5"
     clip: {fileID: 8300000, guid: b92c1ff9863b24d788856fa1591cb577, type: 3}
+  - name: "\uBAA8\uB798\uAC70\uC778\uAE38\uB9C9"
+    clip: {fileID: 8300000, guid: 79e6baad2fd414b82a6d49ce1568d2e5, type: 3}
   bgmSounds:
   - name: 
     clip: {fileID: 0}
@@ -8088,7 +8090,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 87119516432754929, guid: 4924fe9e2897ef8488194f1645da80db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.73
+      value: 5.81
       objectReference: {fileID: 0}
     - target: {fileID: 87119516432754929, guid: 4924fe9e2897ef8488194f1645da80db, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8126,6 +8128,10 @@ PrefabInstance:
       propertyPath: map
       value: 
       objectReference: {fileID: 1053358673}
+    - target: {fileID: 87119516432754930, guid: 4924fe9e2897ef8488194f1645da80db, type: 3}
+      propertyPath: mapHeight
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 87119516432754932, guid: 4924fe9e2897ef8488194f1645da80db, type: 3}
       propertyPath: m_Name
       value: GiantEnemy

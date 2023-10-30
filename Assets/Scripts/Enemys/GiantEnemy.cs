@@ -55,12 +55,11 @@ public class GiantEnemy : MonoBehaviour
     private Vector3 randomDir;
     private int rndNum;
 
-    private float enemyHeight;
-    private float mapHeight;
-    private bool mounted;
-
     [SerializeField]
-    private Transform map;
+    private float mapHeight = 8.5f;            // 맵의 높이를 가져오는 방법을 모르겠어서 대충 짐작해서 8.5로 적용함. 추후 수정 가능
+
+    private float enemyHeight;
+    private bool mounted;
 
     [SerializeField]
     private bool isCopyed;
@@ -84,7 +83,6 @@ public class GiantEnemy : MonoBehaviour
         {
             player = GameController.instance.player.transform;
             enemyHeight = sprite.bounds.size.y;
-            mapHeight = map.localScale.y;
         }
 
         curHealth = maxHealth;
@@ -234,9 +232,12 @@ public class GiantEnemy : MonoBehaviour
         if (mounted) return;
 
         mounted = true;
+
+        Debug.Log("mapHeight" + mapHeight);
+        SoundManager.instance.PlaySoundEffect("모래거인길막");
         float startY = -mapHeight / 2 + enemyHeight / 2;
 
-        // 분신을 생성하며, 분신의 높이가 맵의 전체 높이를 초과하지 않도록 함
+        // 분신을 생성하며, 분신의 높이가 맵의 전체 높이를 초과하지 않도록 함       
         for (float y = startY; y <= mapHeight / 2; y += enemyHeight)
         {
             if (gameObject.activeSelf)
@@ -247,6 +248,7 @@ public class GiantEnemy : MonoBehaviour
             GameObject copyed = Instantiate(copyedGiantEnemy, spawnPosition, Quaternion.identity);
             copyed.GetComponent<SpriteRenderer>().flipX = transform.position.x < player.position.x;
         }
+    
     }
 
     public void Death()

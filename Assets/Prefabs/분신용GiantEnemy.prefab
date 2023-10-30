@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 04001310767fc1a4082cc44d3912924d, type: 3}
   m_Color: {r: 0.7735849, g: 0.55185276, b: 0.38314345, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.48, y: 0.48}
@@ -179,7 +179,7 @@ MonoBehaviour:
   copyedGiantEnemy: {fileID: 0}
   canvas: {fileID: 2625365442753139173}
   hpSlider: {fileID: 2565089297682899948}
-  map: {fileID: 0}
+  mapHeight: 0
   isCopyed: 1
 --- !u!1 &4553017097217040967
 GameObject:
