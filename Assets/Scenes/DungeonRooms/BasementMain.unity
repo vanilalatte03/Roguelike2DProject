@@ -2149,16 +2149,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmsSources:
-  - {fileID: 0}
+  - {fileID: 882984306}
   effectSources:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 882984314}
+  - {fileID: 882984313}
+  - {fileID: 882984312}
+  - {fileID: 882984311}
+  - {fileID: 882984310}
+  - {fileID: 882984309}
+  - {fileID: 882984308}
+  - {fileID: 882984307}
   playSoundNames:
   - 
   - 
@@ -2192,8 +2192,8 @@ MonoBehaviour:
     clip: {fileID: 0}
   maxAudioSourceVolume: 0.4
   maxSliderValue: 10
-  bgmSlider: {fileID: 0}
-  effectSlider: {fileID: 0}
+  bgmSlider: {fileID: 593876121}
+  effectSlider: {fileID: 139266578}
 --- !u!4 &882984305
 Transform:
   m_ObjectHideFlags: 0
