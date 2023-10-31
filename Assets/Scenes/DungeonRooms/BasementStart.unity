@@ -808,7 +808,7 @@ GameObject:
   - component: {fileID: 83856416}
   m_Layer: 0
   m_Name: wall_0 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1643,7 +1643,7 @@ GameObject:
   - component: {fileID: 152189695}
   m_Layer: 0
   m_Name: wall_0 (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4010,7 +4010,7 @@ GameObject:
   - component: {fileID: 385412292}
   m_Layer: 0
   m_Name: wall_0 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4961,7 +4961,7 @@ GameObject:
   - component: {fileID: 458230595}
   m_Layer: 0
   m_Name: wall 1_0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6332,7 +6332,7 @@ GameObject:
   - component: {fileID: 610420149}
   m_Layer: 0
   m_Name: wall_0 (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6611,7 +6611,7 @@ GameObject:
   - component: {fileID: 621349697}
   m_Layer: 0
   m_Name: wall_0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7142,7 +7142,7 @@ GameObject:
   - component: {fileID: 657446256}
   m_Layer: 0
   m_Name: wall 1_0 (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7337,7 +7337,7 @@ GameObject:
   - component: {fileID: 671505109}
   m_Layer: 0
   m_Name: wall_0 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8828,7 +8828,7 @@ GameObject:
   - component: {fileID: 831356313}
   m_Layer: 0
   m_Name: wall_0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10861,7 +10861,7 @@ GameObject:
   - component: {fileID: 996892896}
   m_Layer: 0
   m_Name: wall_0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13982,7 +13982,7 @@ GameObject:
   - component: {fileID: 1363301364}
   m_Layer: 0
   m_Name: wall 1_0 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15353,7 +15353,7 @@ GameObject:
   - component: {fileID: 1502971249}
   m_Layer: 0
   m_Name: wall 1_0 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16004,7 +16004,7 @@ GameObject:
   - component: {fileID: 1626106810}
   m_Layer: 0
   m_Name: wall 1_0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16403,7 +16403,7 @@ GameObject:
   - component: {fileID: 1710800423}
   m_Layer: 0
   m_Name: wall 1_0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17256,7 +17256,7 @@ GameObject:
   - component: {fileID: 1790380250}
   m_Layer: 0
   m_Name: wall_0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17787,7 +17787,7 @@ GameObject:
   - component: {fileID: 1831508405}
   m_Layer: 0
   m_Name: wall 1_0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18979,7 +18979,7 @@ GameObject:
   - component: {fileID: 1925628037}
   m_Layer: 0
   m_Name: wall 1_0 (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19174,7 +19174,7 @@ GameObject:
   - component: {fileID: 1939791141}
   m_Layer: 0
   m_Name: wall_0 (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20125,7 +20125,7 @@ GameObject:
   - component: {fileID: 2134026374}
   m_Layer: 0
   m_Name: wall_0 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
