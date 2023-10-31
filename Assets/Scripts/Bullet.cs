@@ -72,7 +72,9 @@ public class Bullet : MonoBehaviour
         // 플레이어가 쏘는 화살
         if (col.tag == "Enemy" && !isEnemyBullet)
         {
-            col.gameObject.GetComponent<EnemyController>().Death();
+            col.gameObject.GetComponent<EnemyController>().Damage();
+            if (col.gameObject.GetComponent<EnemyController>().health <= 0)
+                col.gameObject.GetComponent<EnemyController>().Death();
             Destroy(gameObject);
         }
 

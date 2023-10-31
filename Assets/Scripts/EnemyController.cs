@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.SceneTemplate;
 using UnityEditorInternal.Profiling.Memory.Experimental.FileFormat;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum EnemyState
 {
@@ -23,10 +24,16 @@ public class EnemyController : MonoBehaviour
 {
     Animator animator;
     GameObject player;
+    [SerializeField]
+    private Canvas canvas;
+    [SerializeField]
+    private Slider hpSlider;
     public EnemyState currState = EnemyState.Idle;
     public EnemyType enemyType;
     public float range;
     public float speed;
+    public int maxHealth;
+    public int health;
     public float attackRange;
     public float coolDown;
     private bool chooseDir = false;
@@ -36,10 +43,14 @@ public class EnemyController : MonoBehaviour
     public GameObject bulletPrefab;
     int rndNum;
 
+
     void Start()
     {
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
+        hpSlider.maxValue = maxHealth;
+        health = maxHealth;
+        hpSlider.value = health;
     }
 
     void FixedUpdate()
@@ -86,9 +97,9 @@ public class EnemyController : MonoBehaviour
     private bool IsPlayerInRange(float range)
     {
         if (player.transform.position.x - transform.position.x < 0)
-            transform.localScale = new Vector2(-2, 2);
+            transform.GetComponent<SpriteRenderer>().flipX = true;
         else
-            transform.localScale = new Vector2(2, 2);
+            transform.GetComponent<SpriteRenderer>().flipX = false;
 
         return Vector3.Distance(transform.position, player.transform.position) <= range;
     }
@@ -113,9 +124,9 @@ public class EnemyController : MonoBehaviour
         {
             transform.position += randomDir * speed * Time.fixedDeltaTime;
             if (randomDir.x - transform.position.x < 0)
-                transform.localScale = new Vector2(-2, 2);
+                transform.GetComponent<SpriteRenderer>().flipX = true;
             else
-                transform.localScale = new Vector2(2, 2);
+                transform.GetComponent<SpriteRenderer>().flipX = false;
         }
         else if (rndNum == 1)
             currState = EnemyState.Idle;
@@ -159,6 +170,17 @@ public class EnemyController : MonoBehaviour
         coolDownAttack = true;
         yield return new WaitForSeconds(coolDown);
         coolDownAttack = false;
+    }
+
+    public void Damage()
+    {
+        health -= 1;
+        hpSlider.value = health;
+
+        if (!canvas.gameObject.activeSelf)
+        {
+            canvas.gameObject.SetActive(true);
+        }
     }
 
     public void Death()
