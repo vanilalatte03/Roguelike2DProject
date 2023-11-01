@@ -69,8 +69,10 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        bool onlyEnemyTarget = !isEnemyBullet && !isGuardianBullet;
+
         // 플레이어가 쏘는 화살
-        if (col.tag == "Enemy" && !isEnemyBullet)
+        if (col.tag == "Enemy" && onlyEnemyTarget)
         {
             col.gameObject.GetComponent<EnemyController>().Damage();
             if (col.gameObject.GetComponent<EnemyController>().health <= 0)
@@ -86,23 +88,29 @@ public class Bullet : MonoBehaviour
         }
 
         // 플레이어가 쏘는 화살이 가디언 불렛에게 맞았으면
-        else if (col.tag == "GuardianEnemy" && !isGuardianBullet)
+        else if (col.tag == "GuardianEnemy" && onlyEnemyTarget)
         {
             col.GetComponent<GuardianEnemy>().Damaged();
             Destroy(gameObject);
         }
 
         // 플레이어가 쏘는 화살이 Warm에 맞았으면
-        else if (col.tag == "WarmEnemy")
+        else if (col.tag == "WarmEnemy" && onlyEnemyTarget)
         {
             col.GetComponent<WarmEnemy>().Damaged();
             Destroy(gameObject);
         }
 
         // 플레이어가 쏘는 화살
-        else if ((col.tag == "GiantEnemy") && (!isEnemyBullet && !isGuardianBullet))
+        else if ((col.tag == "GiantEnemy") && onlyEnemyTarget)
         {
             col.GetComponent<GiantEnemy>().Damaged();
+            Destroy(gameObject);
+        }
+
+        else if ((col.tag == "FireEnemy") && onlyEnemyTarget)
+        {
+            col.GetComponent<FireEnemy>().Damaged();
             Destroy(gameObject);
         }
 

@@ -11,7 +11,11 @@ TagManager:
   - GuardianEnemy
   - WarmEnemy
   - GiantEnemy
+<<<<<<< Updated upstream
   - SphinxEnemy
+=======
+  - FireEnemy
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

@@ -151,6 +151,7 @@ public class EnemyController : MonoBehaviour
             {
                 case (EnemyType.Melee):
                     GameController.instance.DamagePlayer(1);
+                    GameController.instance.player.StartKnockBack(transform.position);
                     StartCoroutine(CoolDown());
                     break;
 

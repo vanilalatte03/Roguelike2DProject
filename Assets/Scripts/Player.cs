@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     private SpriteRenderer bowSprite;
 
     private WaitForSeconds wait;
+    private bool isKnockbacking = false;
 
     void Awake()
     {
@@ -103,6 +104,8 @@ public class Player : MonoBehaviour
     // FixedUpdate는 고정된 시간 간격으로 실행되므로 물리적 이동 로직에 안정적임.
     private void FixedUpdate()
     {
+        if (isKnockbacking) return;
+
         resultVec = resultVec.normalized * speed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + resultVec);
     }
@@ -120,10 +123,17 @@ public class Player : MonoBehaviour
 
     private IEnumerator KnockBack(Vector3 enemyPos)
     {
+        isKnockbacking = true;
         yield return wait;      // 다음 하나의 물리 프레임을 딜레이한다
 
-        Vector3 dirVec = transform.position - enemyPos;
+        Debug.Log("플레이어 넉백");
 
-        transform.position = Vector3.Lerp(transform.position, dirVec, 5 * Time.deltaTime);
+        Vector3 dirVec = transform.position - enemyPos;
+        dirVec.Normalize(); // 방향 벡터 정규화
+
+        Debug.DrawLine(transform.position, transform.position + dirVec, Color.red, 5f);
+        rb.AddForce(dirVec * 1.5f, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(0.2f);
+        isKnockbacking = false;
     }
 }
