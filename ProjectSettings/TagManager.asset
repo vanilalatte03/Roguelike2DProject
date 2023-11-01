@@ -11,6 +11,7 @@ TagManager:
   - GuardianEnemy
   - WarmEnemy
   - GiantEnemy
+  - SphinxEnemy
   layers:
   - Default
   - TransparentFX

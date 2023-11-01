@@ -4,6 +4,8 @@ public class CircleShot : MonoBehaviour
 {
 
     //발사될 총알 오브젝트
+    [SerializeField]
+    private GameObject start;
     public GameObject Bullet;
 
     private void Update()
@@ -24,7 +26,7 @@ public class CircleShot : MonoBehaviour
             Destroy(temp, 2f);
 
             //총알 생성 위치를 (0,0) 좌표로 한다.
-            temp.transform.position = Vector2.zero;
+            temp.transform.position = start.transform.position;
 
             //Z에 값이 변해야 회전이 이루어지므로, Z에 i를 대입한다.
             temp.transform.rotation = Quaternion.Euler(0, 0, i);

@@ -78,6 +78,13 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
+        // 플레이어가 쏘는 화살이 스핑크스에게 맞았으면
+        else if (col.tag == "SphinxEnemy" && !isBossBullet)
+        {
+            col.GetComponent<SphinxEnemy>().Damaged();
+            Destroy(gameObject);
+        }
+
         // 플레이어가 쏘는 화살이 가디언 불렛에게 맞았으면
         else if (col.tag == "GuardianEnemy" && !isGuardianBullet)
         {
@@ -106,10 +113,17 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
+        // boss가 쏘는 화살
+        else if (col.tag == "Player" && isBossBullet)
+        {
+            GameController.instance.DamagePlayer(2);
+            Destroy(gameObject);
+        }
+
         // 일반 guardianEnemy가 쏘는 화살
         else if (col.tag == "Player" && isGuardianBullet)
         {
-            GameController.instance.DamagePlayer(1);     
+            GameController.instance.DamagePlayer(2);     
             Destroy(gameObject);
         }
     }
