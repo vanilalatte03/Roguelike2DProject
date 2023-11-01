@@ -7321,6 +7321,7 @@ GameObject:
   - component: {fileID: 722836592}
   - component: {fileID: 722836591}
   - component: {fileID: 722836590}
+  - component: {fileID: 722836593}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -7395,9 +7396,28 @@ Transform:
   - {fileID: 152886446}
   - {fileID: 123834047}
   - {fileID: 1452772812}
+  - {fileID: 1953532929}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &722836593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722836589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c66678b4fcb0de4b9ad5fe82ddcd883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 1953532930}
+  spawnerData:
+  - name: ChaseEnemy
+    spawnerData: {fileID: 11400000, guid: 557bde134f23e654ab9abc92fd3e3243, type: 2}
+  - name: Slime
+    spawnerData: {fileID: 11400000, guid: 7dde71e49da406543b68cef6a2a1d3c4, type: 2}
 --- !u!1 &732747044
 GameObject:
   m_ObjectHideFlags: 0
@@ -17846,6 +17866,58 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1953532928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1953532929}
+  - component: {fileID: 1953532930}
+  m_Layer: 0
+  m_Name: Grid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1953532929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953532928}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 722836592}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1953532930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953532928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb64947e317f15b4a88992ac9d2c7389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: {fileID: 0}
+  grid:
+    columns: 0
+    rows: 0
+    verticalOffset: 4.5
+    horizontalOffset: 9.5
+  gridTile: {fileID: 5365705541069704287, guid: 934eca75a9688404b95d4bb99b184018, type: 3}
+  availablePoints: []
 --- !u!1 &1963937750
 GameObject:
   m_ObjectHideFlags: 0

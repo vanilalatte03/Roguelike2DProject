@@ -503,6 +503,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChaseEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3799081000794251103, guid: af1e1c610323a6845a6f08cea3a8ec5c, type: 3}
+      propertyPath: m_Mass
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3799081000794251103, guid: af1e1c610323a6845a6f08cea3a8ec5c, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8773966076121975734, guid: af1e1c610323a6845a6f08cea3a8ec5c, type: 3}
       propertyPath: m_SortingOrder
       value: 0
@@ -4573,9 +4581,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 599118668578948157, guid: 6b383d43f8e71e449af82f6bf1324a57, type: 3}
+      propertyPath: m_Mass
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 599118668578948157, guid: 6b383d43f8e71e449af82f6bf1324a57, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4442226970233411792, guid: 6b383d43f8e71e449af82f6bf1324a57, type: 3}
       propertyPath: m_Name
       value: Slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442226970233411794, guid: 6b383d43f8e71e449af82f6bf1324a57, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4442226970233411805, guid: 6b383d43f8e71e449af82f6bf1324a57, type: 3}
       propertyPath: m_RootOrder
