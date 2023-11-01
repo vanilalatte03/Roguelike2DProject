@@ -503,6 +503,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChaseEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8773966076121975734, guid: af1e1c610323a6845a6f08cea3a8ec5c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af1e1c610323a6845a6f08cea3a8ec5c, type: 3}
 --- !u!1 &108690834
@@ -6572,7 +6576,6 @@ MonoBehaviour:
   joy: {fileID: 1550829256}
   resultVec: {x: 0, y: 0}
   bowSprite: {fileID: 1648174417}
-  warnning: {fileID: 0}
 --- !u!50 &1743792732
 Rigidbody2D:
   serializedVersion: 4

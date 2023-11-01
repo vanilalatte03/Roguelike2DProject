@@ -80,7 +80,7 @@ public class GuardianEnemy : MonoBehaviour
                 Wander();
                 break;
             case GuardianEnemyState.Follow:
-                animator.SetBool("move", true);
+                animator.SetBool("move", false);
                 Follow();
                 break;
             case GuardianEnemyState.Die:
@@ -153,12 +153,12 @@ public class GuardianEnemy : MonoBehaviour
         Invoke("Attack", attackDelay);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             GameController.instance.DamagePlayer(1);
-            
+
             // 잠시 보류
             // collision.GetComponent<Player>().StartKnockBack(transform.position);
         }

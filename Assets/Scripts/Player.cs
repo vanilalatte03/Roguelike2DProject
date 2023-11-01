@@ -22,9 +22,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     private SpriteRenderer bowSprite;
 
-    [SerializeField]
-    private GameObject warnning;
-
     private WaitForSeconds wait;
 
     void Awake()
@@ -40,6 +37,8 @@ public class Player : MonoBehaviour
         speed = GameController.instance.MoveSpeed;
         wait = new WaitForSeconds(0.1f);
     }
+
+
 
     private void Update()
     {

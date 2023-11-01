@@ -181,6 +181,15 @@ public class EnemyController : MonoBehaviour
         {
             canvas.gameObject.SetActive(true);
         }
+
+        if (health <= 0)
+        {
+            SoundManager.instance.PlaySoundEffect("Áß°£¸÷»ç¸Á");
+        }
+        else
+        {
+            SoundManager.instance.PlaySoundEffect("ÀûÇÇÇØÀÔÀ½");
+        }
     }
 
     public void Death()

@@ -171,7 +171,7 @@ public class GiantEnemy : MonoBehaviour
         } 
     }
 
-    // 잠시 생략
+    // 거인 몹은 따라다니지 않으므로 생략
     /*void Follow()
     {
         *//* transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);*//*
@@ -183,9 +183,9 @@ public class GiantEnemy : MonoBehaviour
         rigid.MovePosition(newPosition);
     }*/
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             Attack();
         }
