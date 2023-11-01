@@ -3,24 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Enemy
-  - Wall
-  - Trap
-  - Way
-  - GuardianEnemy
-  - WarmEnemy
-  - GiantEnemy
-<<<<<<< Updated upstream
-  - SphinxEnemy
-=======
-  - FireEnemy
->>>>>>> Stashed changes
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Background
+  - 
   - Water
   - UI
   - 
@@ -50,15 +38,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Behind
-    uniqueID: 117045447
-    locked: 0
-  - name: Wall
-    uniqueID: 354662001
-    locked: 0
-  - name: Way
-    uniqueID: 1720802253
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
