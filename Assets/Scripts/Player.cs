@@ -38,8 +38,6 @@ public class Player : MonoBehaviour
         wait = new WaitForSeconds(0.1f);
     }
 
-
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

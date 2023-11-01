@@ -35,8 +35,8 @@ public class GiantEnemy : MonoBehaviour
     [SerializeField]
     private float attackCool;    // 공격 쿨타임
 
-    [SerializeField][Range(0, 100)]
-    private int ranPotionDropPercent = 25;
+    [Range(0, 100)]
+    public int ranPotionDropPercent = 25;
 
     [SerializeField]
     private GameObject potionPrefab;
@@ -234,8 +234,12 @@ public class GiantEnemy : MonoBehaviour
         mounted = true;
 
         Debug.Log("mapHeight" + mapHeight);
+
         SoundManager.instance.PlaySoundEffect("모래거인길막");
         float startY = -mapHeight / 2 + enemyHeight / 2;
+
+        GameObject closestCopyed = null;
+        float closestDistance = float.MaxValue;
 
         // 분신을 생성하며, 분신의 높이가 맵의 전체 높이를 초과하지 않도록 함       
         for (float y = startY; y <= mapHeight / 2; y += enemyHeight)
@@ -247,8 +251,29 @@ public class GiantEnemy : MonoBehaviour
             Vector3 spawnPosition = new Vector3(transform.position.x, y, 0);
             GameObject copyed = Instantiate(copyedGiantEnemy, spawnPosition, Quaternion.identity);
             copyed.GetComponent<SpriteRenderer>().flipX = transform.position.x < player.position.x;
+
+            // 원본 enemy와 분신 간의 거리 계산
+            float distance = Vector3.Distance(transform.position, copyed.transform.position);
+
+            // 가장 가까운 분신 업데이트
+            if (distance < closestDistance)
+            {
+                closestCopyed = copyed;
+                closestDistance = distance;
+            }
         }
-    
+
+
+        // 가장 가까운 분신의 투명도 설정
+        if (closestCopyed != null)
+        {
+            closestCopyed.GetComponent<GiantEnemy>().ranPotionDropPercent = 100;
+
+            SpriteRenderer closestRenderer = closestCopyed.GetComponent<SpriteRenderer>();           
+            Color newColor = closestRenderer.color;
+            newColor.a = 1f; // 원하는 투명도로 설정
+            closestRenderer.color = newColor;
+        }
     }
 
     public void Death()
