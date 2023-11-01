@@ -13,7 +13,7 @@ public class SphinxEnemy : MonoBehaviour
     private Slider hpSlider;
     public int maxHealth;
     public int health;
-    public float coolDown;
+    private float coolDown;
     private bool coolDownAttack = false;
     public bool notInRoom = false;
     public GameObject bulletPrefab;

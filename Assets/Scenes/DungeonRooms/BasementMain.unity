@@ -3811,6 +3811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3685154ff789bb74a9b7b7e96e66ca5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sphinx: {fileID: 0}
   collectedNames: []
   healthText: {fileID: 664102521}
   player: {fileID: 1743792729}

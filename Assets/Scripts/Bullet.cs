@@ -15,13 +15,12 @@ public class Bullet : MonoBehaviour
 
     [SerializeField]
     private float speed = 5.0f;                      // guardianEnemy 유도탄 속도
-    
+
     [SerializeField]
     private float rotationSpeed = 200.0f;            // guardianEnemy 유도탄 회전 속도
 
     [SerializeField]
     private GameObject spriteObject;                 // (가디언 몬스터 전용) sprite는 그냥 두기 위해서, 다른 타겟 트랜스폼을 둔다.
-
 
     void Start()
     {
@@ -124,14 +123,14 @@ public class Bullet : MonoBehaviour
         // boss가 쏘는 화살
         else if (col.tag == "Player" && isBossBullet)
         {
-            GameController.instance.DamagePlayer(2);
+            GameController.instance.DamagePlayer(1);
             Destroy(gameObject);
         }
 
         // 일반 guardianEnemy가 쏘는 화살
         else if (col.tag == "Player" && isGuardianBullet)
         {
-            GameController.instance.DamagePlayer(2);     
+            GameController.instance.DamagePlayer(1);     
             Destroy(gameObject);
         }
     }

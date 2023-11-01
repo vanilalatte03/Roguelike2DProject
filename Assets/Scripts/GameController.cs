@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject Sphinx;
     public static GameController instance;
 
     private float health = 6;
