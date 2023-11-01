@@ -7418,6 +7418,10 @@ MonoBehaviour:
     spawnerData: {fileID: 11400000, guid: 557bde134f23e654ab9abc92fd3e3243, type: 2}
   - name: Slime
     spawnerData: {fileID: 11400000, guid: 7dde71e49da406543b68cef6a2a1d3c4, type: 2}
+  - name: Warm
+    spawnerData: {fileID: 11400000, guid: aa98671e12642c447ad74de2f4541b76, type: 2}
+  - name: Guardian
+    spawnerData: {fileID: 11400000, guid: 88fdb582005f15044ab582fe35a1dfef, type: 2}
 --- !u!1 &732747044
 GameObject:
   m_ObjectHideFlags: 0
