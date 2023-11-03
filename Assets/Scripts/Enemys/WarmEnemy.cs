@@ -129,8 +129,7 @@ public class WarmEnemy : MonoBehaviour
         {
             GameController.instance.DamagePlayer(1);
 
-            // 잠시 보류
-            // collision.GetComponent<Player>().StartKnockBack(transform.position);
+            collision.gameObject.GetComponent<Player>().StartKnockBack(transform.position);
         }
     }
 

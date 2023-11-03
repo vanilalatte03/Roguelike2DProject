@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    [SerializeField] [Range(1f, 10f)] float barSpeed = 3f;
+    // [SerializeField] [Range(1f, 10f)] float barSpeed = 3f;           사용하지 않으므로 일단 주석
     public VariableJoystick joy;
 
     private float speed;
@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     Animator animator;
 
     [HideInInspector]
-    public Vector2 resultVec;           //     기존의 Vector2 moveVec; 변수 대체
+    public Vector2 resultVec;                   // 기존의 Vector2 moveVec; 변수 대체
 
     [SerializeField]
     private SpriteRenderer bowSprite;

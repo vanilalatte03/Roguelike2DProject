@@ -33,16 +33,20 @@ public class FireEnemy : MonoBehaviour
     private float attackCoolTime = 1f;
 
     [SerializeField]
-    private GameObject pillarPrefab;
+    private GameObject[] pillarPrefabs;
 
     private GameObject pillarObj;
-    private Vector3 playerLastPos;
+
 
     private FireState curState = FireState.Idle;
-    private bool prevFounPlayerTime = false;
-    private bool coolDownAttack = false;
 
- 
+    private bool isCoolDown;
+    private bool isGeneratingFire;
+
+    private bool initialWait = true;
+    private float initialWaitTime = 3f;
+
+
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -52,7 +56,6 @@ public class FireEnemy : MonoBehaviour
     {
         player = GameController.instance.player;
         playerTransform = player.transform;
-        playerLastPos = playerTransform.position;
         curHealth = maxHealth;
         hpSlider.maxValue = maxHealth;
         hpSlider.value = curHealth;       
@@ -88,23 +91,52 @@ public class FireEnemy : MonoBehaviour
     private void Attack()
     {
         if (playerTransform.position.x - transform.position.x < 0)
-            sprite.flipX = false;
+            transform.localScale = new Vector3(4, 4, 1);
+
         else
-            sprite.flipX = true;
+            transform.localScale = new Vector3(-4, 4, 1);
 
-        // 무작위 위치를 계산합니다.
-
-
-        if (!coolDownAttack)
+        if (initialWait)
         {
-            StartCoroutine(CoolDown());
-            if (!prevFounPlayerTime)
+            initialWaitTime -= Time.deltaTime;
+            if (initialWaitTime <= 0)
             {
-                StartCoroutine(FounPlayerCool());
+                initialWait = false;
             }
-        }     
+        } 
+        
+        else
+        {  
+            if (!isCoolDown && !isGeneratingFire)
+            {
+                StartCoroutine(SpwanFire());
+                StartCoroutine(CoolDown());
+            }
+        } 
     }
 
+    private IEnumerator SpwanFire()
+    {
+        isGeneratingFire = true;
+        Vector3 playerLastPos = playerTransform.position;
+        yield return new WaitForSeconds(prevPlayerPosTime);
+
+        int index = Random.Range(0, pillarPrefabs.Length);
+
+        Instantiate(pillarPrefabs[index], playerLastPos, Quaternion.identity);
+        isGeneratingFire = false;     
+    }
+
+    private IEnumerator CoolDown()
+    {
+        isCoolDown = true;
+
+        yield return new WaitForSeconds(attackCoolTime);
+
+        isCoolDown = false;
+    }
+
+/*
     private IEnumerator CoolDown()
     {
         coolDownAttack = true;
@@ -120,9 +152,11 @@ public class FireEnemy : MonoBehaviour
         prevFounPlayerTime = true;
         yield return new WaitForSeconds(prevPlayerPosTime);
 
-        pillarObj = Instantiate(pillarPrefab, playerLastPos, Quaternion.identity);
+        int ranIndex = Random.Range(0, pillarPrefabs.Length);
+
+        Instantiate(pillarPrefabs[ranIndex], playerLastPos, Quaternion.identity);
         prevFounPlayerTime = false;
-    }
+    }   */
 
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -132,10 +166,10 @@ public class FireEnemy : MonoBehaviour
             GameController.instance.DamagePlayer(1);
 
             // 잠시 보류
-            // collision.GetComponent<Player>().StartKnockBack(transform.position);
+            GameController.instance.player.StartKnockBack(transform.position);
+            collision.gameObject.GetComponent<Player>().StartKnockBack(transform.position);
         }
     }
-
 
     public void Damaged()
     {
@@ -157,8 +191,6 @@ public class FireEnemy : MonoBehaviour
             SoundManager.instance.PlaySoundEffect("적피해입음");
         }
     }
-
-
 
     public void Death()
     {
