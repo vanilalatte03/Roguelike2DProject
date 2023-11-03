@@ -26,23 +26,23 @@ public class FireEnemy : MonoBehaviour
     [SerializeField]
     private int maxHealth = 3;          
 
-
+    [SerializeField]
+    private float prevPlayerPosTime = 0.3f;
 
     [SerializeField]
-    private float attackCool = 3f;
+    private float attackCoolTime = 1f;
 
     [SerializeField]
     private GameObject pillarPrefab;
 
-    private GameObject prllarObj;
+    private GameObject pillarObj;
+    private Vector3 playerLastPos;
 
     private FireState curState = FireState.Idle;
+    private bool prevFounPlayerTime = false;
     private bool coolDownAttack = false;
-    private Vector3 spawnPosition;
 
-    [SerializeField]
-    private float radius;
-
+ 
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -52,9 +52,10 @@ public class FireEnemy : MonoBehaviour
     {
         player = GameController.instance.player;
         playerTransform = player.transform;
+        playerLastPos = playerTransform.position;
         curHealth = maxHealth;
         hpSlider.maxValue = maxHealth;
-        hpSlider.value = curHealth;
+        hpSlider.value = curHealth;       
     }
 
     private void FixedUpdate()
@@ -93,25 +94,34 @@ public class FireEnemy : MonoBehaviour
 
         // 무작위 위치를 계산합니다.
 
+
         if (!coolDownAttack)
         {
-            Vector3 randomOffset = Random.insideUnitSphere * radius;
-
-            // 플레이어 주변 위치로 이동합니다.
-
-            spawnPosition = playerTransform.position + randomOffset;
-
-            prllarObj = Instantiate(pillarPrefab, spawnPosition, Quaternion.identity);
-
             StartCoroutine(CoolDown());
-        }
+            if (!prevFounPlayerTime)
+            {
+                StartCoroutine(FounPlayerCool());
+            }
+        }     
     }
 
     private IEnumerator CoolDown()
     {
         coolDownAttack = true;
-        yield return new WaitForSeconds(attackCool);
+
+        yield return new WaitForSeconds(attackCoolTime);
+
         coolDownAttack = false;
+    }
+
+    private IEnumerator FounPlayerCool()
+    {
+        playerLastPos = playerTransform.position;
+        prevFounPlayerTime = true;
+        yield return new WaitForSeconds(prevPlayerPosTime);
+
+        pillarObj = Instantiate(pillarPrefab, playerLastPos, Quaternion.identity);
+        prevFounPlayerTime = false;
     }
 
 

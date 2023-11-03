@@ -42,6 +42,8 @@ public class EnemyController : MonoBehaviour
     private Vector3 randomDir;
     public GameObject bulletPrefab;
     int rndNum;
+    [SerializeField]
+    private bool isSlime;           // 슬라임 몬스터는 Idle 애니가 없으므로 경고 출력.
 
 
     void Start()
@@ -58,7 +60,7 @@ public class EnemyController : MonoBehaviour
         switch (currState)
         {
             case EnemyState.Idle:
-                animator.SetBool("Idle", true);
+                if (!isSlime) animator.SetBool("Idle", true);
                 break;
             case EnemyState.Wander:
                 Wander();
@@ -111,7 +113,12 @@ public class EnemyController : MonoBehaviour
         rndNum = Random.Range(0, 1);
         randomDir = new Vector3(Random.Range(-1, 2), Random.Range(-1, 2)).normalized;
         chooseDir = false;
-        animator.SetBool("Idle", false);
+
+        // 슬라임은 Idle 애니메이션이 없음
+        if (!isSlime)
+        {
+            animator.SetBool("Idle", false);
+        }   
     }
 
     void Wander()
@@ -138,7 +145,10 @@ public class EnemyController : MonoBehaviour
 
     void Follow()
     {
-        animator.SetBool("Idle", false);
+        if (!isSlime)
+        {
+            animator.SetBool("Idle", false);
+        }   
 
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }

@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.25490198}
   m_FlipX: 0
@@ -162,7 +162,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: fbdb7f0e8a967b2498c66a33c74051dd, type: 3}
   m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
   m_FlipX: 0
@@ -182,7 +182,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 445758175334565063}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -257,8 +257,8 @@ MonoBehaviour:
   canvas: {fileID: 8558492632870461214}
   hpSlider: {fileID: 1629022924275301461}
   maxHealth: 3
-  range: 6
-  attackCool: 2
+  range: 4
+  attackCool: 2.5
   poisonPrefab: {fileID: 4698823181698615369, guid: ed7084d1081da274596143326fbc134f, type: 3}
   warnningPrefab: {fileID: 7354212454917707400, guid: c5966c99e1f49c347960e61450743a89, type: 3}
   radius: 1.5
