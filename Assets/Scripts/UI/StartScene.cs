@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StartScene : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class StartScene : MonoBehaviour
     private Image image;
     private WaitForSeconds wait;
     private int currentFrameIndex = 0;
+
+    public string StartSceneName = "BasementMain";
 
     private void Awake()
     {
@@ -37,5 +40,10 @@ public class StartScene : MonoBehaviour
 
             currentFrameIndex = (currentFrameIndex + 1) % spritesList.Count;
         }
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene(StartSceneName);
     }
 }
