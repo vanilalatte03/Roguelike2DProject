@@ -655,7 +655,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 314077455}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -2176,9 +2176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b37833cecb6434ca64d5b1c2e63124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameOverBack: {fileID: 746329492}
-  RestartButton: {fileID: 931744859}
-  retrySceneName: BasementMain
 --- !u!114 &746329495
 MonoBehaviour:
   m_ObjectHideFlags: 0

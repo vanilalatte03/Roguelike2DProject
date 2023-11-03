@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -126,8 +127,7 @@ public class GameController : MonoBehaviour
 
     private void KillPlayer()
     {
-        SoundManager.instance.PlaySoundEffect("플레이어죽음");
         Time.timeScale = 0f;
-        GameOverUI.ShowGameOverBack();
+        SceneManager.LoadScene("EndScene");
     }
 }

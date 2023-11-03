@@ -27,10 +27,13 @@ public class FireEnemy : MonoBehaviour
     private int maxHealth = 3;          
 
     [SerializeField]
-    private float prevPlayerPosTime = 0.3f;
+    private float prevPlayerPosTime = 0.55f;
 
     [SerializeField]
     private float attackCoolTime = 1f;
+
+    private WaitForSeconds waitPrevPlayerPos;
+    private WaitForSeconds waitAttackCool;
 
     [SerializeField]
     private GameObject[] pillarPrefabs;
@@ -50,6 +53,8 @@ public class FireEnemy : MonoBehaviour
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
+        waitPrevPlayerPos = new WaitForSeconds(prevPlayerPosTime);
+        waitAttackCool = new WaitForSeconds(attackCoolTime);
     }
 
     private void Start()
@@ -119,7 +124,7 @@ public class FireEnemy : MonoBehaviour
     {
         isGeneratingFire = true;
         Vector3 playerLastPos = playerTransform.position;
-        yield return new WaitForSeconds(prevPlayerPosTime);
+        yield return waitPrevPlayerPos;
 
         int index = Random.Range(0, pillarPrefabs.Length);
 
@@ -131,7 +136,7 @@ public class FireEnemy : MonoBehaviour
     {
         isCoolDown = true;
 
-        yield return new WaitForSeconds(attackCoolTime);
+        yield return waitAttackCool;
 
         isCoolDown = false;
     }

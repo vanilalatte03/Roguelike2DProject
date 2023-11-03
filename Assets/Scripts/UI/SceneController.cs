@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class StartScene : MonoBehaviour
+public class SceneController : MonoBehaviour
 {
     [SerializeField]
     private List<Sprite> spritesList;
@@ -15,8 +15,6 @@ public class StartScene : MonoBehaviour
     private Image image;
     private WaitForSeconds wait;
     private int currentFrameIndex = 0;
-
-    public string StartSceneName = "BasementMain";
 
     private void Awake()
     {
@@ -44,6 +42,6 @@ public class StartScene : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(StartSceneName);
+        SceneManager.LoadScene("BasementMain");
     }
 }
