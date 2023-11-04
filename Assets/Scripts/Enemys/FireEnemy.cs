@@ -13,7 +13,6 @@ public class FireEnemy : MonoBehaviour
 {
     private Player player;
     private Transform playerTransform;
-    private SpriteRenderer sprite;
 
     [SerializeField]
     private Canvas canvas;
@@ -24,22 +23,21 @@ public class FireEnemy : MonoBehaviour
     private int curHealth;          
 
     [SerializeField]
-    private int maxHealth = 3;          
+    private int maxHealth;
 
     [SerializeField]
-    private float prevPlayerPosTime = 0.55f;
+    private float prevPlayerPosTime;
 
     [SerializeField]
-    private float attackCoolTime = 1f;
+    private float attackCoolTime;
 
     private WaitForSeconds waitPrevPlayerPos;
-    private WaitForSeconds waitAttackCool;
 
     [SerializeField]
     private GameObject[] pillarPrefabs;
 
-    private GameObject pillarObj;
-
+    [SerializeField]
+    private GameObject paranetObj;
 
     private FireState curState = FireState.Idle;
 
@@ -49,12 +47,18 @@ public class FireEnemy : MonoBehaviour
     private bool initialWait = true;
     private float initialWaitTime = 3f;
 
+    private GameObject fireObj;
+    private bool isPowerUp = false;
+
+    [SerializeField]
+    private float powerUpHealth;
+
+    [SerializeField]
+    private float powerUpAttackCoolTime;
 
     private void Awake()
     {
-        sprite = GetComponent<SpriteRenderer>();
         waitPrevPlayerPos = new WaitForSeconds(prevPlayerPosTime);
-        waitAttackCool = new WaitForSeconds(attackCoolTime);
     }
 
     private void Start()
@@ -63,7 +67,7 @@ public class FireEnemy : MonoBehaviour
         playerTransform = player.transform;
         curHealth = maxHealth;
         hpSlider.maxValue = maxHealth;
-        hpSlider.value = curHealth;       
+        hpSlider.value = maxHealth;
     }
 
     private void FixedUpdate()
@@ -94,12 +98,13 @@ public class FireEnemy : MonoBehaviour
     }
 
     private void Attack()
-    {
+    {       
         if (playerTransform.position.x - transform.position.x < 0)
             transform.localScale = new Vector3(4, 4, 1);
 
         else
             transform.localScale = new Vector3(-4, 4, 1);
+
 
         if (initialWait)
         {
@@ -128,7 +133,25 @@ public class FireEnemy : MonoBehaviour
 
         int index = Random.Range(0, pillarPrefabs.Length);
 
-        Instantiate(pillarPrefabs[index], playerLastPos, Quaternion.identity);
+        fireObj = Instantiate(pillarPrefabs[index], playerLastPos, Quaternion.identity);
+        
+        if (isPowerUp)
+        {
+            fireObj.GetComponent<FireAttack>().donDestroy = true;
+        }
+
+        SoundManager.instance.PlaySoundEffect("불공격");
+
+        int ran = Random.Range(0, 2);
+        
+       /* if (ran == 0)
+        {
+            SoundManager.instance.PlaySoundEffect("불공격1");
+        } else
+        {
+            SoundManager.instance.PlaySoundEffect("불공격2");
+        }*/
+
         isGeneratingFire = false;     
     }
 
@@ -136,7 +159,7 @@ public class FireEnemy : MonoBehaviour
     {
         isCoolDown = true;
 
-        yield return waitAttackCool;
+        yield return new WaitForSeconds(isPowerUp ? powerUpAttackCoolTime : attackCoolTime);
 
         isCoolDown = false;
     }
@@ -179,11 +202,17 @@ public class FireEnemy : MonoBehaviour
     public void Damaged()
     {
         curHealth -= 1;
-        hpSlider.value = curHealth;
+        hpSlider.value = curHealth;  
 
         if (!canvas.gameObject.activeSelf)
         {
             canvas.gameObject.SetActive(true);
+        }
+
+        if (curHealth <= powerUpHealth && !isPowerUp)
+        {
+            isPowerUp = true;
+            SoundManager.instance.PlaySoundEffect("파워업");
         }
 
         if (curHealth <= 0)
@@ -199,8 +228,16 @@ public class FireEnemy : MonoBehaviour
 
     public void Death()
     {
-        gameObject.SetActive(false);
-        Destroy(this.gameObject, 4f);       // 독함정 로직이 돌아가야 하므로 조금 뒤에 삭제하도록 변경
+        paranetObj.SetActive(false);
+
+        GameObject[] remainFiresObj = GameObject.FindGameObjectsWithTag("FireAttack");
+    
+        for (int i=0; i< remainFiresObj.Length; i++)
+        {
+            remainFiresObj[i].GetComponent<FireAttack>().FadeStart();
+        }
+
+        Destroy(paranetObj, 4f);       // 독함정 로직이 돌아가야 하므로 조금 뒤에 삭제하도록 변경
         // RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());      
     }
 }
