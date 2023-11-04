@@ -42,9 +42,12 @@ public class EnemyController : MonoBehaviour
     private Vector3 randomDir;
     public GameObject bulletPrefab;
     int rndNum;
+
     [SerializeField]
     private bool isSlime;           // 슬라임 몬스터는 Idle 애니가 없으므로 경고 출력.
 
+    [SerializeField]
+    private GameObject destoryAnimObj;
 
     void Start()
     {
@@ -206,6 +209,8 @@ public class EnemyController : MonoBehaviour
     public void Death()
     {
         SoundManager.instance.PlaySoundEffect("일반몹사망");
+
+        // Instantiate(destoryAnimObj, transform.position, Quaternion.identity);   // 사망 이펙트, 일단 보류
 
         RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());
         Destroy(gameObject);

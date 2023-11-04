@@ -24,6 +24,7 @@ public class PoisonTrap : MonoBehaviour
     private void Start()
     {
         animator.SetFloat("speed", -1f);
+        SoundManager.instance.PlaySoundEffect("µ¶»ý¼º");
         Invoke("FadeStart", 3f);
     }
 

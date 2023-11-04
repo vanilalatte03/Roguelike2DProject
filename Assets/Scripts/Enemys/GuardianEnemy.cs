@@ -50,6 +50,9 @@ public class GuardianEnemy : MonoBehaviour
     [SerializeField]
     private Slider hpSlider;
 
+    [SerializeField]
+    private GameObject destoryAnimObj;
+
     private bool chooseDir = false;
     private bool coolDownAttack = false;
     private Vector3 randomDir;
@@ -215,7 +218,9 @@ public class GuardianEnemy : MonoBehaviour
 
     public void Death()
     {
+        Instantiate(destoryAnimObj, transform.position, Quaternion.identity);   // Á×À½ ÀÌÆåÆ®
         Destroy(gameObject);
+
         // RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());      
     }
 }

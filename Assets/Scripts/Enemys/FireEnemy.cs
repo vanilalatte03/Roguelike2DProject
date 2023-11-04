@@ -56,6 +56,9 @@ public class FireEnemy : MonoBehaviour
     [SerializeField]
     private float powerUpAttackCoolTime;
 
+    [SerializeField]
+    private GameObject destoryAnimObj;
+
     private void Awake()
     {
         waitPrevPlayerPos = new WaitForSeconds(prevPlayerPosTime);
@@ -237,7 +240,9 @@ public class FireEnemy : MonoBehaviour
             remainFiresObj[i].GetComponent<FireAttack>().FadeStart();
         }
 
-        Destroy(paranetObj, 4f);       // 독함정 로직이 돌아가야 하므로 조금 뒤에 삭제하도록 변경
+        Instantiate(destoryAnimObj, transform.position, Quaternion.identity);       // 죽음 이펙트
+            
+        Destroy(paranetObj, 4f);       // 불기둥 로직이 돌아가야 하므로 조금 뒤에 삭제하도록 변경
         // RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());      
     }
 }
