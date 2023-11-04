@@ -58,13 +58,15 @@ public class GameController : MonoBehaviour
         // 사운드 출력
         SoundManager.instance.PlaySoundEffect("플레이어데미지");
 
+
+
         // 체력감소
         health -= damage;
 
         // 카메라 흔들림 효과
         if (shake)
         {
-            // cameraShake.ShakeStart();        // 카메라 흔들림 효과 생략 
+            cameraShake.ShakeStart();       
         }       
 
         if (Health <= 0)
@@ -126,8 +128,6 @@ public class GameController : MonoBehaviour
     private void KillPlayer()
     {
         Time.timeScale = 0f;
-        
-        // 죽으면 이동하는 씬, 잠시 보류
-        // SceneManager.LoadScene("EndScene");
+        SceneManager.LoadScene("EndScene");
     }
 }

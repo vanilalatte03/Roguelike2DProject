@@ -4,14 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - FireEnemy
-  - GuardianEnemy
-  - WarmEnemy
   - Trap
+  - WarmEnemy
   - GiantEnemy
-  - SphinxEnemy
   - Enemy
-  - FireAttack
+  - GuardianEnemy
+  - Wall
+  - SphinxEnemy
+  - FireEnemy
   layers:
   - Default
   - TransparentFX
@@ -46,6 +46,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Floor
+    uniqueID: 2639219849
+    locked: 0
+  - name: Shadow
+    uniqueID: 2463726133
+    locked: 0
+  - name: Wall
+    uniqueID: 72038275
+    locked: 0
+  - name: Door
+    uniqueID: 152394053
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

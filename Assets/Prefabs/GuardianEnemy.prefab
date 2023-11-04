@@ -106,7 +106,7 @@ Transform:
   m_GameObject: {fileID: 1410179190610802494}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1410179191486513881}
@@ -179,7 +179,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 10000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -251,13 +251,12 @@ MonoBehaviour:
   maxHealth: 10
   range: 7
   speed: 1.5
-  attackCool: 1.42
+  attackCool: 2
   attackTransform: {fileID: 1410179191729089992}
   bulletPrefab: {fileID: 5029563573200375363, guid: 4560c296be3eb1b42b8b3e02a0edc1fe, type: 3}
-  attackDelay: 0.75
+  attackDelay: 1.08
   canvas: {fileID: 7168481037939420391}
   hpSlider: {fileID: 226626412586438572}
-  destoryAnimObj: {fileID: 8756992098867606159, guid: 7fedb3a2e13c24b48bd0670f2ccdfdfa, type: 3}
 --- !u!1 &1410179191486513862
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +400,7 @@ RectTransform:
   m_GameObject: {fileID: 1788566222017184428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.001782857, y: 0.00034142856, z: 1}
+  m_LocalScale: {x: 0.006242187, y: 0.0011973632, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2466575248039784088}
@@ -432,7 +431,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &3561461887545214839
 MonoBehaviour:
@@ -537,7 +536,7 @@ RectTransform:
   m_GameObject: {fileID: 6383995344773363626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7, y: 1.5, z: 1}
+  m_LocalScale: {x: 1, y: 1.05, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4090691471402427491}

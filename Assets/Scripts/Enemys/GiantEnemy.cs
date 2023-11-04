@@ -64,9 +64,6 @@ public class GiantEnemy : MonoBehaviour
     [SerializeField]
     private bool isCopyed;
 
-    [SerializeField]
-    private GameObject destoryAnimObj;
-
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -281,16 +278,20 @@ public class GiantEnemy : MonoBehaviour
 
     public void Death()
     {
+        Debug.Log("모래거인 사망!");
+
         // 25퍼의 확률로 플레이어 체력 1회복
         int ran = Random.Range(0, 100);
  
         if (ran <= ranPotionDropPercent)
         {
+            Debug.Log("체력회복!");
             GameObject hpPotion = Instantiate(potionPrefab, transform.position, Quaternion.identity);
             hpPotion.GetComponent<DropedPotion>().healHP = (int)(Random.Range(1, 8));    // 1~8사이 랜덤 체력 회복
-        } 
-
-        Instantiate(destoryAnimObj, transform.position, Quaternion.identity);   // 죽음 이펙트
+        } else
+        {
+            Debug.Log("운이 없군요. 아이템 드랍 실패");
+        }
 
         Destroy(gameObject);
 

@@ -124,7 +124,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01, y: 0}
+  m_Offset: {x: 0.01, y: -0.01}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -135,7 +135,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.38, y: 0.44}
+  m_Size: {x: 0.4, y: 0.45}
   m_EdgeRadius: 0
 --- !u!95 &608403051062808863
 Animator:
@@ -181,7 +181,6 @@ MonoBehaviour:
   hpSlider: {fileID: 2565089297682899948}
   mapHeight: 0
   isCopyed: 1
-  destoryAnimObj: {fileID: 6601997311558079479, guid: 8875245a03e43db468e5b709b7496efe, type: 3}
 --- !u!1 &4553017097217040967
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +240,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &5634824952382929217
 MonoBehaviour:
