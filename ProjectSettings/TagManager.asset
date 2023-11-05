@@ -58,6 +58,9 @@ TagManager:
   - name: Door
     uniqueID: 152394053
     locked: 0
+  - name: TFloor
+    uniqueID: 435617063
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
