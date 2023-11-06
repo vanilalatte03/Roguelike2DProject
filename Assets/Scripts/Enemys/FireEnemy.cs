@@ -48,7 +48,7 @@ public class FireEnemy : MonoBehaviour
 
     private bool initialWait = true;
     private float initialWaitTime = 3f;
-
+    public bool notInRoom;
 
     private void Awake()
     {
@@ -80,6 +80,8 @@ public class FireEnemy : MonoBehaviour
             default:
                 break;
         }
+
+        if (notInRoom) return;
 
         // 범위안에 플레이어가 있고, 현재 죽지 않았다면
         /*if (IsPlayerInRange(range) && curState != FireState.Die)
@@ -169,9 +171,6 @@ public class FireEnemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             GameController.instance.DamagePlayer(1);
-
-            // 잠시 보류
-            GameController.instance.player.StartKnockBack(transform.position);
             collision.gameObject.GetComponent<Player>().StartKnockBack(transform.position);
         }
     }

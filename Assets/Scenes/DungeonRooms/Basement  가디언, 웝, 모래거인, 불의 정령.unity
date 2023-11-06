@@ -345,11 +345,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1410179190610802480, guid: 9dd89bd353befef47b2a19847e938f40, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.52
+      value: 12.65
       objectReference: {fileID: 0}
     - target: {fileID: 1410179190610802480, guid: 9dd89bd353befef47b2a19847e938f40, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.22
+      value: 1.78
       objectReference: {fileID: 0}
     - target: {fileID: 1410179190610802480, guid: 9dd89bd353befef47b2a19847e938f40, type: 3}
       propertyPath: m_LocalPosition.z
@@ -395,13 +395,21 @@ PrefabInstance:
       propertyPath: attackDelay
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 1410179190610802484, guid: 9dd89bd353befef47b2a19847e938f40, type: 3}
+      propertyPath: fastRecRange
+      value: 8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410179190610802484, guid: 9dd89bd353befef47b2a19847e938f40, type: 3}
+      propertyPath: fastRecRadius
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1410179190610802494, guid: 9dd89bd353befef47b2a19847e938f40, type: 3}
       propertyPath: m_Name
       value: GuardianEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 1410179190610802494, guid: 9dd89bd353befef47b2a19847e938f40, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1410179191729089993, guid: 9dd89bd353befef47b2a19847e938f40, type: 3}
       propertyPath: m_Icon
@@ -449,7 +457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &314077456
 Animator:
   serializedVersion: 5
@@ -689,6 +697,7 @@ MonoBehaviour:
   - {fileID: 1206159572948232619, guid: 79db3b6f0dcb8d24eab39eebf51b205b, type: 3}
   - {fileID: 6391976204273882582, guid: 0a9d37724a161544da6fc3c3db401637, type: 3}
   - {fileID: 3025388569894984488, guid: 5d64879414f497641addb79c981568a3, type: 3}
+  notInRoom: 0
 --- !u!1 &320733546
 GameObject:
   m_ObjectHideFlags: 0
@@ -5381,7 +5390,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1601788054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.51, y: -0.12, z: 0}
+  m_LocalPosition: {x: -0.59, y: 0.4, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -46,6 +46,7 @@ public class WarmEnemy : MonoBehaviour
 
     [SerializeField]
     private float radius;
+    public bool notInRoom;
 
     private void Awake()
     {
@@ -76,6 +77,8 @@ public class WarmEnemy : MonoBehaviour
             default:
                 break;
         }
+
+        if (notInRoom) return;
 
         // 범위안에 플레이어가 있고, 현재 죽지 않았다면
         if (IsPlayerInRange(range) && curState != WarmState.Die)
@@ -162,6 +165,7 @@ public class WarmEnemy : MonoBehaviour
 
     public void Death()
     {
+        curState = WarmState.Die;
         gameObject.SetActive(false);
         Destroy(this.gameObject, 4f);       // 독함정 로직이 돌아가야 하므로 조금 뒤에 삭제하도록 변경
         // RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());      

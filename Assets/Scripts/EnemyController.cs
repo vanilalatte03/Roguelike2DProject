@@ -161,7 +161,7 @@ public class EnemyController : MonoBehaviour
             {
                 case (EnemyType.Melee):
                     GameController.instance.DamagePlayer(1);
-                    GameController.instance.player.StartKnockBack(transform.position);
+                    // GameController.instance.player.StartKnockBack(transform.position);       // 넉백 효과, 하위몹 계열은 약하므로 넉백 생략
                     StartCoroutine(CoolDown());
                     break;
 

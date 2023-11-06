@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: -7489653283836338429}
   m_Layer: 0
   m_Name: GuardianBullet
-  m_TagString: Untagged
+  m_TagString: GuardianBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,3 +175,4 @@ MonoBehaviour:
   speed: 3.5
   rotationSpeed: 200
   spriteObject: {fileID: 800008535557703791}
+  isGuardianBulletNotInRoom: 0

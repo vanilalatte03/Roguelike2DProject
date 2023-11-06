@@ -59,9 +59,9 @@ public class GameController : MonoBehaviour
         SoundManager.instance.PlaySoundEffect("플레이어데미지");
 
 
-
         // 체력감소
         health -= damage;
+        
 
         // 카메라 흔들림 효과
         if (shake)

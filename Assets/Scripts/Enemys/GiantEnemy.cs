@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum GiantEnemyState
+public enum GiantState
 {
     Wander,         // 떠도는 상태 (= Idle 상태)
     // Follow,      // 플레이어를 따라오는 상태
@@ -19,7 +19,7 @@ public class GiantEnemy : MonoBehaviour
     private SpriteRenderer sprite;
     private Rigidbody2D rigid;
 
-    private GiantEnemyState curState = GiantEnemyState.Wander;
+    private GiantState curState = GiantState.Wander;
 
     private int curHealth;          // 모래 거인 현재 체력
 
@@ -63,6 +63,7 @@ public class GiantEnemy : MonoBehaviour
 
     [SerializeField]
     private bool isCopyed;
+    public bool notInRoom;
 
     private void Awake()
     {
@@ -77,7 +78,7 @@ public class GiantEnemy : MonoBehaviour
         // 분신이면 그냥 start함수에서 바로 적용 (애니만 있음)
         if (isCopyed)
         {
-            curState = GiantEnemyState.Wander;
+            curState = GiantState.Wander;
         }
         else
         {
@@ -94,7 +95,7 @@ public class GiantEnemy : MonoBehaviour
     {
         switch(curState)
         {
-            case GiantEnemyState.Wander:
+            case GiantState.Wander:
                 animator.SetBool("move", true);
 
                 if (!isCopyed)
@@ -103,32 +104,34 @@ public class GiantEnemy : MonoBehaviour
                 } 
 
                 break;
-            /*            case GiantEnemyState.Follow:
+            /*            case GiantState.Follow:
                             Follow();
                             break;*/
 
-            case GiantEnemyState.Mount:
+            case GiantState.Mount:
                 animator.SetBool("move", false);
                 Mount();
                 break;
 
-            case GiantEnemyState.Die:
+            case GiantState.Die:
                 break;
         }
+
+        if (notInRoom) return;
 
         // 분신 몬스터는 아래 로직을 수행하지 않는다
         if (isCopyed) return;
 
         // 범위안에 플레이어가 있고, 현재 죽지 않았다면
-        if (IsPlayerInRange(range) && curState != GiantEnemyState.Die)
+        if (IsPlayerInRange(range) && curState != GiantState.Die)
         {
-            curState = GiantEnemyState.Mount;
+            curState = GiantState.Mount;
         } 
 
         // 이미 한번 마운트했으면 더이상 wander하지 않는다.
-        else if (!IsPlayerInRange(range) && curState != GiantEnemyState.Die && !mounted)
+        else if (!IsPlayerInRange(range) && curState != GiantState.Die && !mounted)
         {
-            curState = GiantEnemyState.Wander;
+            curState = GiantState.Wander;
         }
     }
 
@@ -163,11 +166,11 @@ public class GiantEnemy : MonoBehaviour
         }
 
         else if (rndNum == 1)
-            curState = GiantEnemyState.Wander;
+            curState = GiantState.Wander;
 
         if (IsPlayerInRange(range))
         {
-            curState = GiantEnemyState.Mount;
+            curState = GiantState.Mount;
         } 
     }
 
@@ -277,9 +280,7 @@ public class GiantEnemy : MonoBehaviour
     }
 
     public void Death()
-    {
-        Debug.Log("모래거인 사망!");
-
+    {      
         // 25퍼의 확률로 플레이어 체력 1회복
         int ran = Random.Range(0, 100);
  
@@ -288,11 +289,14 @@ public class GiantEnemy : MonoBehaviour
             Debug.Log("체력회복!");
             GameObject hpPotion = Instantiate(potionPrefab, transform.position, Quaternion.identity);
             hpPotion.GetComponent<DropedPotion>().healHP = (int)(Random.Range(1, 8));    // 1~8사이 랜덤 체력 회복
-        } else
+        } 
+
+        else
         {
             Debug.Log("운이 없군요. 아이템 드랍 실패");
         }
 
+        curState = GiantState.Die;
         Destroy(gameObject);
 
         // RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());      

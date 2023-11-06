@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum GuardianEnemyState
+public enum GuardianState
 {
     Wander,     // 떠도는 상태 (= Idle 상태)
     Follow,     // 플레이어를 따라오는 상태
@@ -19,21 +19,24 @@ public class GuardianEnemy : MonoBehaviour
     private Rigidbody2D rigid;
 
     [SerializeField]
-    private GuardianEnemyState curState = GuardianEnemyState.Wander;
+    private GuardianState curState = GuardianState.Wander;
 
     private int curHealth;          // 모래 거인 현재 체력
 
     [SerializeField]
-    private int maxHealth = 10;          // 모래 거인 최대 체력
+    private int maxHealth;          // 모래 거인 최대 체력
 
     [SerializeField]
-    private float range = 10f;         // 플레이어를 인지하는 범위
+    private float range;         // 플레이어를 인지하는 범위
 
     [SerializeField]
-    private float speed = 1.3f;        // 이동 속도
+    private float fastRecRange;
 
     [SerializeField]
-    private float attackCool = 2f;    // 공격 쿨타임
+    private float speed;        // 이동 속도
+
+    [SerializeField]
+    private float attackCool;    // 공격 쿨타임
 
     [SerializeField]
     private Transform attackTransform;
@@ -54,6 +57,7 @@ public class GuardianEnemy : MonoBehaviour
     private bool coolDownAttack = false;
     private Vector3 randomDir;
     private int rndNum;
+    public bool notInRoom;
 
     private void Awake()
     {
@@ -73,33 +77,49 @@ public class GuardianEnemy : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (notInRoom) curState = GuardianState.Wander;
+
         switch (curState)
         {
-            case GuardianEnemyState.Wander:
+            case GuardianState.Wander:
                 animator.SetBool("move", true);
+                if (notInRoom) return;
                 Wander();
                 break;
-            case GuardianEnemyState.Follow:
+
+            case GuardianState.Follow:
                 animator.SetBool("move", false);
+                if (notInRoom) return;
                 Follow();
                 break;
-            case GuardianEnemyState.Die:
+
+            case GuardianState.Die:
                 break;
         }
 
-        // 범위안에 플레이어가 있고, 현재 죽지 않았다면
-        if (IsPlayerInRange(range) && curState != GuardianEnemyState.Die)
+   /*     if (IsPlayerPrevInRange() && curState != GuardianState.Die)
         {
-            curState = GuardianEnemyState.Follow;
+            animator.SetBool("move", false);
+        }*/
+
+        // 범위안에 플레이어가 있고, 현재 죽지 않았다면
+        if (IsPlayerInRange() && curState != GuardianState.Die)
+        {
+            curState = GuardianState.Follow;
         }
 
-        else if (!IsPlayerInRange(range) && curState != GuardianEnemyState.Die)
+        else if (!IsPlayerInRange() && curState != GuardianState.Die)
         {
-            curState = GuardianEnemyState.Wander;
+            curState = GuardianState.Wander;
         }
     }
 
-    private bool IsPlayerInRange(float range)
+    private bool IsPlayerPrevInRange()
+    {
+        return Vector3.Distance(transform.position, player.position) <= fastRecRange;
+    }
+
+    private bool IsPlayerInRange()
     {
         return Vector3.Distance(transform.position, player.position) <= range;
     }
@@ -130,11 +150,11 @@ public class GuardianEnemy : MonoBehaviour
         }
 
         else if (rndNum == 1)
-            curState = GuardianEnemyState.Wander;
+            curState = GuardianState.Wander;
 
-        if (IsPlayerInRange(range))
+        if (IsPlayerInRange())
         {
-            curState = GuardianEnemyState.Follow;
+            curState = GuardianState.Follow;
         }
     }
 
@@ -150,7 +170,7 @@ public class GuardianEnemy : MonoBehaviour
 
         speed = 0.7f;      // 이동 속도 약간 느리게
 
-        Invoke("Attack", attackDelay);
+        Attack();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -215,6 +235,7 @@ public class GuardianEnemy : MonoBehaviour
 
     public void Death()
     {
+        curState = GuardianState.Die;
         Destroy(gameObject);
         // RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());      
     }

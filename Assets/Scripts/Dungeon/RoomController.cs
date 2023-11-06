@@ -195,7 +195,14 @@ public class RoomController : MonoBehaviour
             if (currRoom != room)
             {
                 EnemyController[] enemies = room.GetComponentsInChildren<EnemyController>();
-                if (enemies != null)
+                GuardianEnemy[] guardians = room.GetComponentsInChildren<GuardianEnemy>();
+                GiantEnemy[] giants = room.GetComponentsInChildren<GiantEnemy>();
+                WarmEnemy[] warms = room.GetComponentsInChildren<WarmEnemy>();
+                FireEnemy fire = room.GetComponentInChildren<FireEnemy>();      // 불의 정령은 하나이므로
+                GameObject[] guardianBullets = GameObject.FindGameObjectsWithTag("GuardianBullet");     // 플레이어들이 방을 이동해도 가디언 불렛이 따라오는 현상이 있으므로 여기서 처리
+
+                // 일반 몹
+                if (enemies.Length > 0)
                 {
                     foreach (EnemyController enemy in enemies)
                     {
@@ -208,6 +215,49 @@ public class RoomController : MonoBehaviour
                         //door.doorCollider.SetActive(false);
                     }
                 }
+
+                // 거인몹
+                if (giants.Length > 0)
+                {
+                    foreach(GiantEnemy giant in giants)
+                    {
+                        giant.notInRoom = true;
+                    }
+                }
+
+                // 웜몬스터
+                if (warms.Length > 0)
+                {
+                    foreach (WarmEnemy warm in warms)
+                    {
+                        warm.notInRoom = true;
+                    }
+                }      
+
+                // 가디언
+                if (guardians.Length > 0)
+                {
+                    foreach (GuardianEnemy guardian in guardians)
+                    {
+                        guardian.notInRoom = true;
+                    }
+                }
+
+                // 불의 정령
+                if (fire != null)
+                {
+                    fire.notInRoom = true;
+                }
+
+                if (guardianBullets.Length > 0)
+                {
+                    foreach (GameObject bullet in guardianBullets)
+                    {
+                      
+                        bullet.GetComponent<Bullet>().isGuardianBulletNotInRoom = true;
+                    }                    
+                }           
+
                 else
                 {
                     foreach (Door door in room.GetComponentsInChildren<Door>())
@@ -219,6 +269,12 @@ public class RoomController : MonoBehaviour
             else
             {
                 EnemyController[] enemies = room.GetComponentsInChildren<EnemyController>();
+                GuardianEnemy[] guardians = room.GetComponentsInChildren<GuardianEnemy>();
+                GiantEnemy[] giants = room.GetComponentsInChildren<GiantEnemy>();
+                WarmEnemy[] warms = room.GetComponentsInChildren<WarmEnemy>();
+                FireEnemy fire = room.GetComponentInChildren<FireEnemy>();                      // 불의 정령은 하나이므로           
+
+                // 일반몹
                 if (enemies.Length > 0)
                 {
                     foreach (EnemyController enemy in enemies)
@@ -231,7 +287,41 @@ public class RoomController : MonoBehaviour
                     {
                         //door.doorCollider.SetActive(true);
                     }
+                }                 
+
+                // 거인몹
+                if (giants.Length > 0)
+                {
+                    foreach (GiantEnemy giant in giants)
+                    {
+                        giant.notInRoom = false;
+                    }
                 }
+
+                // 웜몬스터
+                if (warms.Length > 0)
+                {
+                    foreach (WarmEnemy warm in warms)
+                    {
+                        warm.notInRoom = false;
+                    }
+                }
+
+                // 가디언
+                if (guardians.Length > 0)
+                {
+                    foreach (GuardianEnemy guardian in guardians)
+                    {
+                        guardian.notInRoom = false;
+                    }
+                }
+
+                // 불의 정령
+                if (fire != null)
+                {
+                    fire.notInRoom = false;
+                }    
+
                 else
                 {
                     foreach (Door door in room.GetComponentsInChildren<Door>())
