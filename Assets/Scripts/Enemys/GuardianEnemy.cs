@@ -30,13 +30,7 @@ public class GuardianEnemy : MonoBehaviour
     private float range;         // 플레이어를 인지하는 범위
 
     [SerializeField]
-    private float fastRecRange;
-
-    [SerializeField]
     private float speed;        // 이동 속도
-
-    [SerializeField]
-    private float attackCool;    // 공격 쿨타임
 
     [SerializeField]
     private Transform attackTransform;
@@ -45,16 +39,12 @@ public class GuardianEnemy : MonoBehaviour
     private GameObject bulletPrefab;
 
     [SerializeField]
-    private float attackDelay = 0.25f;
-
-    [SerializeField]
     private Canvas canvas;
 
     [SerializeField]
     private Slider hpSlider;
 
     private bool chooseDir = false;
-    private bool coolDownAttack = false;
     private Vector3 randomDir;
     private int rndNum;
     public bool notInRoom;
@@ -97,11 +87,6 @@ public class GuardianEnemy : MonoBehaviour
                 break;
         }
 
-   /*     if (IsPlayerPrevInRange() && curState != GuardianState.Die)
-        {
-            animator.SetBool("move", false);
-        }*/
-
         // 범위안에 플레이어가 있고, 현재 죽지 않았다면
         if (IsPlayerInRange() && curState != GuardianState.Die)
         {
@@ -112,11 +97,6 @@ public class GuardianEnemy : MonoBehaviour
         {
             curState = GuardianState.Wander;
         }
-    }
-
-    private bool IsPlayerPrevInRange()
-    {
-        return Vector3.Distance(transform.position, player.position) <= fastRecRange;
     }
 
     private bool IsPlayerInRange()
@@ -170,7 +150,7 @@ public class GuardianEnemy : MonoBehaviour
 
         speed = 0.7f;      // 이동 속도 약간 느리게
 
-        Attack();
+        // Attack(); 애니메이션 key event로 대체
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -183,10 +163,10 @@ public class GuardianEnemy : MonoBehaviour
         }
     }
 
-    // 공격은 원거리 공격
-    void Attack()
+    // 공격은 원거리 공격, 애니메이션에서 호출할 예정
+    public void Attack()
     {
-        if (!coolDownAttack)
+        /*if (!coolDownAttack)
         {
             if (player.position.x - transform.position.x < 0)
             {
@@ -203,15 +183,30 @@ public class GuardianEnemy : MonoBehaviour
             bullet.GetPlayer(player.transform);
 
             StartCoroutine(CoolDown());
+        }*/
+
+        if (player.position.x - transform.position.x < 0)
+        {
+            attackTransform.localPosition = new Vector3(-0.25f, -0.2f, 0f);
         }
+
+        else
+        {
+            attackTransform.localPosition = new Vector3(0.25f, -0.2f, 0f);
+        }
+
+        GameObject prefab = Instantiate(bulletPrefab, attackTransform.position, Quaternion.identity);
+        Bullet bullet = prefab.GetComponent<Bullet>();
+        bullet.GetPlayer(player.transform);
     }
 
-    private IEnumerator CoolDown()
+    // 애니메이션에서 호출하므로 필요없음
+/*    private IEnumerator CoolDown()
     {
         coolDownAttack = true;
         yield return new WaitForSeconds(attackCool);
         coolDownAttack = false;
-    }
+    }*/
 
     public void Damaged()
     {       

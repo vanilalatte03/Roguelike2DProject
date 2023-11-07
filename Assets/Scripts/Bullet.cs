@@ -142,7 +142,6 @@ public class Bullet : MonoBehaviour
     {
         if (isGuardianBulletNotInRoom)
         {
-            Debug.Log("남아있는거 사라짐!");
             Destroy(this.gameObject);
         }
 
