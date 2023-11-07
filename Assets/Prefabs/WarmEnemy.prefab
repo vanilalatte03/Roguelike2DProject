@@ -262,6 +262,8 @@ MonoBehaviour:
   poisonPrefab: {fileID: 4698823181698615369, guid: ed7084d1081da274596143326fbc134f, type: 3}
   warnningPrefab: {fileID: 7354212454917707400, guid: c5966c99e1f49c347960e61450743a89, type: 3}
   radius: 1.5
+  notInRoom: 0
+  destoryAnimObj: {fileID: 5773881226128942446, guid: c23c3ca91310d124db0221c1309f06b9, type: 3}
 --- !u!1 &967169678660268373
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,7 +323,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &2653335438046246030
 MonoBehaviour:

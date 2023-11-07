@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3318759084144425025}
   m_Layer: 0
   m_Name: FireFX8_0
-  m_TagString: Untagged
+  m_TagString: FireAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

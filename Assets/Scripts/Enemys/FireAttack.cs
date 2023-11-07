@@ -6,6 +6,9 @@ public class FireAttack : MonoBehaviour
 {   
     private SpriteRenderer spriteRenderer;
 
+    [HideInInspector]
+    public bool donDestroy;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>(); 
@@ -13,6 +16,11 @@ public class FireAttack : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
+    {
+        if (!donDestroy) FadeStart();
+    }
+
+    public void FadeStart()
     {
         StartCoroutine(Fade());
     }

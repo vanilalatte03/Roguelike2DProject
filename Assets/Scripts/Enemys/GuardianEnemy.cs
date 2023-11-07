@@ -49,6 +49,9 @@ public class GuardianEnemy : MonoBehaviour
     private int rndNum;
     public bool notInRoom;
 
+    [SerializeField]
+    private GameObject destoryAnimObj;
+
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -230,6 +233,7 @@ public class GuardianEnemy : MonoBehaviour
 
     public void Death()
     {
+        Instantiate(destoryAnimObj, transform.position, Quaternion.identity);
         curState = GuardianState.Die;
         Destroy(gameObject);
         // RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());      

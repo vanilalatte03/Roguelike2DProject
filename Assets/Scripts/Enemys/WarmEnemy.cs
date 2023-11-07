@@ -48,6 +48,9 @@ public class WarmEnemy : MonoBehaviour
     private float radius;
     public bool notInRoom;
 
+    [SerializeField]
+    private GameObject destoryAnimObj;
+
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -163,14 +166,6 @@ public class WarmEnemy : MonoBehaviour
         return Vector3.Distance(transform.position, playerTransform.position) <= range;
     }
 
-    public void Death()
-    {
-        curState = WarmState.Die;
-        gameObject.SetActive(false);
-        Destroy(this.gameObject, 4f);       // 독함정 로직이 돌아가야 하므로 조금 뒤에 삭제하도록 변경
-        // RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());      
-    }
-
     void TransformToPoison()
     {
         if (warningObj != null)
@@ -181,5 +176,15 @@ public class WarmEnemy : MonoBehaviour
             // 독 함정을 생성합니다.
             Instantiate(poisonPrefab, spawnPosition, Quaternion.identity);
         }
+    }
+
+
+    public void Death()
+    {
+        curState = WarmState.Die;
+        gameObject.SetActive(false);
+        Instantiate(destoryAnimObj, transform.position, Quaternion.identity);    
+        Destroy(this.gameObject, 4f);    
+        // RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());      
     }
 }

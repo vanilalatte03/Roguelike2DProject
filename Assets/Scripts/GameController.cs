@@ -128,6 +128,6 @@ public class GameController : MonoBehaviour
     private void KillPlayer()
     {
         Time.timeScale = 0f;
-        SceneManager.LoadScene("EndScene");
+         //   SceneManager.LoadScene("EndScene");       // 아직 보류
     }
 }

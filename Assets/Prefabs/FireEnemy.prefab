@@ -402,7 +402,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 81956a1f743ce3343b492616cd2f1dcc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -577,7 +577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 540373652850839106}
   hpSlider: {fileID: 540373651349428343}
-  maxHealth: 30
+  maxHealth: 10
   prevPlayerPosTime: 0.45
   attackCoolTime: 2
   pillarPrefabs:
@@ -585,6 +585,7 @@ MonoBehaviour:
   - {fileID: 6391976204273882582, guid: 0a9d37724a161544da6fc3c3db401637, type: 3}
   - {fileID: 3025388569894984488, guid: 5d64879414f497641addb79c981568a3, type: 3}
   paranetObj: {fileID: 540373652245290202}
+  notInRoom: 0
   powerUpHealth: 5
   powerUpAttackCoolTime: 0.8
   destoryAnimObj: {fileID: 7707099146285951250, guid: 97888c96b22e49f47a50808cf9149392, type: 3}
@@ -718,7 +719,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &540373652850839104
 MonoBehaviour:

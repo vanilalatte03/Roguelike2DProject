@@ -13,6 +13,7 @@ TagManager:
   - SphinxEnemy
   - FireEnemy
   - GuardianBullet
+  - FireAttack
   layers:
   - Default
   - TransparentFX

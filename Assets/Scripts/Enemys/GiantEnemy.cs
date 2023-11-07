@@ -63,6 +63,10 @@ public class GiantEnemy : MonoBehaviour
 
     [SerializeField]
     private bool isCopyed;
+
+    [SerializeField]
+    private GameObject destoryAnimObj;
+
     public bool notInRoom;
 
     private void Awake()
@@ -191,6 +195,7 @@ public class GiantEnemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Attack();
+            collision.gameObject.GetComponent<Player>().StartKnockBack(transform.position);
         }
     }
 
@@ -286,15 +291,11 @@ public class GiantEnemy : MonoBehaviour
  
         if (ran <= ranPotionDropPercent)
         {
-            Debug.Log("체력회복!");
             GameObject hpPotion = Instantiate(potionPrefab, transform.position, Quaternion.identity);
             hpPotion.GetComponent<DropedPotion>().healHP = (int)(Random.Range(1, 8));    // 1~8사이 랜덤 체력 회복
-        } 
-
-        else
-        {
-            Debug.Log("운이 없군요. 아이템 드랍 실패");
         }
+
+        Instantiate(destoryAnimObj, transform.position, Quaternion.identity);   
 
         curState = GiantState.Die;
         Destroy(gameObject);
