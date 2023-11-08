@@ -23,7 +23,7 @@ public class AttackPattern : MonoBehaviour
     //발사될 총알 오브젝트이다.
     public GameObject Bullet;
 
-    public float SpawnInterval = 0.5f;
+    public float SpawnInterval;
     private float _spawnTimer;
 
     void Awake()
@@ -36,12 +36,16 @@ public class AttackPattern : MonoBehaviour
     void Starting()
     {
         anim.SetTrigger("ChangeAnimation");
-        Invoke("Attack", 5f);
+        Invoke("Attack", 3f);
     }
 
     void Attack()
     {
         anim.SetTrigger("ChangeAnimation");
+        
+        curPatternCount = 0;
+
+        patternIndex = 3;
 
         switch (patternIndex)
         {
@@ -52,23 +56,20 @@ public class AttackPattern : MonoBehaviour
                 Invoke("Spin", 2f);
                 break;
             case 2:
-                Invoke("Follow", 2f);
-                break;
-            case 3:
                 Invoke("Gun", 2f);
                 break;
-            case 4:
+            case 3:
                 Invoke("Arc", 2f);
                 break;
         }
 
         patternIndex = patternIndex >= 3 ? 0 : patternIndex + 1;
-        curPatternCount = 0;
     }
 
     void Shot()
     {
-        for (int i = 0; i < 360; i += 13)
+        int rnd = Random.Range(9, 14);
+        for (int i = 0; i < 360; i += rnd)
         {
             //총알 생성
             GameObject temp = Instantiate(Bullet);
@@ -105,7 +106,7 @@ public class AttackPattern : MonoBehaviour
 
         if (curPatternCount < maxPatternCount[patternIndex])
         {
-            Invoke("Spin", 0f);
+            Spin();
         }
         else
         {
@@ -125,6 +126,7 @@ public class AttackPattern : MonoBehaviour
     {
         if (transform.localEulerAngles.z == 345)
         {
+            SpawnInterval = Random.Range(7, 12);
             transform.Rotate(Vector3.forward * TurnAngle);
             spinCnt--;
             return;
@@ -152,62 +154,25 @@ public class AttackPattern : MonoBehaviour
         temp.transform.rotation = transform.rotation;
     }
 
-    void Follow()
-    {
-        if (player.position.x - transform.position.x < 0)
-        {
-            attackTransform.localPosition = new Vector3(-0.25f, -0.2f, 0f);
-        }
-
-        else
-        {
-            attackTransform.localPosition = new Vector3(0.25f, -0.2f, 0f);
-        }
-
-        GameObject prefab = Instantiate(Bullet, attackTransform.position, Quaternion.identity);
-        Bullet bullet = prefab.GetComponent<Bullet>();
-        bullet.GetPlayer(player.transform);
-
-        GameObject temp = Instantiate(Bullet);
-
-        Destroy(temp, 5f);
-
-        temp.transform.position = start.transform.position;
-
-        Vector2 dirVec = (player.transform.position - transform.position).normalized;
-        float angle = Mathf.Atan2(dirVec.y, dirVec.x) * Mathf.Rad2Deg;
-        Quaternion rotTarget = Quaternion.AngleAxis(angle, Vector3.forward);
-        temp.transform.rotation = Quaternion.Euler(dirVec.normalized);
-
-        curPatternCount++;
-
-        if (curPatternCount < maxPatternCount[patternIndex])
-        {
-            anim.SetTrigger("ChangeAnimation");
-
-            Invoke("Follow", 2f);
-        }
-        else
-        {
-            Invoke("Attack", 2f);
-        }
-    }
-
     void Gun()
     {
+        float rnd = Random.Range(0f, 360f);
+
         for (int i = 0; i < 5; i++)
         {
+            //총알 생성
             GameObject temp = Instantiate(Bullet);
 
+            //2초마다 삭제
             Destroy(temp, 5f);
 
+            //총알 생성 위치를 (0,0) 좌표로 한다.
             temp.transform.position = start.transform.position;
 
-            Vector2 dirVec = player.transform.position - transform.position;
-            Vector2 ranVec = new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(0f, 2f));
-            dirVec += ranVec;
-            temp.transform.rotation = Quaternion.Euler(dirVec.normalized);
+            //Z에 값이 변해야 회전이 이루어지므로, Z에 i를 대입한다.
+            temp.transform.rotation = Quaternion.Euler(0, 0, rnd - (i * 10));
         }
+
 
         curPatternCount++;
 
@@ -225,6 +190,27 @@ public class AttackPattern : MonoBehaviour
 
     void Arc()
     {
+        float rnd = Random.Range(0f, 360f);
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 6; j++)
+            {
+                //총알 생성
+                GameObject temp = Instantiate(Bullet);
+
+                //2초마다 삭제
+                Destroy(temp, 5f);
+
+                //총알 생성 위치를 (0,0) 좌표로 한다.
+                temp.transform.position = start.transform.position;
+
+                //Z에 값이 변해야 회전이 이루어지므로, Z에 i를 대입한다.
+                temp.transform.rotation = Quaternion.Euler(0, 0, rnd - (j * 5));
+            }
+
+        }
+
+
         curPatternCount++;
 
         if (curPatternCount < maxPatternCount[patternIndex])

@@ -3043,12 +3043,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 928785706}
-  player: {fileID: 704100177}
+  attackTransform: {fileID: 0}
   start: {fileID: 928785699}
   TurnAngle: 15
   patternIndex: 0
   curPatternCount: 0
-  maxPatternCount: 0000000002000000020000000200000002000000
+  maxPatternCount: 03000000050000000500000004000000
   Bullet: {fileID: 5029563573200375363, guid: ee3da2b689b055142b8d68456ca2ea74, type: 3}
   SpawnInterval: 10
 --- !u!1 &744277174
