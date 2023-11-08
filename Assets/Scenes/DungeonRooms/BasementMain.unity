@@ -1649,6 +1649,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: f9e292845ee3b4c4aa1344cc29c4ee74, type: 3}
   - name: "\uD30C\uC6CC\uC5C5"
     clip: {fileID: 8300000, guid: 99aa63944b68f26419338537f9ff9e4f, type: 3}
+  - name: "\uBC29\uC804\uD658"
+    clip: {fileID: 8300000, guid: 9120d18180e479b409dae05bd20cab39, type: 3}
   bgmSounds:
   - name: 
     clip: {fileID: 0}

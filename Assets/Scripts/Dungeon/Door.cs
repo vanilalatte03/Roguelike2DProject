@@ -26,6 +26,8 @@ public class Door : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            SoundManager.instance.PlaySoundEffect("πÊ¿¸»Ø");
+
             switch (doorType)
             {
                 case DoorType.bottom:
