@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6394662695252933984}
   - component: {fileID: 6504250001032419916}
   - component: {fileID: 6477257517428714162}
-  - component: {fileID: -919922207963301569}
+  - component: {fileID: 3977941636392107016}
   - component: {fileID: 5568399061241552292}
   m_Layer: 0
   m_Name: FireFX7_0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6391976204273882582}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.3, z: 1}
+  m_LocalScale: {x: 1.7, y: 3.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -108,7 +108,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!70 &-919922207963301569
+--- !u!70 &3977941636392107016
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,8 +121,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -2.52}
-  m_Size: {x: 7.76, y: 11.53}
+  m_Offset: {x: 0, y: -0.14}
+  m_Size: {x: 0.63, y: 0.77}
   m_Direction: 0
 --- !u!114 &5568399061241552292
 MonoBehaviour:

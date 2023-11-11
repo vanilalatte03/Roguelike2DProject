@@ -577,13 +577,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 540373652850839106}
   hpSlider: {fileID: 540373651349428343}
-  maxHealth: 10
+  maxHealth: 30
   prevPlayerPosTime: 0.45
   attackCoolTime: 2
   pillarPrefabs:
   - {fileID: 1206159572948232619, guid: 79db3b6f0dcb8d24eab39eebf51b205b, type: 3}
   - {fileID: 6391976204273882582, guid: 0a9d37724a161544da6fc3c3db401637, type: 3}
-  - {fileID: 3025388569894984488, guid: 5d64879414f497641addb79c981568a3, type: 3}
+  - {fileID: 1089063974820364, guid: dc7d8e70e5704cf499f654de7a9d7361, type: 3}
   paranetObj: {fileID: 540373652245290202}
   notInRoom: 0
   powerUpHealth: 5
