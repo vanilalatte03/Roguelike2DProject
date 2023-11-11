@@ -170,3 +170,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageAmount: 1
   damageInterval: 2
+  popEffect: {fileID: 1423137701236872, guid: d3f3a85bf4c576949a54524e91cf5ce6, type: 3}
+  ranDistance: 0.5
+  secondSpawnDistance: 0.9

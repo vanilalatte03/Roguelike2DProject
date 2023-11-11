@@ -8,12 +8,22 @@ public class PoisonTrap : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     [SerializeField]
-    private int damageAmount = 1; // 독 함정이 입힐 데미지 양
+    private int damageAmount; // 독 함정이 입힐 데미지 양
 
     [SerializeField]
-    public float damageInterval = 1.5f; // 데미지를 입히는 간격 (1.5초마다 데미지 입힘)
+    public float damageInterval; // 데미지를 입히는 간격 (1.5초마다 데미지 입힘)
 
-    private bool isDamaging = false; // 대미지 중인지 여부를 나타내는 플래그
+    [SerializeField]
+    private GameObject popEffect;
+
+    [SerializeField]
+    private float ranDistance;
+
+    [SerializeField]
+    private float secondSpawnDistance ;
+
+    private GameObject firstEffectObj;
+    private bool isDamaging = false; // 대미지 중인지 여부를 나타내는 플래그    
 
     private void Awake()
     {
@@ -25,7 +35,37 @@ public class PoisonTrap : MonoBehaviour
     {
         animator.SetFloat("speed", -1f);
         SoundManager.instance.PlaySoundEffect("독생성");
+
+        firstEffectObj = SpawnFirstEffect();
+        SpawnObjectOpposite(firstEffectObj.transform.position);
+
         Invoke("FadeStart", 3f);
+    }
+
+    private GameObject SpawnFirstEffect()
+    {
+        Vector3 spawnPosition = new Vector3(Random.Range(-ranDistance, ranDistance), Random.Range(0, ranDistance * 1.2f), 0.0f);
+
+        spawnPosition += transform.position;
+
+        GameObject firstEffect = Instantiate(popEffect, spawnPosition, Quaternion.identity);
+
+        return firstEffect;
+    }
+
+    void SpawnObjectOpposite(Vector3 firstObjPos)
+    {
+        // 대칭 위치 계산
+        Vector3 symmetricalPosition = new Vector3(2 * firstObjPos.x - transform.position.x, firstObjPos.y, firstObjPos.z);
+
+        // 대칭 위치에서 X 값 조정
+        symmetricalPosition.x += secondSpawnDistance;
+
+        // 대칭 위치에서 Y 값 랜덤 조정
+        symmetricalPosition.y += Random.Range(-0.4f, 0.8f);
+
+        // 오브젝트 생성
+        Instantiate(popEffect, symmetricalPosition, Quaternion.identity);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -371,17 +371,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1410179190610802484, guid: 9dd89bd353befef47b2a19847e938f40, type: 3}
-      propertyPath: destoryAnimObj
-      value: 
-      objectReference: {fileID: 8756992098867606159, guid: 7fedb3a2e13c24b48bd0670f2ccdfdfa, type: 3}
     - target: {fileID: 1410179190610802494, guid: 9dd89bd353befef47b2a19847e938f40, type: 3}
       propertyPath: m_Name
       value: GuardianEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 1410179190610802494, guid: 9dd89bd353befef47b2a19847e938f40, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dd89bd353befef47b2a19847e938f40, type: 3}
@@ -3572,7 +3568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 445758175334565063, guid: 06e975ccc60f7d2499edebb1c5878bce, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 445758175334565065, guid: 06e975ccc60f7d2499edebb1c5878bce, type: 3}
       propertyPath: m_RootOrder
