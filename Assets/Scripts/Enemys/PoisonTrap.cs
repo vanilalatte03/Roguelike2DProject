@@ -62,7 +62,7 @@ public class PoisonTrap : MonoBehaviour
         symmetricalPosition.x += secondSpawnDistance;
 
         // 대칭 위치에서 Y 값 랜덤 조정
-        symmetricalPosition.y += Random.Range(-0.4f, 0.8f);
+        symmetricalPosition.y += Random.Range(-0.4f, 1.5f);
 
         // 오브젝트 생성
         Instantiate(popEffect, symmetricalPosition, Quaternion.identity);

@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 445758174465208639}
   m_LocalRotation: {x: -0.002896684, y: -0.016058886, z: 0.17749052, w: 0.9839872}
-  m_LocalPosition: {x: -0.058, y: -0.431, z: 0}
-  m_LocalScale: {x: 0.5887817, y: 0.125375, z: 0.33333334}
+  m_LocalPosition: {x: -0.05, y: -0.42, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.12, z: 0.33}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445758175334565065}
@@ -113,7 +113,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 445758175334565063}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.19, y: 8.09, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -257,13 +257,14 @@ MonoBehaviour:
   canvas: {fileID: 8558492632870461214}
   hpSlider: {fileID: 1629022924275301461}
   maxHealth: 3
-  range: 4
+  range: 8
   attackCool: 2.5
   poisonPrefab: {fileID: 4698823181698615369, guid: ed7084d1081da274596143326fbc134f, type: 3}
   warnningPrefab: {fileID: 7354212454917707400, guid: c5966c99e1f49c347960e61450743a89, type: 3}
   radius: 1.5
   notInRoom: 0
   destoryAnimObj: {fileID: 5773881226128942446, guid: c23c3ca91310d124db0221c1309f06b9, type: 3}
+  shadow: {fileID: 445758174465208608}
 --- !u!1 &967169678660268373
 GameObject:
   m_ObjectHideFlags: 0

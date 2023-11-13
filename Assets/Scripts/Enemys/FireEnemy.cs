@@ -64,6 +64,12 @@ public class FireEnemy : MonoBehaviour
     [SerializeField]
     private GameObject destoryAnimObj;
 
+    [SerializeField]
+    private GameObject powerUpObj;
+
+    [SerializeField]
+    private float powerUpObjUpDist;
+
     private void Awake()
     {
         waitPrevPlayerPos = new WaitForSeconds(prevPlayerPosTime);
@@ -208,6 +214,7 @@ public class FireEnemy : MonoBehaviour
         if (curHealth <= powerUpHealth && !isPowerUp)
         {
             isPowerUp = true;
+            Instantiate(powerUpObj, new Vector3(transform.position.x, transform.position.y + powerUpObjUpDist, 0), Quaternion.identity);
             SoundManager.instance.PlaySoundEffect("파워업");
         }
 
@@ -218,7 +225,7 @@ public class FireEnemy : MonoBehaviour
         }
 
         else
-        {
+        {     
             SoundManager.instance.PlaySoundEffect("적피해입음");
         }
     }

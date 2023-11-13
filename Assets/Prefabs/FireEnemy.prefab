@@ -589,6 +589,8 @@ MonoBehaviour:
   powerUpHealth: 5
   powerUpAttackCoolTime: 0.8
   destoryAnimObj: {fileID: 7707099146285951250, guid: 97888c96b22e49f47a50808cf9149392, type: 3}
+  powerUpObj: {fileID: 1505313006913598, guid: 603c20de021f3274e8a511d2a7a6d57c, type: 3}
+  powerUpObjUpDist: 2.2
 --- !u!1 &540373652245290202
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +615,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 540373652245290202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 6.35, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

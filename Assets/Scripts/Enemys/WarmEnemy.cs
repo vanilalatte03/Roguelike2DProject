@@ -51,6 +51,12 @@ public class WarmEnemy : MonoBehaviour
     [SerializeField]
     private GameObject destoryAnimObj;
 
+    [SerializeField]
+    private Transform shadow;
+
+    private Vector3 originShadowRot;
+    private Vector3 flipShadowRot;
+
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -63,6 +69,9 @@ public class WarmEnemy : MonoBehaviour
         curHealth = maxHealth;
         hpSlider.maxValue = maxHealth;
         hpSlider.value = curHealth;
+
+        originShadowRot = new Vector3(-0.05f, -0.42f, 20.45f);
+        flipShadowRot = new Vector3(0.05f, -0.457f, -20.45f);
     }
 
     private void FixedUpdate()
@@ -98,9 +107,16 @@ public class WarmEnemy : MonoBehaviour
     private void Attack()
     {
         if (playerTransform.position.x - transform.position.x < 0)
-            sprite.flipX = false;
+        {
+            sprite.flipX = false;     
+            shadow.rotation = Quaternion.Euler(originShadowRot);
+        }
+       
         else
-            sprite.flipX = true;
+        {
+            sprite.flipX = true;           
+            shadow.rotation = Quaternion.Euler(flipShadowRot);
+        }        
 
         // 무작위 위치를 계산합니다.
 

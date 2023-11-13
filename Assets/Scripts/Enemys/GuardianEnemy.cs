@@ -201,6 +201,7 @@ public class GuardianEnemy : MonoBehaviour
         GameObject prefab = Instantiate(bulletPrefab, attackTransform.position, Quaternion.identity);
         Bullet bullet = prefab.GetComponent<Bullet>();
         bullet.GetPlayer(player.transform);
+        SoundManager.instance.PlaySoundEffect("가디언공격");
     }
 
     // 애니메이션에서 호출하므로 필요없음
