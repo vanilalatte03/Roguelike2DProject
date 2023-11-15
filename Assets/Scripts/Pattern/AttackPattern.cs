@@ -45,8 +45,6 @@ public class AttackPattern : MonoBehaviour
         
         curPatternCount = 0;
 
-        patternIndex = 3;
-
         switch (patternIndex)
         {
             case 0:
@@ -78,7 +76,7 @@ public class AttackPattern : MonoBehaviour
             Destroy(temp, 5f);
 
             //총알 생성 위치를 (0,0) 좌표로 한다.
-            temp.transform.position = start.transform.position;
+            temp.transform.position = start.transform.position + new Vector3(0.2f, 0, 0);
 
             //Z에 값이 변해야 회전이 이루어지므로, Z에 i를 대입한다.
             temp.transform.rotation = Quaternion.Euler(0, 0, i);
@@ -147,7 +145,7 @@ public class AttackPattern : MonoBehaviour
         Destroy(temp, 5f);
 
         //총알 생성 위치를 머즐 입구로 한다.
-        temp.transform.position = start.transform.position;
+        temp.transform.position = start.transform.position + new Vector3(0.2f, 0, 0);
 
         //총알의 방향을 오브젝트의 방향으로 한다.
         //->해당 오브젝트가 오브젝트가 360도 회전하고 있으므로, Rotation이 방향이 됨.
@@ -167,7 +165,7 @@ public class AttackPattern : MonoBehaviour
             Destroy(temp, 5f);
 
             //총알 생성 위치를 (0,0) 좌표로 한다.
-            temp.transform.position = start.transform.position;
+            temp.transform.position = start.transform.position + new Vector3(0.2f, 0, 0);
 
             //Z에 값이 변해야 회전이 이루어지므로, Z에 i를 대입한다.
             temp.transform.rotation = Quaternion.Euler(0, 0, rnd - (i * 10));
@@ -191,33 +189,25 @@ public class AttackPattern : MonoBehaviour
     void Arc()
     {
         float rnd = Random.Range(0f, 360f);
-        for (int i = 0; i < 4; i++)
-        {
-            for (int j = 0; j < 6; j++)
-            {
-                //총알 생성
-                GameObject temp = Instantiate(Bullet);
 
-                //2초마다 삭제
-                Destroy(temp, 5f);
+        //총알 생성
+        GameObject temp = Instantiate(Bullet);
 
-                //총알 생성 위치를 (0,0) 좌표로 한다.
-                temp.transform.position = start.transform.position;
+        //2초마다 삭제
+        Destroy(temp, 5f);
 
-                //Z에 값이 변해야 회전이 이루어지므로, Z에 i를 대입한다.
-                temp.transform.rotation = Quaternion.Euler(0, 0, rnd - (j * 5));
-            }
+        //총알 생성 위치를 (0,0) 좌표로 한다.
+        temp.transform.position = start.transform.position + new Vector3(0.2f, 0, 0);
 
-        }
-
+        //Z에 값이 변해야 회전이 이루어지므로, Z에 i를 대입한다.
+        temp.transform.rotation = Quaternion.Euler(0, 0, rnd);
 
         curPatternCount++;
 
-        if (curPatternCount < maxPatternCount[patternIndex])
+        if (curPatternCount < 100)
         {
-            anim.SetTrigger("ChangeAnimation");
-
-            Invoke("Arc", 2f);
+            Debug.Log(maxPatternCount[patternIndex]);
+            Invoke("Arc", 0.1f);
         }
         else
         {

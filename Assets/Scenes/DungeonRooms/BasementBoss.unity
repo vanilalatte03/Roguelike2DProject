@@ -952,7 +952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3881087803549984436, guid: ec536a7718376554185e4a856d5ae230, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000061035156
+      value: 0.00012207031
       objectReference: {fileID: 0}
     - target: {fileID: 3881087803549984436, guid: ec536a7718376554185e4a856d5ae230, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3046,9 +3046,9 @@ MonoBehaviour:
   attackTransform: {fileID: 0}
   start: {fileID: 928785699}
   TurnAngle: 15
-  patternIndex: 0
+  patternIndex: 3
   curPatternCount: 0
-  maxPatternCount: 03000000050000000500000004000000
+  maxPatternCount: 04000000050000000300000000000000
   Bullet: {fileID: 5029563573200375363, guid: ee3da2b689b055142b8d68456ca2ea74, type: 3}
   SpawnInterval: 10
 --- !u!1 &744277174
@@ -3652,8 +3652,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 19354433}
   hpSlider: {fileID: 1523530780}
-  maxHealth: 50
-  health: 50
+  maxHealth: 100
+  health: 100
   notInRoom: 0
   bulletPrefab: {fileID: 5029563573200375363, guid: ee3da2b689b055142b8d68456ca2ea74, type: 3}
 --- !u!1 &943216244
