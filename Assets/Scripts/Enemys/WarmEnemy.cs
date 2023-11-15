@@ -54,8 +54,13 @@ public class WarmEnemy : MonoBehaviour
     [SerializeField]
     private Transform shadow;
 
+    [SerializeField]
+    private GameObject mouthEffectObj;
+
     private Vector3 originShadowRot;
     private Vector3 flipShadowRot;
+
+    private bool isLeft = true;
 
     private void Awake()
     {
@@ -110,12 +115,14 @@ public class WarmEnemy : MonoBehaviour
         {
             sprite.flipX = false;     
             shadow.rotation = Quaternion.Euler(originShadowRot);
+            isLeft = true;
         }
        
         else
         {
             sprite.flipX = true;           
             shadow.rotation = Quaternion.Euler(flipShadowRot);
+            isLeft = false;
         }        
 
         // 무작위 위치를 계산합니다.
@@ -133,7 +140,7 @@ public class WarmEnemy : MonoBehaviour
 
             Invoke("TransformToPoison", 1.0f);
 
-            StartCoroutine(CoolDown());
+            StartCoroutine(CoolDown());            
         }
     }
 
@@ -144,7 +151,6 @@ public class WarmEnemy : MonoBehaviour
         coolDownAttack = false;
     }
 
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -154,7 +160,6 @@ public class WarmEnemy : MonoBehaviour
             collision.gameObject.GetComponent<Player>().StartKnockBack(transform.position);
         }
     }
-
 
     public void Damaged()
     {
@@ -191,6 +196,14 @@ public class WarmEnemy : MonoBehaviour
 
             // 독 함정을 생성합니다.
             Instantiate(poisonPrefab, spawnPosition, Quaternion.identity);
+
+            // 입김 이펙트
+            GameObject mouthEffect = Instantiate(mouthEffectObj, isLeft ? new Vector3(transform.position.x - 2f, transform.position.y + 0.2f, 0) : new Vector3(transform.position.x + 2f, transform.position.y + 0.2f, 0), Quaternion.identity);
+
+            if (isLeft)
+            {
+                mouthEffect.GetComponent<SpriteRenderer>().flipX = true;
+            }
         }
     }
 

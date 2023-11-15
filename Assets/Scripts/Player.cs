@@ -88,6 +88,7 @@ public class Player : MonoBehaviour
             joyX != 0 || joyY != 0)
         {
             animator.SetBool("Idle", false);
+            CreateWalkEffect();     // 이펙트 생성
         }
 
         else
@@ -112,9 +113,6 @@ public class Player : MonoBehaviour
 
         // 전역변수 resultVec에, 조이스틱으로 움직일 때는 조이스틱 방향으로, 키보드 입력일 때는 키보드 방향으로 움직임
         resultVec = (joyX != 0 || joyY != 0) ? new Vector2(joyX, joyY) : new Vector2(inputX, inputY);
-
-        // 이펙트
-        CreateWalkEffect();
     }
 
     private void CreateWalkEffect()
