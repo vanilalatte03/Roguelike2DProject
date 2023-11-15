@@ -25,6 +25,18 @@ public class Player : MonoBehaviour
     private WaitForSeconds wait;
     private bool isKnockbacking = false;
 
+    [SerializeField]
+    private Transform runEffectPosLeft;
+
+    [SerializeField]
+    private Transform runEffectPosRight;
+
+    [SerializeField]
+    private GameObject runEffectObj;
+
+    private float timer; // 이펙트 생성을 위한 타이머
+    private bool isLeft;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -41,6 +53,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        timer += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("Heelo");
@@ -65,7 +78,7 @@ public class Player : MonoBehaviour
 
         // 조이스틱으로 받은 입력값들
         float joyX = joy.Horizontal;
-        float joyY = joy.Vertical;
+        float joyY = joy.Vertical;  
 
         // 키보드로 받은 입력값들
         float inputX = Input.GetAxisRaw("Horizontal");
@@ -87,16 +100,31 @@ public class Player : MonoBehaviour
         {
             rend.flipX = false;
             bowSprite.flipX = false;
+            isLeft = false;
         }
 
         else if (joyX < 0 || inputX < 0)
         {
             rend.flipX = true;
             bowSprite.flipX = true;
+            isLeft = true;
         }
 
         // 전역변수 resultVec에, 조이스틱으로 움직일 때는 조이스틱 방향으로, 키보드 입력일 때는 키보드 방향으로 움직임
-        resultVec = (joyX != 0 || joyY != 0) ? new Vector2(joyX, joyY) : new Vector2(inputX, inputY); 
+        resultVec = (joyX != 0 || joyY != 0) ? new Vector2(joyX, joyY) : new Vector2(inputX, inputY);
+
+        // 이펙트
+        CreateWalkEffect();
+    }
+
+    private void CreateWalkEffect()
+    {
+        float ranTime = Random.Range(1.5f, 2f);
+        if (timer >= ranTime)
+        {
+            Instantiate(runEffectObj, isLeft ? runEffectPosLeft.position : runEffectPosRight.position, Quaternion.identity);
+            timer = 0;
+        }       
     }
 
     // 물리 움직임은 Update가 아닌 FixedUpdate에서 해야 안정적.
@@ -131,7 +159,7 @@ public class Player : MonoBehaviour
         Vector3 dirVec = transform.position - enemyPos;
         dirVec.Normalize(); // 방향 벡터 정규화
 
-        Debug.DrawLine(transform.position, transform.position + dirVec, Color.red, 5f);
+        // Debug.DrawLine(transform.position, transform.position + dirVec, Color.red, 5f);
         rb.AddForce(dirVec * 1.5f, ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.2f);
         isKnockbacking = false;
