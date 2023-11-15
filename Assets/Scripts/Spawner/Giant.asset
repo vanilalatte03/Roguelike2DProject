@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3cb9e840731c6348ab455a9bbc67f2f, type: 3}
-  m_Name: Warm
+  m_Name: Giant
   m_EditorClassIdentifier: 
-  itemToSpawn: {fileID: 1556163030314528909, guid: be429a07fa02d1d43b8a8c93407602e6, type: 3}
+  itemToSpawn: {fileID: 87119516432754932, guid: 4924fe9e2897ef8488194f1645da80db, type: 3}
   minSpawn: 0
-  maxSpawn: 2
+  maxSpawn: 1
