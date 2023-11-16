@@ -117,8 +117,7 @@ public class Player : MonoBehaviour
 
     private void CreateWalkEffect()
     {
-        float ranTime = Random.Range(0.5f, 2.2f);
-        if (timer >= ranTime)
+        if (timer >= 1.2f)
         {
             Instantiate(runEffectObj, isLeft ? runEffectPosLeft.position : runEffectPosRight.position, Quaternion.identity);
             timer = 0;
