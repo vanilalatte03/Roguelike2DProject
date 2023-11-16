@@ -83,6 +83,7 @@ public class GiantEnemy : MonoBehaviour
         if (isCopyed)
         {
             curState = GiantState.Wander;
+            animator.SetBool("move", false);
         }
         else
         {
@@ -100,10 +101,14 @@ public class GiantEnemy : MonoBehaviour
         switch(curState)
         {
             case GiantState.Wander:
-                animator.SetBool("move", true);
+                if (isCopyed)
+                {
+                    animator.SetBool("move", false);
+                }
 
                 if (!isCopyed)
                 {
+                    animator.SetBool("move", true);
                     Wander();
                 } 
 
@@ -113,7 +118,6 @@ public class GiantEnemy : MonoBehaviour
                             break;*/
 
             case GiantState.Mount:
-                animator.SetBool("move", false);
                 Mount();
                 break;
 
