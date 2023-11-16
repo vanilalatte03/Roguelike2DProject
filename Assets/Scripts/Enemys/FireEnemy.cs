@@ -133,22 +133,21 @@ public class FireEnemy : MonoBehaviour
         } 
         
         else
-        {  
-            if (!isCoolDown && !isGeneratingFire)
-            {
-                StartCoroutine(SpwanFire());
-                StartCoroutine(CoolDown());
-            }
+        {
+            /*  if (isGeneratingFire)
+              {
+                  StartCoroutine(SpwanFire());
+                  StartCoroutine(CoolDown());
+              }*/
+            anim.SetBool("idle", false);
         } 
     }
 
-    private IEnumerator SpwanFire()
+    public IEnumerator SpwanFire()
     {
-        isGeneratingFire = true;
         Vector3 playerLastPos = playerTransform.position;
         yield return waitPrevPlayerPos;
-
-        anim.SetBool("idle", false);
+        
         int index = Random.Range(0, pillarPrefabs.Length);
 
         fireObj = Instantiate(pillarPrefabs[index], playerLastPos, Quaternion.identity);
@@ -163,15 +162,14 @@ public class FireEnemy : MonoBehaviour
         isGeneratingFire = false;
     }
 
-    private IEnumerator CoolDown()
+/*    private IEnumerator CoolDown()
     {
         isCoolDown = true;
 
         yield return new WaitForSeconds(isPowerUp ? powerUpAttackCoolTime : attackCoolTime);
 
         isCoolDown = false;
-    }
-
+    }*/
 /*
     private IEnumerator CoolDown()
     {
@@ -194,7 +192,6 @@ public class FireEnemy : MonoBehaviour
         prevFounPlayerTime = false;
     }   */
 
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -216,6 +213,7 @@ public class FireEnemy : MonoBehaviour
 
         if (curHealth <= powerUpHealth && !isPowerUp)
         {
+            anim.speed = 2f;
             isPowerUp = true;
             Instantiate(powerUpObj, new Vector3(transform.position.x, transform.position.y + powerUpObjUpDist, 0), Quaternion.identity);
             SoundManager.instance.PlaySoundEffect("ÆÄ¿ö¾÷");
