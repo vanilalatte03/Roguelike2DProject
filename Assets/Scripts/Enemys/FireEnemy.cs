@@ -13,7 +13,7 @@ public class FireEnemy : MonoBehaviour
 {
     private Player player;
     private Transform playerTransform;
-
+    private Animator anim;
 
     [SerializeField]
     private Canvas canvas;
@@ -73,10 +73,12 @@ public class FireEnemy : MonoBehaviour
     private void Awake()
     {
         waitPrevPlayerPos = new WaitForSeconds(prevPlayerPosTime);
+        anim = GetComponent<Animator>();
     }
 
     private void Start()
     {
+        anim.SetBool("idle", true);
         player = GameController.instance.player;
         playerTransform = player.transform;
         curHealth = maxHealth;
@@ -88,7 +90,7 @@ public class FireEnemy : MonoBehaviour
     {
         switch (curState)
         {
-            case FireState.Idle:
+            case FireState.Idle:           
                 Attack();
                 break;
  
@@ -146,6 +148,7 @@ public class FireEnemy : MonoBehaviour
         Vector3 playerLastPos = playerTransform.position;
         yield return waitPrevPlayerPos;
 
+        anim.SetBool("idle", false);
         int index = Random.Range(0, pillarPrefabs.Length);
 
         fireObj = Instantiate(pillarPrefabs[index], playerLastPos, Quaternion.identity);
