@@ -46,8 +46,10 @@ public class EnemyController : MonoBehaviour
     private bool isSlime;           // 슬라임 몬스터는 Idle 애니가 없으므로 경고 출력.
 
     [SerializeField]
-    private GameObject destoryAnimObj;
+    private GameObject destoryAnimObjChase;
 
+    [SerializeField]
+    private GameObject destoryAnimObjSlime;
 
     void Start()
     {
@@ -210,8 +212,16 @@ public class EnemyController : MonoBehaviour
     public void Death()
     {
         SoundManager.instance.PlaySoundEffect("일반몹사망");
+        
+        if (isSlime)
+        {
+            Instantiate(destoryAnimObjSlime, transform.position, Quaternion.identity);
+        } else
+        {
+            Instantiate(destoryAnimObjChase, transform.position, Quaternion.identity);
+        }
+
         Destroy(gameObject);
-        RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());
-       
+        RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());       
     }
 }

@@ -152,6 +152,8 @@ MonoBehaviour:
   notInRoom: 0
   bulletPrefab: {fileID: 0}
   isSlime: 0
+  destoryAnimObjChase: {fileID: 8162817906175482663, guid: 1b5d881d605211848a138feeee07d122, type: 3}
+  destoryAnimObjSlime: {fileID: 0}
 --- !u!50 &3799081000794251103
 Rigidbody2D:
   serializedVersion: 4
