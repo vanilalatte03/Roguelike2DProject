@@ -5,6 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/StartScene.unity
+    guid: 952d4dc1503434046993b65f5cddb4e0
+  - enabled: 0
+    path: Assets/Scenes/LoadingScene.unity
+    guid: c3707094392f2934ca91c88c6a286645
+  - enabled: 0
+    path: Assets/Scenes/EndScene.unity
+    guid: 5d2e52de60b2162439302516889c6090
   - enabled: 1
     path: Assets/Scenes/DungeonRooms/BasementMain.unity
     guid: ebef7209fcd8041488fec602b7074bf5

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
@@ -12,13 +11,17 @@ public class SceneController : MonoBehaviour
     [SerializeField]
     private float frameTime;
 
-    private Image image;
+    [SerializeField]
+    private Image bgPanel;
+   
+    [SerializeField]
+    private Image storyPanel;
+
     private WaitForSeconds wait;
     private int currentFrameIndex = 0;
 
     private void Awake()
     {
-        image = GetComponent<Image>();
         wait = new WaitForSeconds(frameTime);
     }
 
@@ -32,7 +35,7 @@ public class SceneController : MonoBehaviour
     {
         while (true)
         {
-            image.sprite = spritesList[currentFrameIndex];
+            bgPanel.sprite = spritesList[currentFrameIndex];
 
             yield return wait;
 
@@ -40,8 +43,13 @@ public class SceneController : MonoBehaviour
         }
     }
 
-    public void StartGame()
+    public void StartStory()
     {
-        SceneManager.LoadScene("BasementMain");
+        storyPanel.gameObject.SetActive(true);
+    }
+
+    public void StartGame()
+    {   
+        LoadingSceneController.LoadScene("BasementMain");
     }
 }
