@@ -41,6 +41,7 @@ public class AttackPattern : MonoBehaviour
 
     void Attack()
     {
+        SoundManager.instance.PlaySoundEffect("스핑크스공격");
         anim.SetTrigger("ChangeAnimation");
         
         curPatternCount = 0;
@@ -86,6 +87,7 @@ public class AttackPattern : MonoBehaviour
 
         if (curPatternCount < maxPatternCount[patternIndex])
         {
+            SoundManager.instance.PlaySoundEffect("스핑크스공격");
             anim.SetTrigger("ChangeAnimation");
 
             Invoke("Shot", 2f);
@@ -176,6 +178,7 @@ public class AttackPattern : MonoBehaviour
 
         if (curPatternCount < maxPatternCount[patternIndex])
         {
+            SoundManager.instance.PlaySoundEffect("스핑크스공격");
             anim.SetTrigger("ChangeAnimation");
 
             Invoke("Gun", 2f);

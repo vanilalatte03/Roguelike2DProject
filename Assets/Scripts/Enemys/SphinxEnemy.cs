@@ -18,6 +18,8 @@ public class SphinxEnemy : MonoBehaviour
     public bool notInRoom = false;
     public GameObject bulletPrefab;
 
+    [SerializeField]
+    private GameObject destoryAnimObj;
 
     void Start()
     {
@@ -70,6 +72,7 @@ public class SphinxEnemy : MonoBehaviour
         if (health <= 0)
         {
             SoundManager.instance.PlaySoundEffect("Áß°£¸÷»ç¸Á");
+            Death();
         }
         else
         {
@@ -79,9 +82,8 @@ public class SphinxEnemy : MonoBehaviour
 
     public void Death()
     {
-        SoundManager.instance.PlaySoundEffect("ÀÏ¹Ý¸÷»ç¸Á");
-
-        RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());
+        // RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine()); 
+        Instantiate(destoryAnimObj, transform.position, Quaternion.identity);        // ¾ê´Â »ç¸Á ÀÌÆåÆ®
         Destroy(gameObject);
     }
 }
