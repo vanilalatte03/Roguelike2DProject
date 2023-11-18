@@ -26,7 +26,8 @@ public class AButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         isApressed = Input.GetKeyDown(KeyCode.A);
 
         coolTime = GameController.instance.FireRate;
-        
+
+
         // (모바일의 공격 UI 클릭 또는 키보드의 a키가 눌려거나) && 쿨타임이 0일 때 공격
         // 하지만 키보드 a 공격은 아직 수정 필요
         if ((isTouch || isApressed) && currentTime <= 0)
@@ -49,18 +50,100 @@ public class AButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                       // angle = 
                   }*/
 
-
             // 사운드 재생
             SoundManager.instance.PlaySoundEffect("플레이어화살");
 
+            int count = GameController.instance.BulletCount;
 
             //x,y의 값을 조합하여 Z방향 값으로 변형함. -> ~도 단위로 변형
             if (isTouch)
             {
-                Vector2 playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir;
-                float angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg;
-                GameObject bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle - 45));
-                bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+                if (count == 0)
+                {
+                    Vector2 playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir;
+                    float angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
+                    GameObject bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
+                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+                }
+                else if (count == 1)
+                {
+                    Vector2 playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir + new Vector2(0, 0.1f);
+                    float angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
+                    GameObject bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
+                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+
+                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir - new Vector2(0, 0.1f);
+                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
+                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
+                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+                }
+                else if (count == 2)
+                {
+                    Vector2 playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir;
+                    float angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
+                    GameObject bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
+                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+
+                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir + new Vector2(0, 0.15f);
+                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
+                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
+                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+
+                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir - new Vector2(0, 0.15f);
+                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
+                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
+                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+                }
+                else if (count == 3)
+                {
+                    Vector2 playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir + new Vector2(0, 0.05f);
+                    float angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
+                    GameObject bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
+                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+
+                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir - new Vector2(0, 0.05f);
+                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
+                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
+                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+
+                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir + new Vector2(0, 0.2f);
+                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
+                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
+                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+
+                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir - new Vector2(0, 0.2f);
+                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
+                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
+                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+                }
+                else if (count == 4)
+                {
+                    Vector2 playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir + new Vector2(0, 0.15f);
+                    float angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
+                    GameObject bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
+                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+
+                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir - new Vector2(0, 0.15f);
+                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
+                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
+                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+
+                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir + new Vector2(0, 0.3f);
+                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
+                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
+                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+
+                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir - new Vector2(0, 0.3f);
+                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
+                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
+                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+
+                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir;
+                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
+                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
+                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+                }
+
                 currentTime = coolTime;
             }
 
@@ -69,7 +152,7 @@ public class AButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             {
                 Vector2 playerDir = player.GetComponent<Player>().resultVec;
                 float angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg;
-                GameObject bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle - 45));
+                GameObject bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle - 45f));
                 bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * bulletSpeed;
                 currentTime = coolTime;
             }

@@ -9,7 +9,10 @@ public enum AbilityType
     Speed,
     Heal,
     Health,
-    Attack
+    Attack,
+    Double,
+    Power,
+    Shield
 };
 
 public class AbilityButton : MonoBehaviour
@@ -21,6 +24,9 @@ public class AbilityButton : MonoBehaviour
     public GameObject Heal;
     public GameObject Health;
     public GameObject Attack;
+    public GameObject Double;
+    public GameObject Power;
+    public GameObject Shield;
 
     public GameObject image;
     public GameObject text;
@@ -44,6 +50,18 @@ public class AbilityButton : MonoBehaviour
             case AbilityType.Attack:
                 image.GetComponent<Image>().sprite = Attack.GetComponent<SpriteRenderer>().sprite;
                 text.GetComponent<TextMeshProUGUI>().text = "Attack Speed +1";
+                break;
+            case AbilityType.Double:
+                image.GetComponent<Image>().sprite = Double.GetComponent<SpriteRenderer>().sprite;
+                text.GetComponent<TextMeshProUGUI>().text = "Double Shot";
+                break;
+            case AbilityType.Power:
+                image.GetComponent<Image>().sprite = Power.GetComponent<SpriteRenderer>().sprite;
+                text.GetComponent<TextMeshProUGUI>().text = "Power +1";
+                break;
+            case AbilityType.Shield:
+                image.GetComponent<Image>().sprite = Shield.GetComponent<SpriteRenderer>().sprite;
+                text.GetComponent<TextMeshProUGUI>().text = "Shield +1";
                 break;
         }
     }
@@ -70,6 +88,18 @@ public class AbilityButton : MonoBehaviour
             case AbilityType.Attack:
                 Attack.GetComponent<CollectionController>().GetAbility();
                 Debug.Log("Fast Attack");
+                break;
+            case AbilityType.Double:
+                Double.GetComponent<CollectionController>().GetAbility();
+                Debug.Log("Double");
+                break;
+            case AbilityType.Power:
+                Power.GetComponent<CollectionController>().GetAbility();
+                Debug.Log("Power");
+                break;
+            case AbilityType.Shield:
+                Shield.GetComponent<CollectionController>().GetAbility();
+                Debug.Log("Shield");
                 break;
         }
 

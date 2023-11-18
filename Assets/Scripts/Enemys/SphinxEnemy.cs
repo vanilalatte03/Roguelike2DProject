@@ -59,9 +59,9 @@ public class SphinxEnemy : MonoBehaviour
         coolDownAttack = false;
     }
 
-    public void Damaged()
+    public void Damaged(int dm)
     {
-        health -= 1;
+        health -= dm;
         hpSlider.value = health;
 
         if (!canvas.gameObject.activeSelf)

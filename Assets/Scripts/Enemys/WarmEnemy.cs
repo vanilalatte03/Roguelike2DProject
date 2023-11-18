@@ -161,9 +161,9 @@ public class WarmEnemy : MonoBehaviour
         }
     }
 
-    public void Damaged()
+    public void Damaged(int dm)
     {
-        curHealth -= 1;
+        curHealth -= dm;
         hpSlider.value = curHealth;
 
         if (!canvas.gameObject.activeSelf)

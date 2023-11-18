@@ -70,12 +70,15 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        int power = GameController.instance.Power;
+        int shield = GameController.instance.Shield;
+
         bool onlyEnemyTarget = !isEnemyBullet && !isGuardianBullet;
 
         // 플레이어가 쏘는 화살
         if (col.tag == "Enemy" && onlyEnemyTarget)
         {
-            col.gameObject.GetComponent<EnemyController>().Damage();
+            col.gameObject.GetComponent<EnemyController>().Damage(power);
             if (col.gameObject.GetComponent<EnemyController>().health <= 0)
                 col.gameObject.GetComponent<EnemyController>().Death();
             Destroy(gameObject);
@@ -84,34 +87,34 @@ public class Bullet : MonoBehaviour
         // 플레이어가 쏘는 화살이 스핑크스에게 맞았으면
         else if (col.tag == "SphinxEnemy" && !isBossBullet)
         {
-            col.GetComponent<SphinxEnemy>().Damaged();
+            col.GetComponent<SphinxEnemy>().Damaged(power);
             Destroy(gameObject);
         }
 
         // 플레이어가 쏘는 화살이 가디언 불렛에게 맞았으면
         else if (col.tag == "GuardianEnemy" && onlyEnemyTarget)
         {
-            col.GetComponent<GuardianEnemy>().Damaged();
+            col.GetComponent<GuardianEnemy>().Damaged(power);
             Destroy(gameObject);
         }
 
         // 플레이어가 쏘는 화살이 Warm에 맞았으면
         else if (col.tag == "WarmEnemy" && onlyEnemyTarget)
         {
-            col.GetComponent<WarmEnemy>().Damaged();
+            col.GetComponent<WarmEnemy>().Damaged(power);
             Destroy(gameObject);
         }
 
         // 플레이어가 쏘는 화살
         else if ((col.tag == "GiantEnemy") && onlyEnemyTarget)
         {
-            col.GetComponent<GiantEnemy>().Damaged();
+            col.GetComponent<GiantEnemy>().Damaged(power);
             Destroy(gameObject);
         }
 
         else if ((col.tag == "FireEnemy") && onlyEnemyTarget)
         {
-            col.GetComponent<FireEnemy>().Damaged();
+            col.GetComponent<FireEnemy>().Damaged(power);
             Destroy(gameObject);
         }
 

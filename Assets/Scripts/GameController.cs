@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Net;
 
 public class GameController : MonoBehaviour
 {
@@ -15,7 +16,9 @@ public class GameController : MonoBehaviour
     private float maxHealth = 6;
     private float moveSpeed = 4f;
     private float fireRate = 0.5f;
-    private float bulletCount = 0.5f;
+    private int bulletCount = 0;
+    private int power = 1;
+    private int shield = 0;
 
     private bool bootCollected = false;
     private bool screwCollected = false;
@@ -26,7 +29,9 @@ public class GameController : MonoBehaviour
     public float MaxHealth { get => maxHealth; set => maxHealth = value; }
     public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
     public float FireRate { get => fireRate; set => fireRate = value; }
-    public float BulletCount { get => bulletCount; set => bulletCount = value; }
+    public int BulletCount { get => bulletCount; set => bulletCount = value; }
+    public int Power { get => power; set => power = value; }
+    public int Shield { get => shield; set => shield = value; }
 
     [SerializeField]
     private TextMeshProUGUI healthText;
@@ -60,6 +65,9 @@ public class GameController : MonoBehaviour
     {
         // 사운드 출력
         SoundManager.instance.PlaySoundEffect("플레이어데미지");
+
+        //if (shield > 0)
+        //    return;
 
 
         // 체력감소
@@ -103,6 +111,16 @@ public class GameController : MonoBehaviour
     public void MaxHealthChange(float plus)
     {
         maxHealth += plus;
+    }
+
+    public void PowerChange(int pw)
+    {
+        power += pw;
+    }
+
+    public void ShieldChange(int sh)
+    {
+        shield += sh;
     }
 
     public void UpdateCollectedItems(CollectionController item)

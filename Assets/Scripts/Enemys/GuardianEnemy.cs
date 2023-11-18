@@ -212,9 +212,9 @@ public class GuardianEnemy : MonoBehaviour
         coolDownAttack = false;
     }*/
 
-    public void Damaged()
+    public void Damaged(int dm)
     {       
-        curHealth -= 1;
+        curHealth -= dm;
         hpSlider.value = curHealth;
 
         if (!canvas.gameObject.activeSelf)

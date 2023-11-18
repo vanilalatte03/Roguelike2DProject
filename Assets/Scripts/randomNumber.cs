@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class randomNumber : MonoBehaviour
 {
-    public GameObject[] rnd = new GameObject[4];
+    public GameObject[] rnd = new GameObject[7];
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < 10; ++i)
+        for (int i = 0; i < 100; ++i)
         {
-            int a = Random.Range(0, 4);
-            int b = Random.Range(0, 4);
+            int a = Random.Range(0, 7);
+            int b = Random.Range(0, 7);
 
             GameObject tmp = rnd[a];
             rnd[a] = rnd[b];

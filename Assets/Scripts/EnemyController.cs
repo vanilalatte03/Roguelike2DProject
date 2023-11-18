@@ -188,9 +188,9 @@ public class EnemyController : MonoBehaviour
         coolDownAttack = false;
     }
 
-    public void Damage()
+    public void Damage(int dm)
     {
-        health -= 1;
+        health -= dm;
         hpSlider.value = health;
 
         if (!canvas.gameObject.activeSelf)

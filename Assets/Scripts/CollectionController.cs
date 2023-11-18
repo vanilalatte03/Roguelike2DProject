@@ -19,6 +19,9 @@ public class CollectionController : MonoBehaviour
     public float moveSpeedChange;
     public float attackSpeedChange;
     public int bulletTypeChange;
+    public int powerChange;
+    public int shieldChange;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +37,8 @@ public class CollectionController : MonoBehaviour
         GameController.instance.MoveSpeedChange(moveSpeedChange);
         GameController.instance.FireRateChange(attackSpeedChange);
         GameController.instance.BulletTypeChange(bulletTypeChange);
+        GameController.instance.PowerChange(powerChange);
+        GameController.instance.ShieldChange(shieldChange);
         //GameController.instance.UpdateCollectedItems(this);
         //Destroy(gameObject);
     }
