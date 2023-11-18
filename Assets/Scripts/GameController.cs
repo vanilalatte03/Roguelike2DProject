@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
@@ -27,7 +28,9 @@ public class GameController : MonoBehaviour
     public float FireRate { get => fireRate; set => fireRate = value; }
     public float BulletCount { get => bulletCount; set => bulletCount = value; }
 
-    public Text healthText;
+    [SerializeField]
+    private TextMeshProUGUI healthText;
+    // public Text healthText;
     public Player player;
     public CameraShake cameraShake;
 

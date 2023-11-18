@@ -484,10 +484,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC548\uB155"
+  m_text: "\uC11C\uAE30 5000\uB144\uC804..."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1f6f2b8dafe20234fb781dc74cea423d, type: 2}
-  m_sharedMaterial: {fileID: 2843365740443832000, guid: 1f6f2b8dafe20234fb781dc74cea423d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 946ff36d50ffb9e47a1f5ef72aa720b7, type: 2}
+  m_sharedMaterial: {fileID: 6910473003096102727, guid: 946ff36d50ffb9e47a1f5ef72aa720b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
