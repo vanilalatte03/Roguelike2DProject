@@ -22,7 +22,7 @@ public class TextController : MonoBehaviour
         {
             storyText.text = story.Substring(0, i);
 
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }
