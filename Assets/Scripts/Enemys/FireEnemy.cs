@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum FireState
 {
@@ -41,7 +42,6 @@ public class FireEnemy : MonoBehaviour
     private GameObject paranetObj;
 
     private GameObject pillarObj;
-
 
     private FireState curState = FireState.Idle;
 
@@ -244,5 +244,13 @@ public class FireEnemy : MonoBehaviour
 
         Destroy(paranetObj, 4f);
         // RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());      
+
+        GameClear();
+    }
+
+    private void GameClear()
+    {
+        EndSceneController.isClear = true;
+        SceneManager.LoadScene("EndScene");
     }
 }

@@ -213,7 +213,7 @@ public class WarmEnemy : MonoBehaviour
         curState = WarmState.Die;
         gameObject.SetActive(false);
         Instantiate(destoryAnimObj, transform.position, Quaternion.identity);    
-        Destroy(this.gameObject, 4f);    
+        Destroy(this.gameObject, 4f);
         // RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());      
     }
 }

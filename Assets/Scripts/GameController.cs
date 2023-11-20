@@ -42,16 +42,8 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);      // 씬 전환시에도 유지
-        } 
-        
-        else
-        {
-            Destroy(gameObject);                // 이미 존재하는 인스턴스 파괴
-        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);      // 씬 전환시에도 유지
     }
 
     // Update is called once per frame
@@ -141,14 +133,14 @@ public class GameController : MonoBehaviour
         }
 
         if (bootCollected && screwCollected)
-        {
             FireRateChange(0.25f);
-        }
     }
 
     private void KillPlayer()
     {
-        Time.timeScale = 0f;
-         //   SceneManager.LoadScene("EndScene");       // 아직 보류
+        // Time.timeScale = 0f;
+      
+        EndSceneController.isClear = false;
+        SceneManager.LoadScene("EndScene");             
     }
 }
