@@ -50,6 +50,13 @@ public class GameController : MonoBehaviour
     void Update()
     {
         healthText.text = health + " / " + maxHealth;
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            //더블 샷 테스트를 위한 장치
+            GameController.instance.BulletTypeChange(1);
+            Debug.Log("Double Shot +1");
+        }
     }
 
     // 두번째 매개변수는 플레이어가 데미지 받았을 때 카메라 흔들림 효과를 할지, 말지, 기본은 true, 받지 않고 싶으면 false로 

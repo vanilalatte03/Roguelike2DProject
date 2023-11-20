@@ -67,81 +67,95 @@ public class AButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 }
                 else if (count == 1)
                 {
-                    Vector2 playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir + new Vector2(0, 0.1f);
-                    float angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
-                    GameObject bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
-                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+                    Vector2 playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir;
+                    float angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg;
+                    Vector2 dir = new Vector2(Mathf.Cos((angle - 10) * Mathf.Deg2Rad), Mathf.Sin((angle - 10) * Mathf.Deg2Rad));
+                    GameObject bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle - 55));
+                    bullet.GetComponent<Rigidbody2D>().velocity = dir * bulletSpeed;
 
-                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir - new Vector2(0, 0.1f);
-                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
-                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
-                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir;
+                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg;
+                    dir = new Vector2(Mathf.Cos((angle + 10) * Mathf.Deg2Rad), Mathf.Sin((angle + 10) * Mathf.Deg2Rad));
+                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle - 35));
+                    bullet.GetComponent<Rigidbody2D>().velocity = dir * bulletSpeed;
                 }
                 else if (count == 2)
                 {
                     Vector2 playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir;
-                    float angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
-                    GameObject bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
-                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+                    float angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg;
+                    Vector2 dir = new Vector2(Mathf.Cos((angle - 20) * Mathf.Deg2Rad), Mathf.Sin((angle - 20) * Mathf.Deg2Rad));
+                    GameObject bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle - 65));
+                    bullet.GetComponent<Rigidbody2D>().velocity = dir * bulletSpeed;
 
-                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir + new Vector2(0, 0.15f);
-                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
-                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
-                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir;
+                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg;
+                    dir = new Vector2(Mathf.Cos((angle) * Mathf.Deg2Rad), Mathf.Sin((angle) * Mathf.Deg2Rad));
+                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle - 45));
+                    bullet.GetComponent<Rigidbody2D>().velocity = dir * bulletSpeed;
 
-                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir - new Vector2(0, 0.15f);
-                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
-                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
-                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir;
+                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg;
+                    dir = new Vector2(Mathf.Cos((angle + 20) * Mathf.Deg2Rad), Mathf.Sin((angle + 20) * Mathf.Deg2Rad));
+                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle - 25));
+                    bullet.GetComponent<Rigidbody2D>().velocity = dir * bulletSpeed;
                 }
                 else if (count == 3)
                 {
-                    Vector2 playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir + new Vector2(0, 0.05f);
-                    float angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
-                    GameObject bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
-                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+                    Vector2 playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir;
+                    float angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg;
+                    Vector2 dir = new Vector2(Mathf.Cos((angle - 5) * Mathf.Deg2Rad), Mathf.Sin((angle - 5) * Mathf.Deg2Rad));
+                    GameObject bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle - 50));
+                    bullet.GetComponent<Rigidbody2D>().velocity = dir * bulletSpeed;
 
-                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir - new Vector2(0, 0.05f);
-                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
-                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
-                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir;
+                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg;
+                    dir = new Vector2(Mathf.Cos((angle + 5) * Mathf.Deg2Rad), Mathf.Sin((angle + 5) * Mathf.Deg2Rad));
+                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle - 40));
+                    bullet.GetComponent<Rigidbody2D>().velocity = dir * bulletSpeed;
 
-                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir + new Vector2(0, 0.2f);
-                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
-                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
-                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir;
+                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg;
+                    dir = new Vector2(Mathf.Cos((angle - 20) * Mathf.Deg2Rad), Mathf.Sin((angle - 20) * Mathf.Deg2Rad));
+                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle - 65));
+                    bullet.GetComponent<Rigidbody2D>().velocity = dir * bulletSpeed;
 
-                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir - new Vector2(0, 0.2f);
-                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
-                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
-                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir;
+                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg;
+                    dir = new Vector2(Mathf.Cos((angle + 20) * Mathf.Deg2Rad), Mathf.Sin((angle + 20) * Mathf.Deg2Rad));
+                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle - 25));
+                    bullet.GetComponent<Rigidbody2D>().velocity = dir * bulletSpeed;
                 }
                 else if (count == 4)
                 {
-                    Vector2 playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir + new Vector2(0, 0.15f);
-                    float angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
-                    GameObject bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
-                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
-
-                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir - new Vector2(0, 0.15f);
-                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
-                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
-                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
-
-                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir + new Vector2(0, 0.3f);
-                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
-                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
-                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
-
-                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir - new Vector2(0, 0.3f);
-                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
-                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
-                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+                    Vector2 playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir;
+                    float angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg;
+                    Vector2 dir = new Vector2(Mathf.Cos((angle - 10) * Mathf.Deg2Rad), Mathf.Sin((angle - 10) * Mathf.Deg2Rad));
+                    GameObject bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle - 55));
+                    bullet.GetComponent<Rigidbody2D>().velocity = dir * bulletSpeed;
 
                     playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir;
-                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg - 45f;
-                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
-                    bullet.GetComponent<Rigidbody2D>().velocity = playerDir * bulletSpeed;
+                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg;
+                    dir = new Vector2(Mathf.Cos((angle + 10) * Mathf.Deg2Rad), Mathf.Sin((angle + 10) * Mathf.Deg2Rad));
+                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle - 35));
+                    bullet.GetComponent<Rigidbody2D>().velocity = dir * bulletSpeed;
+
+                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir;
+                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg;
+                    dir = new Vector2(Mathf.Cos((angle) * Mathf.Deg2Rad), Mathf.Sin((angle) * Mathf.Deg2Rad));
+                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle - 45));
+                    bullet.GetComponent<Rigidbody2D>().velocity = dir * bulletSpeed;
+
+                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir;
+                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg;
+                    dir = new Vector2(Mathf.Cos((angle - 20) * Mathf.Deg2Rad), Mathf.Sin((angle - 20) * Mathf.Deg2Rad));
+                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle - 65));
+                    bullet.GetComponent<Rigidbody2D>().velocity = dir * bulletSpeed;
+
+                    playerDir = joyStick.GetComponent<VariableJoystick>().AttackDir;
+                    angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg;
+                    dir = new Vector2(Mathf.Cos((angle + 20) * Mathf.Deg2Rad), Mathf.Sin((angle + 20) * Mathf.Deg2Rad));
+                    bullet = Instantiate(bulletPrefab, player.transform.position, Quaternion.Euler(0, 0, angle - 25));
+                    bullet.GetComponent<Rigidbody2D>().velocity = dir * bulletSpeed;
                 }
 
                 currentTime = coolTime;

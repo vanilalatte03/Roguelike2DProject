@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class randomNumber : MonoBehaviour
 {
+    public GameObject back;
     public GameObject[] rnd = new GameObject[7];
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,8 @@ public class randomNumber : MonoBehaviour
         rnd[1].SetActive(true);
         rnd[2].SetActive(true);
         rnd[2].transform.localPosition = new Vector3(500, 0);
+
+        back.SetActive(true);
     }
 
     // Update is called once per frame
