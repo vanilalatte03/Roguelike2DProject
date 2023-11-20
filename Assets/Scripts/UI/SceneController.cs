@@ -36,20 +36,20 @@ public class SceneController : MonoBehaviour
     void Start()
     {
         StartCoroutine(FadeAnywhere());
-        //  StartCoroutine(GIF());
+        StartCoroutine(GIF());
     }
 
-    /*    private IEnumerator GIF()
+    private IEnumerator GIF()
+    {
+        while (true)
         {
-            while (true)
-            {
-                bgPanel.sprite = spritesList[currentFrameIndex];
+            bgPanel.sprite = spritesList[currentFrameIndex];
 
-                yield return wait;
+            yield return wait;
 
-                currentFrameIndex = (currentFrameIndex + 1) % spritesList.Count;
-            }
-        }*/
+            currentFrameIndex = (currentFrameIndex + 1) % spritesList.Count;
+        }
+    }
 
     public void StartStory()
     {
