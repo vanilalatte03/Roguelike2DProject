@@ -7,7 +7,7 @@ public class EndSceneController : MonoBehaviour
 {
     public static bool isClear;
     private AudioSource source;
-
+            
     [SerializeField]
     private Button button;
 
@@ -48,6 +48,6 @@ public class EndSceneController : MonoBehaviour
 
     public void ReStart()
     {
-        LoadingSceneController.LoadScene("BasementMain");
+        LoadingSceneController.LoadScene("StartScene");
     }
 }

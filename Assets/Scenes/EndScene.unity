@@ -239,12 +239,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 648, y: 382}
+  m_ReferenceResolution: {x: 650, y: 382}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.5
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -259,8 +259,8 @@ Canvas:
   m_GameObject: {fileID: 437856934}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
-  m_Camera: {fileID: 844328575}
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -407,7 +407,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1245203788, guid: 0e3926452cf2da045ab331ffe99c16b5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 139556e0a2003e846808b0f58ee35287, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -555,8 +555,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 789848554}
-  clearImg: {fileID: 21300000, guid: 4b19d832fcbf84343a6cb2dbb9668889, type: 3}
-  overImg: {fileID: -1245203788, guid: 0e3926452cf2da045ab331ffe99c16b5, type: 3}
+  clearImg: {fileID: 21300000, guid: 5c9feab3c781eca479a81def5f3d1d2b, type: 3}
+  overImg: {fileID: 21300000, guid: 139556e0a2003e846808b0f58ee35287, type: 3}
   clearClip: {fileID: 8300000, guid: 2369deaefee536b46a49b1175e134e38, type: 3}
   overClip: {fileID: 8300000, guid: f135958656c91144e8ee45d42965ef0d, type: 3}
 --- !u!82 &1317610527

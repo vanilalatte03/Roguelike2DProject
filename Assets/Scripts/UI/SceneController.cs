@@ -22,7 +22,7 @@ public class SceneController : MonoBehaviour
     private int currentFrameIndex = 0;
 
     [SerializeField]
-    private TextMeshProUGUI anywhereText;
+    private Image[] touchToStartImgs;
 
     [SerializeField]
     private AnimationCurve fadeCurve;
@@ -53,8 +53,13 @@ public class SceneController : MonoBehaviour
 
     public void StartStory()
     {
+        Debug.Log("Hello!");
         storyPanel.gameObject.SetActive(true);
-        anywhereText.gameObject.SetActive(false);
+        
+        for (int i=0; i<touchToStartImgs.Length; i++)
+        {
+            touchToStartImgs[i].gameObject.SetActive(false);
+        }
     }
 
     public void StartGame()
@@ -82,10 +87,10 @@ public class SceneController : MonoBehaviour
             curTime += Time.deltaTime;
             percent = curTime / 1f;
 
-            Color color = anywhereText.color;
+            Color color = touchToStartImgs[0].color;
             color.a = Mathf.Lerp(start, end, fadeCurve.Evaluate(percent));
 
-            anywhereText.color = color;
+            touchToStartImgs[0].color = color;
 
             yield return null;
         }
