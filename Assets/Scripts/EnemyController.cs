@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneTemplate;
-using UnityEditorInternal.Profiling.Memory.Experimental.FileFormat;
+// using UnityEditor.SceneTemplate;
+// using UnityEditorInternal.Profiling.Memory.Experimental.FileFormat;
 using UnityEngine;
 using UnityEngine.UI;
 
