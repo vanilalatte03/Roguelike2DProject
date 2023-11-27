@@ -17,6 +17,7 @@ public class RoomController : MonoBehaviour
     public static RoomController instance;
 
     string currentWorldName = "Basement";
+    public int stageNum = 0;
 
     RoomInfo currentLoadRoomData;
 
@@ -46,6 +47,18 @@ public class RoomController : MonoBehaviour
 
     void Update()
     {
+        switch(stageNum)
+        {
+            case 0:
+                currentWorldName = "Basement";
+                break;
+            case 1:
+                currentWorldName = "Stone";
+                break;
+            default:
+                break;
+        }
+
         UpdateRoomQueue();
     }
 

@@ -32,5 +32,23 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DungeonRooms/BasementStart.unity
     guid: 8cc6d8edaeb91ad47a31be8ddb051d31
+  - enabled: 1
+    path: Assets/Scenes/StoneRooms/StoneBasic1.unity
+    guid: 8d3e30409ac461c4e9f7174033cd8603
+  - enabled: 1
+    path: Assets/Scenes/StoneRooms/StoneBoss.unity
+    guid: fe858f11f819189458c6554c13a5e02b
+  - enabled: 1
+    path: Assets/Scenes/StoneRooms/StoneEmpty.unity
+    guid: 6033d97871a1ab9449b6c7126e88344e
+  - enabled: 1
+    path: Assets/Scenes/StoneRooms/StoneEnd.unity
+    guid: fac1974b23f18ad40bdd05627b7be937
+  - enabled: 1
+    path: Assets/Scenes/StoneRooms/StoneMain.unity
+    guid: 7128f7cc01fac7d499d93e81f6f520b0
+  - enabled: 1
+    path: Assets/Scenes/StoneRooms/StoneStart.unity
+    guid: 144a5337e8815e74dbb2532104251e81
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 37f0e97ab771d9f42b6a1136a398852a, type: 2}

@@ -14,12 +14,16 @@ public class Door : MonoBehaviour
     public GameObject doorCollider;
 
     private GameObject player;
-    private float widthOffset = 11.5f;
-    private float heightOffset = 7f;
+    public float widthOffset = 11.5f;
+    public float heightOffset = 7f;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private void Update()
+    {
     }
 
     void OnTriggerEnter2D(Collider2D other)
