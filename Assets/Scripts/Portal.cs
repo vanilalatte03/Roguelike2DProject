@@ -5,6 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
+    public enum stageType
+    {
+        Stage1,
+        Stage2
+    };
+
+    public stageType type;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +29,15 @@ public class Portal : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("BasementBoss");
+            switch (type)
+            {
+                case stageType.Stage1:
+                    SceneManager.LoadScene("BasementBoss");
+                    break;
+                case stageType.Stage2:
+                    SceneManager.LoadScene("StoneBoss");
+                    break;
+            }
         }
     }
 }
