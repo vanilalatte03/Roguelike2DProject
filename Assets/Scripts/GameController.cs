@@ -39,6 +39,11 @@ public class GameController : MonoBehaviour
     public Player player;
     public CameraShake cameraShake;
 
+    private float invincibilityTime = 2.0f; // 무적 지속 시간 설정 (예: 2초)
+
+    private bool isInvincible = false;
+    private float invincibleTimer = 0.0f;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -57,11 +62,32 @@ public class GameController : MonoBehaviour
             GameController.instance.BulletTypeChange(1);
             Debug.Log("Double Shot +1");
         }
+
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+        
+            if (invincibleTimer <= 0)
+            {
+                isInvincible = false;
+                player.ActionIsFadeStop();
+            }
+        } 
     }
 
     // 두번째 매개변수는 플레이어가 데미지 받았을 때 카메라 흔들림 효과를 할지, 말지, 기본은 true, 받지 않고 싶으면 false로 
     public void DamagePlayer(int damage, bool shake = true)
     {
+        if (isInvincible)
+        {
+            Debug.Log("무적 시간 입니다.");
+            return;
+        }
+
+        isInvincible = true;
+        invincibleTimer = invincibilityTime;
+        player.FadePlayerStart();
+
         // 사운드 출력
         SoundManager.instance.PlaySoundEffect("플레이어데미지");
 

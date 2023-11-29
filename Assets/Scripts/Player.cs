@@ -37,6 +37,10 @@ public class Player : MonoBehaviour
     private float timer; // 이펙트 생성을 위한 타이머
     private bool isLeft;
 
+    private Coroutine fadeCor;
+
+    public bool isFadeStop;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -143,7 +147,7 @@ public class Player : MonoBehaviour
     // 다른 enemy 스크립트에서, 플레이어를 공격했을 때 넉백 코루틴 호출
     public void StartKnockBack(Vector3 enemyPos)
     {
-        StartCoroutine(KnockBack(enemyPos));  
+        fadeCor = StartCoroutine(KnockBack(enemyPos));  
     }
 
     private IEnumerator KnockBack(Vector3 enemyPos)
@@ -160,5 +164,51 @@ public class Player : MonoBehaviour
         rb.AddForce(dirVec * 1.5f, ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.2f);
         isKnockbacking = false;
+    }
+
+    public void FadePlayerStart()
+    {
+        StartCoroutine(FadeInOut());
+    }
+
+    private IEnumerator FadeInOut()
+    {
+        while (true)
+        {
+            yield return StartCoroutine(Fade(1, 0.2f));
+            yield return StartCoroutine(Fade(0.2f, 1));
+
+            if (isFadeStop) 
+            {
+                isFadeStop = false;
+                break;
+            }
+        }
+    }
+
+    public void ActionIsFadeStop()
+    {
+        if (!isFadeStop)
+        {
+            isFadeStop = true;
+        }
+    }
+
+    private IEnumerator Fade(float start, float end)
+    {
+        float curTime = 0.0f;
+        float percent = 0.0f;
+
+        while (percent < 1f)
+        {
+            curTime += Time.deltaTime;
+            percent = curTime / 0.2f;
+
+            Color color = rend.color;
+            color.a = Mathf.Lerp(start, end, percent);
+            rend.color = color;
+
+            yield return null;
+        }
     }
 }

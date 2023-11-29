@@ -37,7 +37,7 @@ public class Portal : MonoBehaviour
                     SceneManager.LoadScene("BasementBoss");
                     break;
                 case stageType.toStage2:
-                    SceneManager.LoadScene("StoneMain");
+                    LoadingSceneController.LoadScene("StoneMain");
                     break;
                 case stageType.toBoss2:
                     SceneManager.LoadScene("StoneBoss");
