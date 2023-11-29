@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 32083338}
   m_Layer: 0
   m_Name: stage2maptile_0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 36659506}
   m_Layer: 0
   m_Name: stage2maptile_1 (58)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -583,7 +583,7 @@ GameObject:
   - component: {fileID: 43008261}
   m_Layer: 0
   m_Name: stage2maptile_1 (9)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -862,7 +862,7 @@ GameObject:
   - component: {fileID: 49627357}
   m_Layer: 0
   m_Name: stage2maptile_1 (42)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -973,7 +973,7 @@ GameObject:
   - component: {fileID: 51171777}
   m_Layer: 0
   m_Name: stage2maptile_1 (16)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1420,7 +1420,7 @@ GameObject:
   - component: {fileID: 84611860}
   m_Layer: 0
   m_Name: stage2maptile_1 (63)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1614,7 +1614,7 @@ GameObject:
   - component: {fileID: 97778956}
   m_Layer: 0
   m_Name: stage2maptile_0 (4)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1951,7 +1951,7 @@ GameObject:
   - component: {fileID: 154384650}
   m_Layer: 0
   m_Name: stage2maptile_1 (52)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2650,7 +2650,7 @@ GameObject:
   - component: {fileID: 248049415}
   m_Layer: 0
   m_Name: stage2maptile_1 (34)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2761,7 +2761,7 @@ GameObject:
   - component: {fileID: 248449417}
   m_Layer: 0
   m_Name: stage2maptile_1 (56)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2872,7 +2872,7 @@ GameObject:
   - component: {fileID: 259128235}
   m_Layer: 0
   m_Name: stage2maptile_1 (37)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2983,7 +2983,7 @@ GameObject:
   - component: {fileID: 265692758}
   m_Layer: 0
   m_Name: stage2maptile_1 (60)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3178,7 +3178,7 @@ GameObject:
   - component: {fileID: 284541178}
   m_Layer: 0
   m_Name: stage2maptile_1 (19)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3289,7 +3289,7 @@ GameObject:
   - component: {fileID: 284689401}
   m_Layer: 0
   m_Name: stage2maptile_1 (62)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3400,7 +3400,7 @@ GameObject:
   - component: {fileID: 296339898}
   m_Layer: 0
   m_Name: stage2maptile_1 (41)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3679,7 +3679,7 @@ GameObject:
   - component: {fileID: 305690707}
   m_Layer: 0
   m_Name: stage2maptile_1 (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3957,7 +3957,7 @@ GameObject:
   - component: {fileID: 329057763}
   m_Layer: 0
   m_Name: stage2maptile_2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5768,7 +5768,7 @@ GameObject:
   - component: {fileID: 503150256}
   m_Layer: 0
   m_Name: stage2maptile_1 (55)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6130,7 +6130,7 @@ GameObject:
   - component: {fileID: 529714731}
   m_Layer: 0
   m_Name: stage2maptile_0 (14)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6635,7 +6635,7 @@ GameObject:
   - component: {fileID: 576940291}
   m_Layer: 0
   m_Name: stage2maptile_1 (50)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6914,7 +6914,7 @@ GameObject:
   - component: {fileID: 608007541}
   m_Layer: 0
   m_Name: stage2maptile_1 (12)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7109,7 +7109,7 @@ GameObject:
   - component: {fileID: 637299025}
   m_Layer: 0
   m_Name: stage2maptile_1 (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7380,7 +7380,7 @@ GameObject:
   - component: {fileID: 658869380}
   m_Layer: 0
   m_Name: stage2maptile_1 (24)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7827,7 +7827,7 @@ GameObject:
   - component: {fileID: 693215316}
   m_Layer: 0
   m_Name: stage2maptile_1 (44)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8021,7 +8021,7 @@ GameObject:
   - component: {fileID: 700038002}
   m_Layer: 0
   m_Name: stage2maptile_2 (4)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8357,7 +8357,7 @@ GameObject:
   - component: {fileID: 712018885}
   m_Layer: 0
   m_Name: stage2maptile_2 (5)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8526,7 +8526,7 @@ GameObject:
   - component: {fileID: 723638316}
   m_Layer: 0
   m_Name: stage2maptile_1 (6)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8721,7 +8721,7 @@ GameObject:
   - component: {fileID: 725165099}
   m_Layer: 0
   m_Name: stage2maptile_1 (5)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9000,7 +9000,7 @@ GameObject:
   - component: {fileID: 754654723}
   m_Layer: 0
   m_Name: stage2maptile_1 (64)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9279,7 +9279,7 @@ GameObject:
   - component: {fileID: 776128562}
   m_Layer: 0
   m_Name: stage2maptile_1 (25)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9390,7 +9390,7 @@ GameObject:
   - component: {fileID: 778196225}
   m_Layer: 0
   m_Name: stage2maptile_1 (4)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9668,7 +9668,7 @@ GameObject:
   - component: {fileID: 797693499}
   m_Layer: 0
   m_Name: stage2maptile_0 (7)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9837,7 +9837,7 @@ GameObject:
   - component: {fileID: 815099209}
   m_Layer: 0
   m_Name: stage2maptile_1 (57)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10115,7 +10115,7 @@ GameObject:
   - component: {fileID: 823292045}
   m_Layer: 0
   m_Name: stage2maptile_0 (13)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10871,7 +10871,7 @@ GameObject:
   - component: {fileID: 895400177}
   m_Layer: 0
   m_Name: stage2maptile_1 (40)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11066,7 +11066,7 @@ GameObject:
   - component: {fileID: 909633335}
   m_Layer: 0
   m_Name: stage2maptile_1 (28)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11597,7 +11597,7 @@ GameObject:
   - component: {fileID: 971421611}
   m_Layer: 0
   m_Name: stage2maptile_1 (11)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11960,7 +11960,7 @@ GameObject:
   - component: {fileID: 998557786}
   m_Layer: 0
   m_Name: stage2maptile_1 (15)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12071,7 +12071,7 @@ GameObject:
   - component: {fileID: 1008908451}
   m_Layer: 0
   m_Name: stage2maptile_1 (30)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12182,7 +12182,7 @@ GameObject:
   - component: {fileID: 1015583159}
   m_Layer: 0
   m_Name: stage2maptile_1 (31)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12293,7 +12293,7 @@ GameObject:
   - component: {fileID: 1015984193}
   m_Layer: 0
   m_Name: stage2maptile_1 (29)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12404,7 +12404,7 @@ GameObject:
   - component: {fileID: 1019759615}
   m_Layer: 0
   m_Name: stage2maptile_1 (48)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12598,7 +12598,7 @@ GameObject:
   - component: {fileID: 1024621883}
   m_Layer: 0
   m_Name: stage2maptile_0 (8)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13103,7 +13103,7 @@ GameObject:
   - component: {fileID: 1073486882}
   m_Layer: 0
   m_Name: stage2maptile_1 (23)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13550,7 +13550,7 @@ GameObject:
   - component: {fileID: 1100916484}
   m_Layer: 0
   m_Name: stage2maptile_1 (7)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13745,7 +13745,7 @@ GameObject:
   - component: {fileID: 1105407552}
   m_Layer: 0
   m_Name: stage2maptile_1 (33)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14268,7 +14268,7 @@ GameObject:
   - component: {fileID: 1142783425}
   m_Layer: 0
   m_Name: stage2maptile_1 (21)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14970,7 +14970,7 @@ GameObject:
   - component: {fileID: 1233418794}
   m_Layer: 0
   m_Name: stage2maptile_1 (10)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15080,7 +15080,7 @@ GameObject:
   - component: {fileID: 1233989831}
   m_Layer: 0
   m_Name: stage2maptile_0 (9)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15332,7 +15332,7 @@ GameObject:
   - component: {fileID: 1268405040}
   m_Layer: 0
   m_Name: stage2maptile_0 (5)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15417,7 +15417,7 @@ GameObject:
   - component: {fileID: 1278279137}
   m_Layer: 0
   m_Name: stage2maptile_1 (13)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15687,7 +15687,7 @@ GameObject:
   - component: {fileID: 1298418219}
   m_Layer: 0
   m_Name: stage2maptile_2 (6)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15772,7 +15772,7 @@ GameObject:
   - component: {fileID: 1305019128}
   m_Layer: 0
   m_Name: stage2maptile_1 (8)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16051,7 +16051,7 @@ GameObject:
   - component: {fileID: 1319437904}
   m_Layer: 0
   m_Name: stage2maptile_1 (47)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16162,7 +16162,7 @@ GameObject:
   - component: {fileID: 1321913729}
   m_Layer: 0
   m_Name: stage2maptile_1 (27)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16357,7 +16357,7 @@ GameObject:
   - component: {fileID: 1328067434}
   m_Layer: 0
   m_Name: stage2maptile_1 (36)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16468,7 +16468,7 @@ GameObject:
   - component: {fileID: 1329059876}
   m_Layer: 0
   m_Name: stage2maptile_1 (20)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16663,7 +16663,7 @@ GameObject:
   - component: {fileID: 1334089683}
   m_Layer: 0
   m_Name: stage2maptile_1 (65)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16774,7 +16774,7 @@ GameObject:
   - component: {fileID: 1335903298}
   m_Layer: 0
   m_Name: stage2maptile_1 (43)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16885,7 +16885,7 @@ GameObject:
   - component: {fileID: 1339109334}
   m_Layer: 0
   m_Name: stage2maptile_1
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17080,7 +17080,7 @@ GameObject:
   - component: {fileID: 1347034131}
   m_Layer: 0
   m_Name: stage2maptile_1 (38)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17359,7 +17359,7 @@ GameObject:
   - component: {fileID: 1377318721}
   m_Layer: 0
   m_Name: stage2maptile_1 (59)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17806,7 +17806,7 @@ GameObject:
   - component: {fileID: 1426863349}
   m_Layer: 0
   m_Name: stage2maptile_1 (32)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18084,7 +18084,7 @@ GameObject:
   - component: {fileID: 1435779044}
   m_Layer: 0
   m_Name: stage2maptile_0 (12)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18168,7 +18168,7 @@ GameObject:
   - component: {fileID: 1440848191}
   m_Layer: 0
   m_Name: stage2maptile_2 (7)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18542,7 +18542,7 @@ GameObject:
   - component: {fileID: 1463324397}
   m_Layer: 0
   m_Name: stage2maptile_1 (45)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18736,7 +18736,7 @@ GameObject:
   - component: {fileID: 1483266736}
   m_Layer: 0
   m_Name: stage2maptile_0 (6)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19072,7 +19072,7 @@ GameObject:
   - component: {fileID: 1529267599}
   m_Layer: 0
   m_Name: stage2maptile_2 (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19157,7 +19157,7 @@ GameObject:
   - component: {fileID: 1536516328}
   m_Layer: 0
   m_Name: stage2maptile_1 (14)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19352,7 +19352,7 @@ GameObject:
   - component: {fileID: 1547665935}
   m_Layer: 0
   m_Name: stage2maptile_1 (49)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19714,7 +19714,7 @@ GameObject:
   - component: {fileID: 1565826966}
   m_Layer: 0
   m_Name: stage2maptile_1 (18)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20665,7 +20665,7 @@ GameObject:
   - component: {fileID: 1643464946}
   m_Layer: 0
   m_Name: stage2maptile_1 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20859,7 +20859,7 @@ GameObject:
   - component: {fileID: 1649670886}
   m_Layer: 0
   m_Name: stage2maptile_0 (11)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20944,7 +20944,7 @@ GameObject:
   - component: {fileID: 1679995586}
   m_Layer: 0
   m_Name: stage2maptile_1 (54)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21299,7 +21299,7 @@ GameObject:
   - component: {fileID: 1736741817}
   m_Layer: 0
   m_Name: stage2maptile_1 (26)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21577,7 +21577,7 @@ GameObject:
   - component: {fileID: 1761637771}
   m_Layer: 0
   m_Name: stage2maptile_2 (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21949,7 +21949,7 @@ GameObject:
   - component: {fileID: 1790689284}
   m_Layer: 0
   m_Name: stage2maptile_0 (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22117,7 +22117,7 @@ GameObject:
   - component: {fileID: 1798931203}
   m_Layer: 0
   m_Name: stage2maptile_0 (10)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23041,7 +23041,7 @@ GameObject:
   - component: {fileID: 1873390898}
   m_Layer: 0
   m_Name: stage2maptile_2 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23125,7 +23125,7 @@ GameObject:
   - component: {fileID: 1883825933}
   m_Layer: 0
   m_Name: stage2maptile_0 (15)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23462,7 +23462,7 @@ GameObject:
   - component: {fileID: 1921773830}
   m_Layer: 0
   m_Name: stage2maptile_1 (17)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23740,7 +23740,7 @@ GameObject:
   - component: {fileID: 1939993937}
   m_Layer: 0
   m_Name: stage2maptile_0 (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23824,7 +23824,7 @@ GameObject:
   - component: {fileID: 1947779470}
   m_Layer: 0
   m_Name: stage2maptile_0 (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24420,7 +24420,7 @@ GameObject:
   - component: {fileID: 2003877361}
   m_Layer: 0
   m_Name: stage2maptile_1 (51)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24531,7 +24531,7 @@ GameObject:
   - component: {fileID: 2008499708}
   m_Layer: 0
   m_Name: stage2maptile_1 (46)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24726,7 +24726,7 @@ GameObject:
   - component: {fileID: 2022799426}
   m_Layer: 0
   m_Name: stage2maptile_1 (39)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25341,7 +25341,7 @@ GameObject:
   - component: {fileID: 2066293800}
   m_Layer: 0
   m_Name: stage2maptile_1 (61)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25536,7 +25536,7 @@ GameObject:
   - component: {fileID: 2082875717}
   m_Layer: 0
   m_Name: stage2maptile_1 (22)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26067,7 +26067,7 @@ GameObject:
   - component: {fileID: 2135295064}
   m_Layer: 0
   m_Name: stage2maptile_1 (53)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26262,7 +26262,7 @@ GameObject:
   - component: {fileID: 2140006024}
   m_Layer: 0
   m_Name: stage2maptile_1 (35)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -75,6 +75,11 @@ public class Bullet : MonoBehaviour
 
         bool onlyEnemyTarget = !isEnemyBullet && !isGuardianBullet;
 
+        if (col.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }
+
         // 플레이어가 쏘는 화살
         if (col.tag == "Enemy" && onlyEnemyTarget)
         {
