@@ -5731,6 +5731,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064802, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064802, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064802, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6829746563719064807, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
       propertyPath: m_Name
       value: Portal
@@ -10821,6 +10833,18 @@ PrefabInstance:
     - target: {fileID: 6829746563719064800, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064802, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064802, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064802, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6829746563719064807, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
       propertyPath: m_Name
@@ -19485,6 +19509,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064802, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064802, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064802, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6829746563719064807, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
       propertyPath: m_Name
       value: Portal
@@ -24170,6 +24206,18 @@ PrefabInstance:
     - target: {fileID: 6829746563719064800, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064802, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064802, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064802, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6829746563719064802, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
       propertyPath: m_SortingLayer
