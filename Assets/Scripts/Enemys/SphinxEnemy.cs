@@ -17,6 +17,7 @@ public class SphinxEnemy : MonoBehaviour
     private bool coolDownAttack = false;
     public bool notInRoom = false;
     public GameObject bulletPrefab;
+    public GameObject portal;
 
     [SerializeField]
     private GameObject destoryAnimObj;
@@ -82,6 +83,8 @@ public class SphinxEnemy : MonoBehaviour
 
     public void Death()
     {
+        portal.SetActive(true);
+
         // RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine()); 
         Instantiate(destoryAnimObj, transform.position, Quaternion.identity);        // ¾ê´Â »ç¸Á ÀÌÆåÆ®
         Destroy(gameObject);

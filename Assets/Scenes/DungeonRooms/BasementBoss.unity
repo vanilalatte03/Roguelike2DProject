@@ -34404,10 +34404,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 19354433}
   hpSlider: {fileID: 1523530780}
-  maxHealth: 100
-  health: 100
+  maxHealth: 1
+  health: 1
   notInRoom: 0
   bulletPrefab: {fileID: 5029563573200375363, guid: ee3da2b689b055142b8d68456ca2ea74, type: 3}
+  portal: {fileID: 2008161836}
   destoryAnimObj: {fileID: 6548798603034763713, guid: 354074033b7ec4715bea188505482b96, type: 3}
 --- !u!1 &935284342
 GameObject:
@@ -70065,6 +70066,76 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &2008161835
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6829746563719064800, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064800, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064800, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064800, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064800, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064800, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064800, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064800, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064800, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064800, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064800, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064807, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_Name
+      value: Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064807, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829746563719064812, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+--- !u!1 &2008161836 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6829746563719064807, guid: 88bab16433a7f2547968fdd5ff0ace37, type: 3}
+  m_PrefabInstance: {fileID: 2008161835}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2008627182
 GameObject:
   m_ObjectHideFlags: 0

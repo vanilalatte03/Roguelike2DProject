@@ -7,8 +7,10 @@ public class Portal : MonoBehaviour
 {
     public enum stageType
     {
-        Stage1,
-        Stage2
+        toBoss1,
+        toStage2,
+        toBoss2,
+        toClear
     };
 
     public stageType type;
@@ -31,11 +33,17 @@ public class Portal : MonoBehaviour
         {
             switch (type)
             {
-                case stageType.Stage1:
+                case stageType.toBoss1:
                     SceneManager.LoadScene("BasementBoss");
                     break;
-                case stageType.Stage2:
+                case stageType.toStage2:
+                    SceneManager.LoadScene("StoneMain");
+                    break;
+                case stageType.toBoss2:
                     SceneManager.LoadScene("StoneBoss");
+                    break;
+                case stageType.toClear:
+                    SceneManager.LoadScene("Ending");
                     break;
             }
         }
