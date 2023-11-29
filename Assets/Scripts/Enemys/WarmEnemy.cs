@@ -57,6 +57,9 @@ public class WarmEnemy : MonoBehaviour
     [SerializeField]
     private GameObject mouthEffectObj;
 
+    [SerializeField]
+    private GameObject potionPrefab;
+
     private Vector3 originShadowRot;
     private Vector3 flipShadowRot;
 
@@ -95,7 +98,7 @@ public class WarmEnemy : MonoBehaviour
                 break;
         }
 
-        if (notInRoom) return;
+     
 
         // 범위안에 플레이어가 있고, 현재 죽지 않았다면
         if (IsPlayerInRange(range) && curState != WarmState.Die)
@@ -111,6 +114,8 @@ public class WarmEnemy : MonoBehaviour
 
     private void Attack()
     {
+        if (notInRoom) return;
+
         if (playerTransform.position.x - transform.position.x < 0)
         {
             sprite.flipX = false;     
@@ -212,6 +217,16 @@ public class WarmEnemy : MonoBehaviour
     {
         curState = WarmState.Die;
         gameObject.SetActive(false);
+
+        // 25퍼의 확률로 플레이어 체력 1회복
+        int ran = Random.Range(0, 100);
+
+        if (ran <= 20)
+        {
+            GameObject hpPotion = Instantiate(potionPrefab, transform.position, Quaternion.identity);
+            hpPotion.GetComponent<DropedPotion>().healHP = 3;   // 3체력 회복
+        }
+
         Instantiate(destoryAnimObj, transform.position, Quaternion.identity);    
         Destroy(this.gameObject, 4f);
         // RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());      

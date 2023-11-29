@@ -52,6 +52,9 @@ public class GuardianEnemy : MonoBehaviour
     [SerializeField]
     private GameObject destoryAnimObj;
 
+    [SerializeField]
+    private GameObject potionPrefab;
+
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -236,6 +239,16 @@ public class GuardianEnemy : MonoBehaviour
     {
         Instantiate(destoryAnimObj, transform.position, Quaternion.identity);
         curState = GuardianState.Die;
+
+        // 25퍼의 확률로 플레이어 체력 1회복
+        int ran = Random.Range(0, 100);
+
+        if (ran <= 20)
+        {
+            GameObject hpPotion = Instantiate(potionPrefab, transform.position, Quaternion.identity);
+            hpPotion.GetComponent<DropedPotion>().healHP = 3;   // 3체력 회복
+        }
+
         Destroy(gameObject);
         // RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());      
     }

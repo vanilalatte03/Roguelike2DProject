@@ -35,9 +35,6 @@ public class GiantEnemy : MonoBehaviour
     [SerializeField]
     private float attackCool;    // 공격 쿨타임
 
-    [Range(0, 100)]
-    public int ranPotionDropPercent = 25;
-
     [SerializeField]
     private GameObject potionPrefab;
 
@@ -279,8 +276,6 @@ public class GiantEnemy : MonoBehaviour
         // 가장 가까운 분신의 투명도 설정
         if (closestCopyed != null)
         {
-            closestCopyed.GetComponent<GiantEnemy>().ranPotionDropPercent = 100;
-
             SpriteRenderer closestRenderer = closestCopyed.GetComponent<SpriteRenderer>();           
             Color newColor = closestRenderer.color;
             newColor.a = 1f; // 원하는 투명도로 설정
@@ -292,11 +287,11 @@ public class GiantEnemy : MonoBehaviour
     {      
         // 25퍼의 확률로 플레이어 체력 1회복
         int ran = Random.Range(0, 100);
- 
-        if (ran <= ranPotionDropPercent)
+
+        if (ran <= 20)
         {
             GameObject hpPotion = Instantiate(potionPrefab, transform.position, Quaternion.identity);
-            hpPotion.GetComponent<DropedPotion>().healHP = (int)(Random.Range(1, 8));    // 1~8사이 랜덤 체력 회복
+            hpPotion.GetComponent<DropedPotion>().healHP = 3;   // 3체력 회복
         }
 
         Instantiate(destoryAnimObj, transform.position, Quaternion.identity);   

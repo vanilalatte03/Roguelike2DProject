@@ -102,7 +102,9 @@ MonoBehaviour:
     descripton: 
     itemImage: {fileID: 21300000, guid: d44bb1b33f41b064090c170a914f9a55, type: 3}
   healthChange: 0
-  maxHealthChange: 1
+  maxHealthChange: 5
   moveSpeedChange: 0
   attackSpeedChange: 0
   bulletTypeChange: 0
+  powerChange: 0
+  shieldChange: 0

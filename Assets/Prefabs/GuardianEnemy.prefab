@@ -258,6 +258,7 @@ MonoBehaviour:
   hpSlider: {fileID: 226626412586438572}
   notInRoom: 0
   destoryAnimObj: {fileID: 8756992098867606159, guid: 7fedb3a2e13c24b48bd0670f2ccdfdfa, type: 3}
+  potionPrefab: {fileID: 3948017463095795597, guid: 207f616b5e4211d47addf96fb4222333, type: 3}
 --- !u!1 &1410179191486513862
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,7 +43,8 @@ public class Portal : MonoBehaviour
                     SceneManager.LoadScene("StoneBoss");
                     break;
                 case stageType.toClear:
-                    SceneManager.LoadScene("Ending");
+                    EndSceneController.isClear = true;
+                    SceneManager.LoadScene("EndingScene");
                     break;
             }
         }

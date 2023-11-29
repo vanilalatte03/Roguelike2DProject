@@ -12,12 +12,12 @@ public class GameController : MonoBehaviour
     private GameObject Sphinx;
     public static GameController instance;
 
-    private float health = 6;
-    private float maxHealth = 6;
+    private float health = 15;
+    private float maxHealth = 15;
     private float moveSpeed = 4f;
     private float fireRate = 0.5f;
     private int bulletCount = 0;
-    private int power = 1;
+    private int power = 2;
     private int shield = 0;
 
     private bool bootCollected = false;

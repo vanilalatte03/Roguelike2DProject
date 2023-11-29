@@ -51,6 +51,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private GameObject destoryAnimObjSlime;
 
+    [SerializeField]
+    private GameObject potionPrefab;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -219,6 +222,15 @@ public class EnemyController : MonoBehaviour
         } else
         {
             Instantiate(destoryAnimObjChase, transform.position, Quaternion.identity);
+        }
+
+        // 25퍼의 확률로 플레이어 체력 1회복
+        int ran = Random.Range(0, 100);
+
+        if (ran <= 20)
+        {
+            GameObject hpPotion = Instantiate(potionPrefab, transform.position, Quaternion.identity);
+            hpPotion.GetComponent<DropedPotion>().healHP = 3;   // 3체력 회복
         }
 
         Destroy(gameObject);

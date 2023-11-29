@@ -36,8 +36,7 @@ public class Player : MonoBehaviour
     private float timer; // 이펙트 생성을 위한 타이머
     private bool isLeft;
 
-    private Coroutine fadeCor;
-
+    [HideInInspector]
     public bool isFadeStop;
 
     void Awake()
@@ -146,7 +145,7 @@ public class Player : MonoBehaviour
     // 다른 enemy 스크립트에서, 플레이어를 공격했을 때 넉백 코루틴 호출
     public void StartKnockBack(Vector3 enemyPos)
     {
-        fadeCor = StartCoroutine(KnockBack(enemyPos));  
+        StartCoroutine(KnockBack(enemyPos));  
     }
 
     private IEnumerator KnockBack(Vector3 enemyPos)

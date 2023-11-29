@@ -71696,6 +71696,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 540373652235680977, guid: ac92cb6197d25d548a917d4ec83e301a, type: 3}
+      propertyPath: maxHealth
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 540373652245290201, guid: ac92cb6197d25d548a917d4ec83e301a, type: 3}
       propertyPath: m_RootOrder
       value: 8

@@ -437,6 +437,7 @@ MonoBehaviour:
   isSlime: 1
   destoryAnimObjChase: {fileID: 0}
   destoryAnimObjSlime: {fileID: 4395432860954883444, guid: 80116a53aac7daf4f9e797299a80e106, type: 3}
+  potionPrefab: {fileID: 3948017463095795597, guid: 207f616b5e4211d47addf96fb4222333, type: 3}
 --- !u!50 &599118668578948157
 Rigidbody2D:
   serializedVersion: 4
