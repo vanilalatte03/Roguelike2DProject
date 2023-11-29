@@ -85,5 +85,11 @@ public class SphinxEnemy : MonoBehaviour
         // RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine()); 
         Instantiate(destoryAnimObj, transform.position, Quaternion.identity);        // ¾ê´Â »ç¸Á ÀÌÆåÆ®
         Destroy(gameObject);
+        Invoke("GoToStage2", 2);
+    }
+
+    private void GoToStage2()
+    {
+        LoadingSceneController.LoadScene("StoneMain");
     }
 }
