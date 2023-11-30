@@ -11,8 +11,7 @@ public enum AbilityType
     Health,
     Attack,
     Double,
-    Power,
-    Shield
+    Power
 };
 
 public class AbilityButton : MonoBehaviour
@@ -26,7 +25,6 @@ public class AbilityButton : MonoBehaviour
     public GameObject Attack;
     public GameObject Double;
     public GameObject Power;
-    public GameObject Shield;
 
     public GameObject image;
     public GameObject text;
@@ -58,10 +56,6 @@ public class AbilityButton : MonoBehaviour
             case AbilityType.Power:
                 image.GetComponent<Image>().sprite = Power.GetComponent<SpriteRenderer>().sprite;
                 text.GetComponent<TextMeshProUGUI>().text = "Power +1";
-                break;
-            case AbilityType.Shield:
-                image.GetComponent<Image>().sprite = Shield.GetComponent<SpriteRenderer>().sprite;
-                text.GetComponent<TextMeshProUGUI>().text = "Shield +1";
                 break;
         }
     }
@@ -96,10 +90,6 @@ public class AbilityButton : MonoBehaviour
             case AbilityType.Power:
                 Power.GetComponent<CollectionController>().GetAbility();
                 Debug.Log("Power");
-                break;
-            case AbilityType.Shield:
-                Shield.GetComponent<CollectionController>().GetAbility();
-                Debug.Log("Shield");
                 break;
         }
 
