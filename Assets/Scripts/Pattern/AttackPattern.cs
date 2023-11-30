@@ -26,7 +26,7 @@ public class AttackPattern : MonoBehaviour
     public float SpawnInterval;
     private float _spawnTimer;
 
-    void Awake()
+    private void Start()
     {
         player = GameController.instance.player.transform;
         spinCnt = 0;

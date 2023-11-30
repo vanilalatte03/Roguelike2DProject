@@ -374,6 +374,7 @@ MonoBehaviour:
   destoryAnimObj: {fileID: 5773881226128942446, guid: c23c3ca91310d124db0221c1309f06b9, type: 3}
   shadow: {fileID: 1556163029170423146}
   mouthEffectObj: {fileID: 1317120458298910, guid: 17c40b2d7cbc6fb4d865602ef46d6acc, type: 3}
+  potionPrefab: {fileID: 3948017463095795597, guid: 207f616b5e4211d47addf96fb4222333, type: 3}
 --- !u!1 &2223422551720707359
 GameObject:
   m_ObjectHideFlags: 0

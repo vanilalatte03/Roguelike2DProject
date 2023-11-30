@@ -244,5 +244,13 @@ public class FireEnemy : MonoBehaviour
 
         Destroy(paranetObj, 4f);
         // RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());      
+
+        Invoke("GameClear", 2);
+    }
+
+    private void GameClear()
+    {
+        EndSceneController.isClear = true;
+        SceneManager.LoadScene("EndScene");
     }
 }
