@@ -145,8 +145,8 @@ MonoBehaviour:
   enemyType: 0
   range: 6
   speed: 2
-  maxHealth: 5
-  health: 5
+  maxHealth: 2
+  health: 2
   attackRange: 1
   coolDown: 2
   notInRoom: 0

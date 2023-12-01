@@ -153,7 +153,7 @@ public class Player : MonoBehaviour
         isKnockbacking = true;
         yield return wait;      // 다음 하나의 물리 프레임을 딜레이한다
 
-        Debug.Log("플레이어 넉백");
+       //  Debug.Log("플레이어 넉백");
 
         Vector3 dirVec = transform.position - enemyPos;
         dirVec.Normalize(); // 방향 벡터 정규화

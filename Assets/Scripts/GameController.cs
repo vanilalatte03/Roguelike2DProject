@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour
     private float moveSpeed = 4f;
     private float fireRate = 0.5f;
     private int bulletCount = 0;
-    private int power = 2;
+    private int power = 1;
     private int shield = 0;
 
     private bool bootCollected = false;
@@ -80,7 +80,7 @@ public class GameController : MonoBehaviour
     {
         if (isInvincible)
         {
-            Debug.Log("무적 시간 입니다.");
+            // Debug.Log("무적 시간 입니다.");
             return;
         }
 

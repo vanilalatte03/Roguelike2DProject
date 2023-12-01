@@ -18,10 +18,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - IgnoreContactLayer
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 

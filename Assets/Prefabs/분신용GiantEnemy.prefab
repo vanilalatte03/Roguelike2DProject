@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1783824841132306110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 168245068616815747}
@@ -170,11 +170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e2fe36b8f1d7543bfd777b15ba2da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 15
+  maxHealth: 10
   range: 0
   speed: 0
   attackCool: 0
-  ranPotionDropPercent: 25
   potionPrefab: {fileID: 3948017463095795597, guid: 207f616b5e4211d47addf96fb4222333, type: 3}
   copyedGiantEnemy: {fileID: 0}
   canvas: {fileID: 2625365442753139173}
@@ -195,7 +194,7 @@ GameObject:
   - component: {fileID: 2625365442753139173}
   - component: {fileID: 5634824952382929217}
   - component: {fileID: 6316047232857490518}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,7 +377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8859681774284255070}
   - component: {fileID: 2565089297682899948}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +468,7 @@ GameObject:
   - component: {fileID: 1260096387530393596}
   - component: {fileID: 3321134350270299717}
   - component: {fileID: 1740987043349783011}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,7 +542,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7355171628131307640}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -582,7 +581,7 @@ GameObject:
   - component: {fileID: 8359627986444655668}
   - component: {fileID: 2442328730227540741}
   - component: {fileID: 3167964969656083756}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -91,11 +91,13 @@ public class GiantEnemy : MonoBehaviour
         curHealth = maxHealth;
         hpSlider.maxValue = maxHealth;
         hpSlider.value = curHealth;
-    } 
+    }
 
     private void FixedUpdate()
     {
-        switch(curState)
+        if (notInRoom) return;
+
+        switch (curState)
         {
             case GiantState.Wander:
                 if (isCopyed)
@@ -107,7 +109,7 @@ public class GiantEnemy : MonoBehaviour
                 {
                     animator.SetBool("move", true);
                     Wander();
-                } 
+                }
 
                 break;
             /*            case GiantState.Follow:
@@ -122,7 +124,7 @@ public class GiantEnemy : MonoBehaviour
                 break;
         }
 
-        if (notInRoom) return;
+   
 
         // 분신 몬스터는 아래 로직을 수행하지 않는다
         if (isCopyed) return;
@@ -131,7 +133,7 @@ public class GiantEnemy : MonoBehaviour
         if (IsPlayerInRange(range) && curState != GiantState.Die)
         {
             curState = GiantState.Mount;
-        } 
+        }
 
         // 이미 한번 마운트했으면 더이상 wander하지 않는다.
         else if (!IsPlayerInRange(range) && curState != GiantState.Die && !mounted)
@@ -176,7 +178,7 @@ public class GiantEnemy : MonoBehaviour
         if (IsPlayerInRange(range))
         {
             curState = GiantState.Mount;
-        } 
+        }
     }
 
     // 거인 몹은 따라다니지 않으므로 생략
@@ -220,7 +222,7 @@ public class GiantEnemy : MonoBehaviour
     {
         curHealth -= dm;
         hpSlider.value = curHealth;
-      
+
         if (!canvas.gameObject.activeSelf)
         {
             canvas.gameObject.SetActive(true);
@@ -238,25 +240,31 @@ public class GiantEnemy : MonoBehaviour
 
     private void Mount()
     {
-        if (mounted) return;
+        if (mounted || notInRoom) return;
 
         mounted = true;
 
         Debug.Log("mapHeight" + mapHeight);
 
         SoundManager.instance.PlaySoundEffect("모래거인길막");
-        float startY = -mapHeight / 2 + enemyHeight / 2;
 
         GameObject closestCopyed = null;
         float closestDistance = float.MaxValue;
 
+        Vector3 originalEnemyPosition = transform.position;
+
+        float startY = originalEnemyPosition.y - mapHeight / 2 + enemyHeight / 2;
+        float endY = originalEnemyPosition.y + mapHeight / 2;
+
         // 분신을 생성하며, 분신의 높이가 맵의 전체 높이를 초과하지 않도록 함       
-        for (float y = startY; y <= mapHeight / 2; y += enemyHeight)
+        for (float y = startY; y <= endY; y += enemyHeight)
         {
             if (gameObject.activeSelf)
             {
                 gameObject.SetActive(false);
             }
+
+            Debug.Log("생성 y" + y);
             Vector3 spawnPosition = new Vector3(transform.position.x, y, 0);
             GameObject copyed = Instantiate(copyedGiantEnemy, spawnPosition, Quaternion.identity);
             copyed.GetComponent<SpriteRenderer>().flipX = transform.position.x < player.position.x;
@@ -271,7 +279,6 @@ public class GiantEnemy : MonoBehaviour
                 closestDistance = distance;
             }
         }
-
 
         // 가장 가까운 분신의 투명도 설정
         if (closestCopyed != null)

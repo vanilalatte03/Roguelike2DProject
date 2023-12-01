@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2585197024369063667}
   - component: {fileID: 6998683678490238224}
   - component: {fileID: 5127218915767958061}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,6 +106,7 @@ MonoBehaviour:
   speed: 5
   rotationSpeed: 200
   spriteObject: {fileID: 0}
+  isGuardianBulletNotInRoom: 0
 --- !u!50 &5127218915767958061
 Rigidbody2D:
   serializedVersion: 4
@@ -137,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7402696187786497783}
   - component: {fileID: 5393880084437345403}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

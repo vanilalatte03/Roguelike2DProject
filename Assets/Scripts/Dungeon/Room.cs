@@ -68,7 +68,7 @@ public class Room : MonoBehaviour
 
     public void RemoveUnconnectedDoors()
     {
-        Debug.Log("removing doors");
+        // Debug.Log("removing doors");
         foreach (Door door in doors)
         {
             switch (door.doorType)

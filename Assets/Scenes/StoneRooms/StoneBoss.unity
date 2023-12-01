@@ -25600,7 +25600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 657647711}
   - component: {fileID: 657647710}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bow1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27723,7 +27723,7 @@ GameObject:
   - component: {fileID: 704100180}
   - component: {fileID: 704100179}
   - component: {fileID: 704100178}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -45243,7 +45243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1188137285}
   - component: {fileID: 1188137286}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47872,7 +47872,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1271860731}
   - component: {fileID: 1271860732}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: walkEffectPosLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64503,7 +64503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1735138070}
   - component: {fileID: 1735138071}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: walkEffectPosRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71698,7 +71698,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 540373652235680977, guid: ac92cb6197d25d548a917d4ec83e301a, type: 3}
       propertyPath: maxHealth
-      value: 30
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 540373652235680977, guid: ac92cb6197d25d548a917d4ec83e301a, type: 3}
+      propertyPath: powerUpHealth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 540373652235680977, guid: ac92cb6197d25d548a917d4ec83e301a, type: 3}
+      propertyPath: powerUpAttackCoolTime
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 540373652245290201, guid: ac92cb6197d25d548a917d4ec83e301a, type: 3}
       propertyPath: m_RootOrder

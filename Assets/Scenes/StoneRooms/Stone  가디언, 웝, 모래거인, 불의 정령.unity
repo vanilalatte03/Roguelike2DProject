@@ -564,6 +564,9 @@ MonoBehaviour:
   Heal: {fileID: 2142033985994376183, guid: 3489053edbaa8574fb41b8c70e48fac1, type: 3}
   Health: {fileID: 2142033985994376183, guid: 4b5150face80ea9498d26e7c71db5b92, type: 3}
   Attack: {fileID: 2142033985994376183, guid: 9091613e76a8c4e47b712ce5ebacd3df, type: 3}
+  Double: {fileID: 0}
+  Power: {fileID: 0}
+  Shield: {fileID: 0}
   image: {fileID: 1160206926}
   text: {fileID: 1491748698}
 --- !u!114 &371932425
@@ -1561,7 +1564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 540373652245290202, guid: ac92cb6197d25d548a917d4ec83e301a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac92cb6197d25d548a917d4ec83e301a, type: 3}
@@ -1759,6 +1762,9 @@ MonoBehaviour:
   Heal: {fileID: 2142033985994376183, guid: 3489053edbaa8574fb41b8c70e48fac1, type: 3}
   Health: {fileID: 2142033985994376183, guid: 4b5150face80ea9498d26e7c71db5b92, type: 3}
   Attack: {fileID: 2142033985994376183, guid: 9091613e76a8c4e47b712ce5ebacd3df, type: 3}
+  Double: {fileID: 0}
+  Power: {fileID: 0}
+  Shield: {fileID: 0}
   image: {fileID: 1599256642}
   text: {fileID: 551058636}
 --- !u!114 &713174813
@@ -3299,6 +3305,9 @@ MonoBehaviour:
   Heal: {fileID: 2142033985994376183, guid: 3489053edbaa8574fb41b8c70e48fac1, type: 3}
   Health: {fileID: 2142033985994376183, guid: 4b5150face80ea9498d26e7c71db5b92, type: 3}
   Attack: {fileID: 2142033985994376183, guid: 9091613e76a8c4e47b712ce5ebacd3df, type: 3}
+  Double: {fileID: 0}
+  Power: {fileID: 0}
+  Shield: {fileID: 0}
   image: {fileID: 1703863361}
   text: {fileID: 794083354}
 --- !u!114 &1275721507
@@ -3940,6 +3949,7 @@ MonoBehaviour:
   runEffectPosLeft: {fileID: 491488023}
   runEffectPosRight: {fileID: 539010964}
   runEffectObj: {fileID: 1313620064368432, guid: c8ba5636bd83dc4408c6cd54cc635354, type: 3}
+  isFadeStop: 0
 --- !u!212 &1601788060
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5830,6 +5840,9 @@ MonoBehaviour:
   Heal: {fileID: 2142033985994376183, guid: 3489053edbaa8574fb41b8c70e48fac1, type: 3}
   Health: {fileID: 2142033985994376183, guid: 4b5150face80ea9498d26e7c71db5b92, type: 3}
   Attack: {fileID: 2142033985994376183, guid: 9091613e76a8c4e47b712ce5ebacd3df, type: 3}
+  Double: {fileID: 0}
+  Power: {fileID: 0}
+  Shield: {fileID: 0}
   image: {fileID: 2009656132}
   text: {fileID: 1710667024}
 --- !u!114 &1823210919
@@ -6011,7 +6024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1872279527
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6056,6 +6069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43d963ec394c774b9ec6f979a1d100b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  back: {fileID: 0}
   rnd:
   - {fileID: 1823210916}
   - {fileID: 1275721504}
@@ -7236,7 +7250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 87119516432754932, guid: 4924fe9e2897ef8488194f1645da80db, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4924fe9e2897ef8488194f1645da80db, type: 3}

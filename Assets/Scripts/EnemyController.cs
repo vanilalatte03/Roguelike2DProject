@@ -234,6 +234,6 @@ public class EnemyController : MonoBehaviour
         }
 
         Destroy(gameObject);
-        RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());       
+        // RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());       
     }
 }

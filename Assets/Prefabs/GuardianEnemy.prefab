@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curState: 0
-  maxHealth: 10
+  maxHealth: 4
   range: 7
   speed: 1.5
   attackTransform: {fileID: 1410179191729089992}
