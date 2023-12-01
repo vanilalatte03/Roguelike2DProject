@@ -194,7 +194,7 @@ MonoBehaviour:
   copyedGiantEnemy: {fileID: 1783824841132306110, guid: bfc84b322b6db7141a3b532de7196855, type: 3}
   canvas: {fileID: 87119516673917776}
   hpSlider: {fileID: 87119517336566167}
-  mapHeight: 11
+  mapHeight: 7
   isCopyed: 0
   destoryAnimObj: {fileID: 6601997311558079479, guid: 8875245a03e43db468e5b709b7496efe, type: 3}
   notInRoom: 0
