@@ -11,8 +11,8 @@ public class randomNumber : MonoBehaviour
     {
         for (int i = 0; i < 100; ++i)
         {
-            int a = Random.Range(0, 7);
-            int b = Random.Range(0, 7);
+            int a = Random.Range(0, 6);
+            int b = Random.Range(0, 6);
 
             GameObject tmp = rnd[a];
             rnd[a] = rnd[b];
